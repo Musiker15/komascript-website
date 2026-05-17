@@ -64,8 +64,8 @@ const config = {
   ],
 
   copyright: {
-    de: "© {year} Markus Kohm. KOMA-Script ist unter der LPPL 1.3c lizenziert.",
-    en: "© {year} Markus Kohm. KOMA-Script is licensed under the LPPL 1.3c.",
+    de: "© {year} Moritz Kohm",
+    en: "© {year} Moritz Kohm",
   },
 
   showVersion: false,
