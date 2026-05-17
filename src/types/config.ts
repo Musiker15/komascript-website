@@ -128,6 +128,7 @@ export const FooterConfigSchema = z.object({
   social: z.array(FooterSocialSchema),
   copyright: z.object({ de: z.string(), en: z.string() }),
   showVersion: z.boolean().default(true),
+  showPrivate: z.boolean().default(false),
 });
 export type FooterConfig = z.infer<typeof FooterConfigSchema>;
 
