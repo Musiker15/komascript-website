@@ -140,10 +140,11 @@ export default async function LocaleLayout({
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/favicon.svg`,
+    logo: `${siteConfig.url}/logo.png`,
     sameAs: [
       siteConfig.repositories.github,
       siteConfig.repositories.sourceforge,
+      siteConfig.repositories.codeberg,
       siteConfig.author.mastodon,
     ].filter(Boolean),
   });

@@ -33,17 +33,16 @@ const config = {
   locales: ["de", "en"],
   defaultLocale: "de",
 
-  author: {
-    name: "Markus Kohm",
-    mastodon: "https://mastodontech.de/@koma",
-    email: "komascript@gmx.info",
-  },
-
   // Aktuelle KOMA-Script-Version (wird auch im Footer & VersionBadge angezeigt)
   currentVersion: "3.49.2",
   versionDate: "2026-05-09",
 
   license: "LPPL 1.3c",
+
+  // Autor dieser Website (≠ Maintainer des LaTeX-Pakets, siehe Impressum)
+  author: {
+    name: "Moritz Kohm",
+  },
 
   repositories: {
     sourceforge: "https://sourceforge.net/projects/koma-script/",

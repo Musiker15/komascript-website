@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github } from "lucide-react";
 import { Navbar } from "./Navbar";
 import { MobileMenu } from "./MobileMenu";
@@ -29,7 +30,14 @@ export function Header({ locale }: HeaderProps) {
           className="flex items-center gap-2 font-semibold tracking-tight transition-opacity hover:opacity-80"
           aria-label={siteConfig.name}
         >
-          <KomaLogo className="h-6 w-6" />
+          <Image
+            src="/logo.png"
+            alt=""
+            width={32}
+            height={32}
+            priority
+            className="h-6 w-6 object-contain"
+          />
           <span className="hidden text-base sm:inline">{siteConfig.name}</span>
         </Link>
 
@@ -69,20 +77,3 @@ export function Header({ locale }: HeaderProps) {
   );
 }
 
-function KomaLogo({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <rect width="32" height="32" rx="6" fill="var(--color-primary)" />
-      <path
-        d="M9 8h3v7l5-7h3.5l-5.5 7.5L21 24h-3.5l-4.5-6.5-1 1.3V24H9V8z"
-        fill="var(--color-primary-foreground)"
-      />
-    </svg>
-  );
-}
