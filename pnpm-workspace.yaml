@@ -1,6 +1,34 @@
+# =============================================================================
+# pnpm-Workspace-Config
+# -----------------------------------------------------------------------------
+# Trotz fehlender Workspace-Packages nutzt pnpm 10+ diese Datei für die globale
+# Konfiguration (Build-Trust und Overrides).
+# =============================================================================
+
+# Postinstall-Scripts: Welche Pakete dürfen ihre Build-Scripts ausführen?
+# (pnpm 10+ blockiert sie standardmäßig — Security-Feature)
 allowBuilds:
   '@parcel/watcher': true
   '@swc/core': true
   esbuild: true
   sharp: true
   unrs-resolver: true
+
+# Transitive Dependency-Overrides
+# -----------------------------------------------------------------------------
+# Zwingt bestimmte Versionen für transitive Pakete, unabhängig davon, was
+# Parent-Pakete (z.B. vitest, tsx) nominell verlangen. Wird genutzt um
+# Security-Patches durchzusetzen, ohne auf einen Parent-Bump warten zu müssen.
+overrides:
+  # CVE: Path Traversal in Optimized Deps .map Handling (GHSA-...)
+  # vite < 5.4.20 ist betroffen; wir erzwingen mindestens den Patch-Stand.
+  # 5.x ist kompatibel mit vitest 2.x.
+  vite: '>=5.4.20'
+
+  # CVE: XSS via Unescaped </style> in CSS Stringify Output
+  # postcss < 8.5.0 ist betroffen.
+  postcss: '>=8.5.0'
+
+  # CVE: esbuild dev-server lässt beliebige Origin-Requests zu
+  # esbuild < 0.25.0 ist betroffen.
+  esbuild: '>=0.25.0'
