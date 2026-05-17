@@ -7,9 +7,10 @@
    KOMA-Script Design-Tokens (Tailwind v4 — CSS-First Config)
    ============================================================================ */
 @theme {
-  /* Typografie */
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+  /* Typografie — Fonts werden 100% lokal über @fontsource-variable geladen
+     (siehe imports in app/[locale]/layout.tsx). Keine externe Kommunikation. */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Farben — Light Mode (Tokens) */

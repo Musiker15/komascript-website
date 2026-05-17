@@ -216,6 +216,14 @@ Alle `##` und `###` Überschriften bekommen automatisch eine ID und einen Link.
 
 Empfohlen: **WebP** oder **AVIF** für kleinere Dateigrößen.
 
+<Callout type="warning">
+**Keine externen Bild-URLs!** Die Seite ist datenschutz-strikt konfiguriert
+(CSP `img-src 'self' data: blob:`). Bilder wie `![](https://example.com/foo.png)`
+werden vom Browser **blockiert**. Lade externe Grafiken erst herunter und lege sie
+unter `public/images/` ab. Damit garantieren wir, dass beim Besuch der Seite
+**keine Daten an externe Server** (Google, CDNs, Tracker) fließen.
+</Callout>
+
 ---
 
 ## Navbar und Footer pflegen

@@ -7,16 +7,13 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
 
-  // Bild-Optimierung
+  // Bild-Optimierung — KEINE remotePatterns, damit kein Server- oder Client-Fetch
+  // zu externen Hosts möglich ist. Alle Bilder müssen in /public/images/ liegen.
+  // Falls Du später externe Bilder erlauben willst: remotePatterns explizit ergänzen.
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    remotePatterns: [
-      { protocol: "https", hostname: "ctan.org" },
-      { protocol: "https", hostname: "sourceforge.net" },
-      { protocol: "https", hostname: "github.com" },
-      { protocol: "https", hostname: "raw.githubusercontent.com" },
-    ],
+    remotePatterns: [],
   },
 
   // Markdown / MDX

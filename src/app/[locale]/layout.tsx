@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -10,14 +9,15 @@ import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/config/site.config";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 import { buildJsonLd } from "@/lib/seo";
-import "@/styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
+// Fonts werden vollständig lokal über das @fontsource-Paket geladen.
+// Keine Kommunikation zu Google/Adobe — weder beim Build noch zur Laufzeit.
+// Die .woff2-Dateien liegen unter node_modules/@fontsource-variable/* und
+// werden von Next.js automatisch in /_next/static/media/ kopiert.
+import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
+
+import "@/styles/globals.css";
 
 // ============================================================================
 // Viewport
@@ -161,11 +161,7 @@ export default async function LocaleLayout({
   });
 
   return (
-    <html
-      lang={l}
-      suppressHydrationWarning
-      className={`${inter.variable} ${mono.variable}`}
-    >
+    <html lang={l} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-[var(--color-background)] text-[var(--color-foreground)] antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: orgLd }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: siteLd }} />
