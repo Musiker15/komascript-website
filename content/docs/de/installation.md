@@ -14,7 +14,7 @@ KOMA-Script setzt eine funktionierende LaTeX-Distribution voraus:
 - **MiKTeX** ≥ 21 (Windows / macOS / Linux)
 - **MacTeX** ≥ 2020 (macOS)
 
-## TeX Live
+## TeX Live über Paketmanager
 
 ### Debian / Ubuntu
 
@@ -37,13 +37,26 @@ sudo dnf install texlive-koma-script
 sudo pacman -S texlive-latexextra
 ```
 
-### Vollständige TeX Live aus dem Netz
+<Callout type="warning">
+Wenn Du TeX Live so installierst, halte es **ausschließlich über Deinen
+Paketmanager** aktuell — `tlmgr` parallel zu nutzen führt zu inkonsistenten
+Zuständen.
+</Callout>
+
+## Vanilla TeX Live (direkt von tug.org)
 
 ```bash
 wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -xzf install-tl-unx.tar.gz
 cd install-tl-*
 sudo ./install-tl
+```
+
+Bei einer Vanilla-Installation nutzt Du `tlmgr` zur Paketverwaltung:
+
+```bash
+tlmgr install koma-script    # falls noch nicht enthalten
+tlmgr update koma-script
 ```
 
 ## MiKTeX (Windows / macOS)
@@ -81,13 +94,18 @@ Nach dem Kompilieren listet die `.log`-Datei alle geladenen Pakete inklusive Ver
 
 ## Update
 
-```bash
-# TeX Live
-sudo tlmgr update koma-script
+| Wie installiert? | Update-Befehl |
+|---|---|
+| Vanilla TeX Live | `tlmgr update koma-script` |
+| apt / dnf / pacman | derselbe Paketmanager (z. B. `sudo apt upgrade`) |
+| MacTeX über Homebrew | `brew upgrade --cask mactex` |
+| MiKTeX | `miktex update` oder MiKTeX Console |
 
-# MiKTeX
-miktex update
-```
+<Callout type="warning">
+Halte Dich an **eine Update-Methode** für Deine TeX-Installation. `tlmgr`
+zusammen mit System-Paketmanagern (apt, dnf, brew …) führt fast immer zu
+inkonsistenten Zuständen.
+</Callout>
 
 <Callout type="tip">
 Aktualisiere Deine TeX-Distribution mindestens einmal pro Jahr, um Sicherheits-Updates

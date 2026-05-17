@@ -18,7 +18,8 @@ order: 2
 KOMA-Script also includes packages usable on their own:
 
 - **`typearea`** — automatic type-area computation following classical typography
-- **`scrlayer`** / **`scrlayer-scrpage`** — flexible layer system for headers and footers
+- **`scrlayer`** / **`scrlayer-scrpage`** — layer system for headers and footers,
+  fully integrated into KOMA-Script. An established alternative to `fancyhdr`.
 - **`tocbasic`** — base for tables of contents and similar
 - **`scrbase`** — fundamental helpers (also usable without the KOMA classes)
 - **`scrdate`**, **`scrtime`** — localised date and time formatting

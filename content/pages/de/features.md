@@ -18,7 +18,8 @@ order: 2
 KOMA-Script enthält außerdem eigenständig nutzbare Pakete:
 
 - **`typearea`** — automatische Berechnung des Satzspiegels nach klassischer Typografie
-- **`scrlayer`** / **`scrlayer-scrpage`** — flexibles Layout-Schichten-System für Kopf- und Fußzeilen
+- **`scrlayer`** / **`scrlayer-scrpage`** — vollständig in KOMA-Script integriertes
+  Layer-System für Kopf- und Fußzeilen. Etablierte Alternative zu `fancyhdr`.
 - **`tocbasic`** — Basis für Inhalts- und ähnliche Verzeichnisse
 - **`scrbase`** — fundamentale Hilfsmittel (auch ohne KOMA-Klassen nutzbar)
 - **`scrdate`**, **`scrtime`** — Datums- und Zeitformatierung mit Lokalisierung

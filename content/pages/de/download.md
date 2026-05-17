@@ -17,26 +17,49 @@ Wenn ein Pfad zurückgegeben wird, ist alles bereit.
 
 ## Über die Distribution
 
-### TeX Live (Linux / macOS / Windows)
+### Vanilla TeX Live (Linux / macOS / Windows)
+
+Wenn Du TeX Live direkt von [tug.org](https://www.tug.org/texlive/) installiert
+hast (nicht über apt/dnf/brew), installierst und aktualisierst Du KOMA-Script mit
+**`tlmgr`**:
+
+```bash
+# Installation
+tlmgr install koma-script
+
+# Aktualisierung
+tlmgr update koma-script
+```
+
+### TeX Live aus Linux-/macOS-Paketmanagern
+
+Wenn Du TeX Live über den Paketmanager Deines Systems installiert hast, **bleibe bei
+diesem Paketmanager** für Updates — `tlmgr` und System-Paketmanager parallel zu nutzen
+funktioniert nur selten zuverlässig.
 
 ```bash
 # Debian / Ubuntu
 sudo apt install texlive-latex-extra
+sudo apt upgrade
 
 # Fedora
 sudo dnf install texlive-koma-script
+sudo dnf upgrade
 
 # Arch Linux
 sudo pacman -S texlive-latexextra
+sudo pacman -Syu
 
 # macOS (Homebrew)
 brew install --cask mactex
+brew upgrade --cask mactex
 ```
 
 ### MiKTeX (Windows / macOS / Linux)
 
 MiKTeX installiert benötigte Pakete automatisch beim ersten Aufruf. Alternativ kannst Du
-den **MiKTeX Console** öffnen und `koma-script` über die Paketverwaltung installieren.
+die **MiKTeX Console** öffnen und `koma-script` über die Paketverwaltung installieren
+und aktualisieren.
 
 ## Direkt von der Quelle
 
@@ -53,12 +76,17 @@ Version benötigst und die Verzeichnisstruktur Deiner TeX-Distribution kennst.
 
 ## Updates
 
-Halte Deine TeX-Distribution aktuell, um die neueste Version zu erhalten:
+Halte Deine TeX-Distribution aktuell, um die neueste Version zu erhalten — und nutze
+dabei **konsistent eine Update-Methode**:
 
-```bash
-# TeX Live
-tlmgr update koma-script
+| Installiert über | Update-Befehl |
+|---|---|
+| Vanilla TeX Live | `tlmgr update koma-script` |
+| apt / dnf / pacman / brew | dieser Paketmanager (z. B. `sudo apt upgrade`) |
+| MiKTeX | `miktex update` oder MiKTeX Console |
 
-# MiKTeX
-miktex update
-```
+<Callout type="warning">
+**Nicht mischen!** `tlmgr` zusammen mit System-Paketmanagern (apt, dnf, brew, …)
+auf derselben TeX-Live-Installation führt fast immer zu inkonsistenten
+Versionen — bleib bei der Methode, mit der Du installiert hast.
+</Callout>

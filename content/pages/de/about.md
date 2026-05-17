@@ -27,6 +27,14 @@ und **MacTeX** ist es vorinstalliert. Eine manuelle Installation ist normalerwei
 nicht nötig.
 </Callout>
 
+## Dokumentation
+
+Die offizielle KOMA-Script-Anleitung ist in **LaTeX** geschrieben und mehrfach komplett
+überarbeitet worden. Eine Besonderheit der Quellen: aus ihnen lassen sich **sowohl die
+freie Anleitung als auch das *Deutsche KOMA-Script-Buch*** erzeugen — beim Buch
+kommen lediglich einige zusätzliche Dateien hinzu. Das Buchformat führt entsprechend
+zu einigen Besonderheiten im LaTeX-Quelltext.
+
 ## Philosophie
 
 KOMA-Script verfolgt drei Leitprinzipien:

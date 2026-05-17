@@ -17,18 +17,33 @@ If a path is returned, you're ready to go.
 
 ## Via your distribution
 
-### TeX Live
+### Vanilla TeX Live (Linux / macOS / Windows)
+
+If you installed TeX Live directly from [tug.org](https://www.tug.org/texlive/)
+(not via apt/dnf/brew), use **`tlmgr`** to install and update KOMA-Script:
 
 ```bash
-sudo apt install texlive-latex-extra      # Debian / Ubuntu
-sudo dnf install texlive-koma-script      # Fedora
-brew install --cask mactex                # macOS
+tlmgr install koma-script    # install
+tlmgr update koma-script     # update
+```
+
+### TeX Live from Linux / macOS package managers
+
+If you installed TeX Live through your system's package manager, **stick with that
+package manager** for updates — mixing `tlmgr` with the system package manager
+rarely works reliably.
+
+```bash
+sudo apt install texlive-latex-extra && sudo apt upgrade   # Debian / Ubuntu
+sudo dnf install texlive-koma-script && sudo dnf upgrade   # Fedora
+sudo pacman -S texlive-latexextra && sudo pacman -Syu      # Arch Linux
+brew install --cask mactex && brew upgrade --cask mactex   # macOS
 ```
 
 ### MiKTeX
 
 MiKTeX installs missing packages on demand. Alternatively use the **MiKTeX Console**
-to install `koma-script` via the package manager.
+to install and update `koma-script` via the package manager.
 
 ## From source
 

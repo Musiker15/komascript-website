@@ -43,8 +43,8 @@ const config = {
       icon: "Layers",
       title: { de: "scrlayer für Kopf-/Fußzeilen", en: "scrlayer for Headers/Footers" },
       description: {
-        de: "Flexible Layout-Ebenen für komplexe Kopf- und Fußzeilen — voll kompatibel mit fancyhdr.",
-        en: "Flexible layout layers for complex headers and footers — fully compatible with fancyhdr.",
+        de: "Vollständig in KOMA-Script integriertes Layer-System für komplexe Kopf- und Fußzeilen — etablierte Alternative zu fancyhdr.",
+        en: "Fully integrated layer system for complex headers and footers — an established alternative to fancyhdr.",
       },
     },
     {

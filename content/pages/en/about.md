@@ -25,6 +25,14 @@ KOMA-Script is part of most LaTeX distributions — it ships with **TeX Live**,
 **MiKTeX**, and **MacTeX** by default. A manual install is usually not needed.
 </Callout>
 
+## Documentation
+
+The official KOMA-Script manual is written in **LaTeX** and has been thoroughly
+revised multiple times. A special feature of its sources: they produce **both the
+free manual and the German *KOMA-Script-Buch*** — only a few additional files
+are needed for the book. This dual-output approach leads to some peculiarities
+in the LaTeX source.
+
 ## Philosophy
 
 KOMA-Script follows three guiding principles:
