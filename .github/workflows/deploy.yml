@@ -169,10 +169,15 @@ jobs:
             echo "→ Hauptverzeichnis aktualisieren"
             # Die systemd-Unit zeigt auf /opt/komascript direkt — daher
             # spiegeln wir die current-Inhalte über rsync.
+            #
+            # WICHTIG: Die Excludes MÜSSEN mit "/" beginnen — sonst matcht rsync
+            # rekursiv jeden gleichnamigen Ordner (z.B. node_modules/next/dist/shared
+            # wäre ohne führenden "/" auch betroffen → Next bricht mit
+            # "Cannot find module '../shared/lib/constants'" ab).
             sudo rsync -a --delete \
-              --exclude "releases" \
-              --exclude "shared" \
-              --exclude "current" \
+              --exclude "/releases" \
+              --exclude "/shared" \
+              --exclude "/current" \
               "$NEW/" "$APP/"
 
             echo "→ Ownership auf $APP_USER setzen"
