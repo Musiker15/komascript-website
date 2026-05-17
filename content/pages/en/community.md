@@ -16,7 +16,8 @@ himself frequently replies.
 ## Social
 
 - **Mastodon:** [@koma@mastodontech.de](https://mastodontech.de/@koma)
-- **GitHub:** [komascript](https://github.com/komascript)
+- **Codeberg:** [komascript](https://codeberg.org/komascript) — Spin-off-Projects (`scrhack`-successor,
+  `uni-titlepage`, `scrlayer-fancyhdr`, ...)
 
 ## Bug reports
 
