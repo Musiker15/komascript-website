@@ -43,6 +43,7 @@ const config = {
       links: [
         { label: "Mastodon", href: "https://mastodontech.de/@koma", external: true },
         { label: "GitHub", href: "https://github.com/komascript", external: true },
+        { label: "Codeberg", href: "https://codeberg.org/komascript", external: true },
         { label: "SourceForge", href: "https://sourceforge.net/projects/koma-script/", external: true },
         { label: "CTAN", href: "https://ctan.org/pkg/koma-script", external: true },
       ],
