@@ -34,6 +34,6 @@ to install `koma-script` via the package manager.
 
 | Source | Link |
 |---|---|
-| **CTAN** | <https://ctan.org/pkg/koma-script> |
-| **SourceForge** | <https://sourceforge.net/projects/koma-script/files/> |
-| **GitHub** | <https://github.com/komascript> |
+| **CTAN** | [ctan.org/pkg/koma-script](https://ctan.org/pkg/koma-script) |
+| **SourceForge** | [sourceforge.net/projects/koma-script](https://sourceforge.net/projects/koma-script/files/) |
+| **GitHub** | [github.com/komascript](https://github.com/komascript) |

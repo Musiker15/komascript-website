@@ -26,11 +26,13 @@ const nextConfig: NextConfig = {
 
   // Experimentelle Features
   experimental: {
-    mdxRs: false, // wir nutzen next-mdx-remote für volle Plugin-Kompatibilität
     optimizePackageImports: ["lucide-react", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu"],
   },
 
-  // Globale HTTP-Header (Fallback — Apache setzt die wichtigen sowieso)
+  // Globale HTTP-Header (Fallback — Apache setzt die wichtigen sowieso).
+  // Hinweis: /_next/static/* Cache-Control NICHT hier setzen — Next.js würde sonst
+  // im Dev-Mode warnen und HMR-Verhalten beeinträchtigen. Apache übernimmt das in
+  // Production via dem <Directory>-Block im vHost.
   async headers() {
     return [
       {
@@ -39,12 +41,6 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-        ],
-      },
-      {
-        source: "/_next/static/(.*)",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];

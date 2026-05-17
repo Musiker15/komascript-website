@@ -196,6 +196,18 @@ Unterstützte Sprachen: `latex`, `bash`, `json`, `typescript`, `javascript`, `cs
 
 Alle `##` und `###` Überschriften bekommen automatisch eine ID und einen Link.
 
+### ⚠ Links: KEINE `<https://...>`-Autolinks verwenden
+
+MDX 3 (das wir nutzen) interpretiert `<` als Beginn eines JSX-Tags. Das klassische
+Markdown-Autolink-Syntax bricht den Build:
+
+```markdown
+❌ <https://example.com>          ← bricht den Build
+
+✅ [example.com](https://example.com)   ← Markdown-Link
+✅ https://example.com                   ← einfache URL (kein Anchor-Element)
+```
+
 ### Aufgaben-Listen
 
 ```markdown

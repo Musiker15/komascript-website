@@ -98,7 +98,7 @@ export function Hero({ locale }: HeroProps) {
                 <span className="text-blue-500">\KOMAoption</span>
                 <span className="text-amber-600">{"{"}</span>
                 <span>captions</span>
-                <span className="text-amber-600">}{"{"}</span>
+                <span className="text-amber-600">{"}{"}</span>
                 <span>tableheading</span>
                 <span className="text-amber-600">{"}"}</span>
                 {"\n\n"}
