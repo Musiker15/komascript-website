@@ -9,12 +9,12 @@ toc: false
 
 Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
 
-**Moritz Kohm**
-Hauptstraße 103
-68535 Edingen-Neckarhausen
+**Moritz Kohm**  
+Hauptstraße 103  
+68535 Edingen-Neckarhausen  
 Deutschland
 
-E-Mail: info@musiker15.de
+**E-Mail:** info@musiker15.de
 
 ## Allgemeines
 

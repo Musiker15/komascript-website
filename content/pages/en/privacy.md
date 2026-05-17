@@ -9,12 +9,12 @@ toc: false
 
 The controller within the meaning of the General Data Protection Regulation (GDPR) is:
 
-**Moritz Kohm**
-Hauptstraße 103
-68535 Edingen-Neckarhausen
+**Moritz Kohm**  
+Hauptstraße 103  
+68535 Edingen-Neckarhausen  
 Germany
 
-E-Mail: info@musiker15.de
+**E-Mail:** info@musiker15.de
 
 ## General
 

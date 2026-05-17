@@ -18,8 +18,8 @@ const config = {
     en: "Versatile LaTeX classes and packages",
   },
   description: {
-    de: "KOMA-Script ist eine Sammlung von LaTeX-Klassen und Paketen, die seit 1992 als moderne, hochkonfigurierbare Alternative zu den Standard-Klassen entwickelt wird.",
-    en: "KOMA-Script is a bundle of versatile LaTeX classes and packages, developed since 1992 as a modern, highly configurable alternative to the standard classes.",
+    de: "KOMA-Script ist eine Sammlung von LaTeX-Klassen und Paketen, die seit 1992 als moderne, hochkonfigurierbare Alternative zu den Standard-Klassen entwickelt wird. Reine Portfolio-Übung, vollständig selbst entwickelt. Kein offizieller Auftritt – die Website steht in keinem Zusammenhang mit dem LaTeX-Paket KOMA-Script und wird auch nicht von dessen Entwicklern betrieben.",
+    en: "KOMA-Script is a bundle of versatile LaTeX classes and packages, developed since 1992 as a modern, highly configurable alternative to the standard classes. This is purely a portfolio project, developed entirely on my own. This is not an official site—the website is in no way affiliated with the LaTeX package KOMA-Script and is not operated by its developers.",
   },
 
   // Öffentliche Basis-URL (ohne trailing Slash)
@@ -45,7 +45,6 @@ const config = {
 
   repositories: {
     sourceforge: "https://sourceforge.net/projects/koma-script/",
-    github: "https://github.com/komascript",
     codeberg: "https://codeberg.org/komascript",
     ctan: "https://ctan.org/pkg/koma-script",
   },

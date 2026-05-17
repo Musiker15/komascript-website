@@ -7,23 +7,23 @@ toc: false
 
 ## Provider information (§ 5 DDG)
 
-**Moritz Kohm**
-Hauptstraße 103
-68535 Edingen-Neckarhausen
+**Moritz Kohm**  
+Hauptstraße 103  
+68535 Edingen-Neckarhausen  
 Germany
 
 ## Contact
 
-- E-Mail: info@musiker15.de
+**E-Mail:** info@musiker15.de
 
 ## Responsible for content (§ 18 (2) MStV)
 
-**Moritz Kohm**
-Hauptstraße 103
-68535 Edingen-Neckarhausen
+**Moritz Kohm**  
+Hauptstraße 103  
+68535 Edingen-Neckarhausen  
 Germany
 
-- E-Mail: info@musiker15.de
+**E-Mail:** info@musiker15.de
 
 ## Consumer dispute resolution
 

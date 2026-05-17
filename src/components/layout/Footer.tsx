@@ -38,6 +38,12 @@ export function Footer({ locale }: FooterProps) {
                 </span>
               </p>
             )}
+            {footerConfig.showPrivate && (
+              <p className="mt-4 text-xs text-[var(--color-muted-foreground)]">
+                Reine Portfolio-Übung, vollständig selbst entwickelt. Kein offizieller Auftritt – die Website steht in keinem Zusammenhang mit dem LaTeX-Paket KOMA-Script und wird auch nicht von dessen Entwicklern betrieben.
+                This is purely a portfolio project, developed entirely on my own. This is not an official site—the website is in no way affiliated with the LaTeX package KOMA-Script and is not operated by its developers.
+              </p>
+            )}
           </div>
 
           {/* Link-Spalten */}

@@ -68,7 +68,8 @@ const config = {
     en: "© {year} Markus Kohm. KOMA-Script is licensed under the LPPL 1.3c.",
   },
 
-  showVersion: true,
+  showVersion: false,
+  showPrivate: true,
 } satisfies FooterConfig;
 
 export const footerConfig: FooterConfig = FooterConfigSchema.parse(config);
