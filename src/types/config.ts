@@ -109,7 +109,15 @@ export const FooterColumnSchema = z.object({
 export type FooterColumn = z.infer<typeof FooterColumnSchema>;
 
 export const FooterSocialSchema = z.object({
-  platform: z.enum(["mastodon", "github", "twitter", "linkedin", "youtube", "sourceforge"]),
+  platform: z.enum([
+    "mastodon",
+    "github",
+    "codeberg",
+    "sourceforge",
+    "twitter",
+    "linkedin",
+    "youtube",
+  ]),
   href: z.string().url(),
   label: z.string().optional(),
 });

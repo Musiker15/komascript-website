@@ -46,6 +46,7 @@ const config = {
   repositories: {
     sourceforge: "https://sourceforge.net/projects/koma-script/",
     github: "https://github.com/komascript",
+    codeberg: "https://codeberg.org/komascript",
     ctan: "https://ctan.org/pkg/koma-script",
   },
 
