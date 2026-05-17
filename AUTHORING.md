@@ -142,22 +142,38 @@ Eine neutrale Anmerkung.
 </Callout>
 ```
 
-### LaTeX-Beispiel (Code + Vorschau)
+### LaTeX-Beispiel (Code + optionale Vorschau)
 
-```mdx
-<LatexExample
-  title="Minimaler Brief"
-  filename="brief.tex"
-  code={`\\documentclass{scrlttr2}
-\\begin{document}
-\\begin{letter}{Max Mustermann}
-  \\opening{Sehr geehrter Herr Mustermann,}
+LaTeX-Beispiele schreibst Du als **normalen Markdown-Code-Block innerhalb der Komponente**:
+
+````mdx
+<LatexExample title="Minimaler Brief" filename="brief.tex">
+
+```latex
+\documentclass{scrlttr2}
+\begin{document}
+\begin{letter}{Max Mustermann}
+  \opening{Sehr geehrter Herr Mustermann,}
   Inhalt …
-  \\closing{Mit freundlichen Grüßen}
-\\end{letter}
-\\end{document}`}
-/>
+  \closing{Mit freundlichen Grüßen}
+\end{letter}
+\end{document}
 ```
+
+</LatexExample>
+````
+
+> ⚠️ **Wichtig:** Die **Leerzeilen** vor und nach dem Code-Block (zwischen `<LatexExample …>`
+> und dem ` ``` `) sind nötig, damit MDX den Block korrekt als Markdown-Code-Fence
+> erkennt. Ohne Leerzeilen wird der Code als Roh-Text gerendert.
+
+Verfügbare Props:
+
+| Prop | Pflicht | Beschreibung |
+|---|---|---|
+| `title` | – | Überschrift über dem Code-Block |
+| `filename` | – | Dateiname in der Code-Block-Leiste (default `example.tex`) |
+| `preview` | – | optionaler ReactNode für die rechte Spalte (PDF-Vorschau) |
 
 ### Code-Blöcke mit Syntax-Highlighting
 

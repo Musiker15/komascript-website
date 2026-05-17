@@ -4,16 +4,39 @@ import { cn } from "@/lib/utils";
 
 interface LatexExampleProps {
   title?: string;
-  code: string;
-  preview?: ReactNode;
   filename?: string;
+  preview?: ReactNode;
+  children: ReactNode;
 }
 
 /**
- * Side-by-Side Darstellung: LaTeX-Quellcode (links) und Vorschau (rechts).
- * Wenn keine Vorschau übergeben wird, wird nur der Code-Block angezeigt.
+ * LaTeX-Beispiel mit Code-Block (Children-Pattern) und optionaler PDF-Vorschau.
+ *
+ * Verwendung in MDX — Children sind ein normaler Markdown-Code-Block:
+ *
+ *   <LatexExample title="Minimaler Brief" filename="brief.tex">
+ *
+ *   ```latex
+ *   \documentclass{scrlttr2}
+ *   \begin{document}
+ *   ...
+ *   \end{document}
+ *   ```
+ *
+ *   </LatexExample>
+ *
+ * Die Leerzeilen vor und nach dem Code-Block sind wichtig — damit MDX den Block
+ * korrekt als Markdown-Code-Fence verarbeitet (Syntax-Highlighting via Shiki).
+ *
+ * Hinweis: Das Children-Pattern ist mit `next-mdx-remote >= 6.0` kompatibel,
+ * weil keine JS-Expression-Props nötig sind (CVE-2026-0969).
  */
-export function LatexExample({ title, code, preview, filename = "example.tex" }: LatexExampleProps) {
+export function LatexExample({
+  title,
+  filename = "example.tex",
+  preview,
+  children,
+}: LatexExampleProps) {
   return (
     <figure className="not-prose my-6 overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]">
       {title && (
@@ -23,13 +46,11 @@ export function LatexExample({ title, code, preview, filename = "example.tex" }:
       )}
       <div className={cn("grid", preview ? "md:grid-cols-2" : "grid-cols-1")}>
         <div className="border-b border-[var(--color-border)] md:border-b-0 md:border-r">
-          <div className="flex items-center gap-2 border-b border-[var(--color-border)] bg-[var(--color-muted)]/40 px-3 py-1.5 text-xs font-mono text-[var(--color-muted-foreground)]">
+          <div className="flex items-center gap-2 border-b border-[var(--color-border)] bg-[var(--color-muted)]/40 px-3 py-1.5 font-mono text-xs text-[var(--color-muted-foreground)]">
             <FileCode2 className="h-3.5 w-3.5" aria-hidden />
             {filename}
           </div>
-          <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed">
-            <code>{code}</code>
-          </pre>
+          <div className="latex-example-body">{children}</div>
         </div>
         {preview && (
           <div className="bg-white p-4 dark:bg-zinc-100">

@@ -12,6 +12,8 @@ einer Signatur.
 
 ## Hauptdokument
 
+<LatexExample title="Vollständiger DIN-Brief" filename="brief.tex">
+
 ```latex
 \documentclass[
   paper=A4,
@@ -88,6 +90,8 @@ einer Signatur.
 
 \end{document}
 ```
+
+</LatexExample>
 
 <Callout type="tip">
 Für **Serienbriefe** mit mehreren Empfängern kannst Du mehrere `letter`-Umgebungen
