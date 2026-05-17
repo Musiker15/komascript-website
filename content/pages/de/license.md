@@ -36,7 +36,7 @@ oder lokal in Deiner TeX-Distribution unter `texmf-dist/doc/latex/base/lppl.txt`
 
 ## Markus Kohm als Maintainer
 
-Markus Kohm ist der angegebene **Maintainer** der LPPL für KOMA-Script. Inhaltliche
+Markus Kohm ist der angegebene **Maintainer gemäß LPPL** für KOMA-Script. Inhaltliche
 Änderungen am Original sind ausschließlich über offizielle Veröffentlichungen
 über den Maintainer zulässig.
 
