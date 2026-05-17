@@ -1,5 +1,13 @@
 # =============================================================================
-# CI — Lint, Type-Check, Tests, Build (Pull-Requests + push auf non-main)
+# CI — Lint, Type-Check, Tests, Build (alle Branches + Pull-Requests)
+# -----------------------------------------------------------------------------
+# Trigger-Logik:
+#   • push    auf jede Branch        → CI läuft (auch auf main, parallel zu Deploy)
+#   • pull_request gegen main/develop → CI läuft
+#
+# Bei PRs aus dem GLEICHEN Repo würde sowohl push als auch pull_request feuern.
+# Die concurrency-Gruppe dedupliziert das: gleicher ref → laufender Job wird
+# gecancelled und durch den neuen ersetzt.
 # =============================================================================
 
 name: CI
@@ -8,10 +16,11 @@ on:
   pull_request:
     branches: [main, develop]
   push:
-    branches-ignore: [main]
+    branches: ["**"]
 
 concurrency:
-  group: ci-${{ github.ref }}
+  # Eindeutig pro Workflow + ref + event-quelle — verhindert Doppel-Runs
+  group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 env:
