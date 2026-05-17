@@ -21,7 +21,7 @@ für Ankündigungen und tiefergehende Diskussionen genutzt.
 ## Soziale Netzwerke
 
 - **Mastodon:** [@koma@mastodontech.de](https://mastodontech.de/@koma) — News, Releases, Tipps
-- **GitHub:** [komascript](https://github.com/komascript) — Spin-off-Projekte (`scrhack`-Nachfolger,
+- **Codeberg:** [komascript](https://codeberg.org/komascript) — Spin-off-Projekte (`scrhack`-Nachfolger,
   `uni-titlepage`, `scrlayer-fancyhdr`, ...)
 
 ## Bugs & Feature-Wünsche
