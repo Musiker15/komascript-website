@@ -27,11 +27,21 @@ name: Deploy to Production
 on:
   push:
     branches: [main]
+    # Dateien, die KEINEN Deploy auslösen sollen.
+    #
+    # WICHTIG: NICHT "**.md" verwenden — das würde auch content/**/*.md
+    # ausschließen, also unsere echten Inhalte. Markdown UNTER content/
+    # gehört zum gerenderten Output und MUSS einen Deploy triggern.
     paths-ignore:
-      - "**.md"
-      - "deploy/**"
-      - ".github/**"
-      - "!.github/workflows/deploy.yml"
+      - "README.md"
+      - "AUTHORING.md"
+      - "CLAUDE.md"
+      - ".gitignore"
+      - ".gitattributes"
+      - "LICENSE"
+      - "deploy/**"           # Server-Configs werden manuell appliziert
+      - ".github/**"          # CI-Configs deployen sich nicht selbst …
+      - "!.github/workflows/deploy.yml"   # … außer deploy.yml selbst
   workflow_dispatch:
 
 concurrency:
