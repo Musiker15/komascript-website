@@ -40,7 +40,6 @@ concurrency:
 
 env:
   NODE_VERSION: "22"
-  PNPM_VERSION: "9"
   APP_PATH: "/opt/komascript"
   APP_USER: "komascript"
   APP_PORT: "3100"
@@ -56,10 +55,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # pnpm-Version kommt aus package.json -> "packageManager": "pnpm@x.y.z"
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
