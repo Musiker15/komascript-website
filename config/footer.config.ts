@@ -41,11 +41,10 @@ const config = {
     {
       title: { de: "Community", en: "Community" },
       links: [
-        { label: "Mastodon", href: "https://mastodontech.de/@koma", external: true },
-        { label: "GitHub", href: "https://github.com/komascript", external: true },
-        { label: "Codeberg", href: "https://codeberg.org/komascript", external: true },
-        { label: "SourceForge", href: "https://sourceforge.net/projects/koma-script/", external: true },
         { label: "CTAN", href: "https://ctan.org/pkg/koma-script", external: true },
+        { label: "SourceForge", href: "https://sourceforge.net/projects/koma-script/", external: true },
+        { label: "Codeberg", href: "https://codeberg.org/komascript", external: true },
+        { label: "Mastodon", href: "https://mastodontech.de/@koma", external: true },
       ],
     },
     {
@@ -60,7 +59,7 @@ const config = {
 
   social: [
     { platform: "mastodon", href: "https://mastodontech.de/@koma" },
-    { platform: "github", href: "https://github.com/komascript" },
+    { platform: "codeberg", href: "https://codeberg.org/komascript" },
     { platform: "sourceforge", href: "https://sourceforge.net/projects/koma-script/" },
   ],
 
