@@ -8,7 +8,9 @@ order: 5
 
 ### Wofür steht „KOMA-Script"?
 
-Der Name leitet sich vom Spitznamen des Autors *Markus Kohm* ab: **KO**hms **MA**kros.
+Der Name leitet sich schlicht vom Namen des Autors **KO**hm **MA**rkus ab —
+kombiniert mit *Script*, dem Vorgänger-Paket aus dem Markus die heutigen
+KOMA-Script-Klassen entwickelt hat.
 
 ### Warum sollte ich KOMA-Script statt der Standardklassen nutzen?
 

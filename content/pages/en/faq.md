@@ -8,7 +8,9 @@ order: 5
 
 ### What does "KOMA-Script" stand for?
 
-The name derives from the author's nickname: **KO**hm's **MA**cros.
+The name is simply derived from the author's name **KO**hm **MA**rkus — combined
+with *Script*, the predecessor bundle from which Markus developed today's
+KOMA-Script classes.
 
 ### Why should I use KOMA-Script over the standard classes?
 
