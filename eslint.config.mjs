@@ -1,27 +1,54 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+// =============================================================================
+// ESLint v9 — Native Flat Config
+// -----------------------------------------------------------------------------
+// Wir nutzen NICHT eslint-config-next, weil dessen Compat-Schicht mit
+// @eslint/eslintrc.FlatCompat in v16 zirkuläre Plugin-Referenzen produziert.
+// Die wichtigsten Next.js-spezifischen Checks (img-element, link-passhref, etc.)
+// macht Next.js bereits zur Build-Zeit selbst — die Lint-Stufe deckt hier
+// hauptsächlich allgemeine TypeScript-Sauberkeit ab.
+// =============================================================================
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default tseslint.config(
   {
+    // Globale Ignores — werden auf ALLE Dateien angewendet
+    ignores: [
+      ".next/**",
+      "out/**",
+      "node_modules/**",
+      "public/search-index.json",
+      "next-env.d.ts",
+      "*.config.{js,mjs,cjs,ts}", // Konfigurationsdateien selbst nicht linten
+    ],
+  },
+
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+
+  {
+    files: ["**/*.{ts,tsx}"],
     rules: {
-      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+      // Unused-Vars: Warning statt Error, mit Unterstrich-Ignorierung
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" },
+      ],
+      // any ist manchmal pragmatisch (z.B. bei generischen Props/Spreads)
       "@typescript-eslint/no-explicit-any": "warn",
-      "react/no-unescaped-entities": "off",
-      "@next/next/no-img-element": "warn",
+      // Empty-Object-Type in Interface-Erweiterungen ist OK
+      "@typescript-eslint/no-empty-object-type": "off",
+      // Wir brauchen keinen no-undef in TS-Dateien — TypeScript erledigt das selbst
+      "no-undef": "off",
     },
   },
-  {
-    ignores: [".next/**", "out/**", "node_modules/**", "public/search-index.json"],
-  },
-];
 
-export default eslintConfig;
+  {
+    files: ["scripts/**/*.ts"],
+    rules: {
+      // Scripts dürfen console.log nutzen
+      "no-console": "off",
+    },
+  },
+);

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Validiert alle Markdown-Dateien unter content/ gegen das Frontmatter-Schema.
  * Wird vor jedem Build (CI + lokal via `pnpm prebuild`) ausgeführt.

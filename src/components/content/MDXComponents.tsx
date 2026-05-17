@@ -29,10 +29,9 @@ export const mdxComponents: MDXComponentsType = {
   },
 
   // Bilder mit lazy-loading
+  // Wir nutzen bewusst <img> statt next/image, weil MDX-Inhalte keine
+  // statisch bekannten Bildmaße haben (Autoren geben sie nicht an).
   img: ({ src, alt, ...rest }) => {
-    // Next-Image bevorzugt — aber MDX kennt nicht immer Größen.
-    // Daher hier nativen <img> mit Lazy-Loading.
-    // eslint-disable-next-line @next/next/no-img-element
     return <img src={src as string} alt={alt ?? ""} loading="lazy" decoding="async" {...rest} />;
   },
 };

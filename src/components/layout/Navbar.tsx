@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { navigationConfig } from "@/config/navigation.config";

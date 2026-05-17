@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Erzeugt zur Build-Zeit den Such-Index unter public/search-index.json
  * Wird im Browser von SearchDialog / SearchPage geladen.
