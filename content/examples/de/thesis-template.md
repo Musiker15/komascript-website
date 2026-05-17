@@ -28,14 +28,20 @@ deutsche Wissenschaftstradition.
   captions=tableheading
 ]{scrbook}
 
+% Empfohlener Compiler: LuaLaTeX (siehe Hinweis unten).
+% Mit LuaLaTeX werden weder inputenc noch fontenc benötigt.
 \usepackage[ngerman]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage{csquotes}
 \usepackage{scrlayer-scrpage}
 \usepackage{biblatex}
 \addbibresource{literatur.bib}
+
+% Optional: OpenType-Fonts unter LuaLaTeX/XeLaTeX
+% \usepackage{fontspec}
+% \setmainfont{TeX Gyre Pagella}
+% \setsansfont{TeX Gyre Heros}
+% \setmonofont{TeX Gyre Cursor}
 
 \setkomafont{disposition}{\rmfamily\bfseries}
 \pagestyle{scrheadings}
@@ -116,6 +122,11 @@ masterarbeit/
 ```
 
 <Callout type="tip">
-Verwende **LuaLaTeX** statt pdfLaTeX für volle Unterstützung von OpenType-Fonts via
-`fontspec`.
+**Kompilieren mit LuaLaTeX:** `lualatex masterarbeit.tex` (zweimal aufrufen plus
+`biber` zwischendurch für die Bibliographie). LuaLaTeX braucht weder `inputenc`
+noch `fontenc` und gibt Dir mit `fontspec` Zugriff auf jeden auf Deinem System
+installierten OpenType-Font.
+
+Weitere fertige Templates für typische Dokumentarten:
+[KOMA-Script-Wiki — HowTo Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
 </Callout>

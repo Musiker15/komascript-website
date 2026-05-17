@@ -27,14 +27,18 @@ binding correction, and conventions suitable for academic publishing.
   captions=tableheading
 ]{scrbook}
 
+% Recommended compiler: LuaLaTeX (see note at the bottom).
+% With LuaLaTeX neither inputenc nor fontenc are needed.
 \usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage{csquotes}
 \usepackage{scrlayer-scrpage}
 \usepackage{biblatex}
 \addbibresource{references.bib}
+
+% Optional: OpenType fonts under LuaLaTeX/XeLaTeX
+% \usepackage{fontspec}
+% \setmainfont{TeX Gyre Pagella}
 
 \title{A Study on Machine Learning}
 \subtitle{Applications in Medical Imaging}
@@ -64,3 +68,13 @@ binding correction, and conventions suitable for academic publishing.
 \printbibliography
 \end{document}
 ```
+
+<Callout type="tip">
+**Compile with LuaLaTeX:** `lualatex thesis.tex` (run twice and `biber` in
+between for the bibliography). LuaLaTeX requires neither `inputenc` nor
+`fontenc` and gives you direct access to every OpenType font installed on
+your system via `fontspec`.
+
+More ready-made templates for typical document types (German):
+[KOMA-Script wiki — HowTo Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
+</Callout>

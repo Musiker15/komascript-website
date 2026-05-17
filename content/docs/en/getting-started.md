@@ -18,8 +18,6 @@ Create `mydocument.tex`:
 ]{scrartcl}
 
 \usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{microtype}
 
 \title{My first KOMA-Script document}
@@ -38,7 +36,23 @@ KOMA-Script offers many advantages over the standard classes \dots
 \end{document}
 ```
 
+<Callout type="info">
+**What's not in there:** No `\usepackage[utf8]{inputenc}` and no
+`\usepackage[T1]{fontenc}`. Both are **no longer needed** today — UTF-8 has
+been the default input encoding for LaTeX since 2018. With **LuaLaTeX** or
+**XeLaTeX**, `inputenc` was never needed at all, and `fontenc` should be
+replaced with `fontspec` if you need to manage fonts.
+</Callout>
+
 ## Compile
+
+The recommended compiler is **LuaLaTeX** (full Unicode support, modern fonts):
+
+```bash
+lualatex mydocument.tex
+```
+
+`pdflatex` works just as well, just with an older toolchain design:
 
 ```bash
 pdflatex mydocument.tex
@@ -67,4 +81,10 @@ pdflatex mydocument.tex
 
 <Callout type="info">
 Read the official manual for full details: `texdoc scrguien`.
+</Callout>
+
+<Callout type="tip">
+The KOMA-Script wiki maintains a collection of well-curated templates for
+common document types (German):
+[sourceforge.net/p/koma-script/wiki-de/HowTo_Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
 </Callout>

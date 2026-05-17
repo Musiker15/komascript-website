@@ -28,9 +28,8 @@ einer Signatur.
 
 \LoadLetterOption{DIN}
 
+% Empfohlener Compiler: LuaLaTeX — dann brauchst Du weder inputenc noch fontenc.
 \usepackage[ngerman]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 
 % Absender
@@ -96,4 +95,10 @@ einer Signatur.
 <Callout type="tip">
 Für **Serienbriefe** mit mehreren Empfängern kannst Du mehrere `letter`-Umgebungen
 in einem Dokument verwenden — alle teilen sich Absender, Layout und Briefkopf.
+</Callout>
+
+<Callout type="info">
+Weitere durchdachte Brief-Vorlagen — inklusive eigener Briefkopf-Layouts (`.lco`) —
+findest Du im offiziellen KOMA-Script-Wiki:
+[sourceforge.net/p/koma-script/wiki-de/HowTo_Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
 </Callout>
