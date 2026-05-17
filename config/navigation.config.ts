@@ -73,6 +73,10 @@ const config = {
       href: "/examples",
     },
     {
+      label: { de: "Freunde", en: "Friends" },
+      href: "/friends",
+    },
+    {
       label: { de: "News", en: "News" },
       href: "/news",
     },

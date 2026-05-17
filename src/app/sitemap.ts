@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   // Statische Top-Level-Routen
-  const staticRoutes = ["", "/docs", "/news", "/examples", "/search"];
+  const staticRoutes = ["", "/docs", "/news", "/examples", "/friends", "/search"];
 
   for (const locale of SUPPORTED_LOCALES) {
     for (const path of staticRoutes) {
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     // Dynamische Content-Routen
-    const sections: Array<"pages" | "docs" | "examples"> = ["pages", "docs", "examples"];
+    const sections: Array<"pages" | "docs" | "examples" | "friends"> = ["pages", "docs", "examples", "friends"];
     for (const section of sections) {
       for (const item of listAllContentItems(section, locale)) {
         entries.push({

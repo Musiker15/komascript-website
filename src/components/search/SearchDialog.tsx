@@ -67,6 +67,7 @@ export function SearchDialog({ open, onOpenChange }: Props) {
       docs: t("groupDocs"),
       news: t("groupNews"),
       examples: t("groupExamples"),
+      friends: t("groupFriends"),
       pages: t("groupPages"),
     };
 

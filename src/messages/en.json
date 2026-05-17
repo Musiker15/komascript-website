@@ -73,7 +73,19 @@
     "groupDocs": "Documentation",
     "groupNews": "News",
     "groupExamples": "Examples",
+    "groupFriends": "Friends",
     "groupPages": "Pages"
+  },
+  "friends": {
+    "title": "Friends",
+    "subtitle": "LaTeX packages that were formerly part of KOMA-Script or originated within the KOMA-Script ecosystem.",
+    "spinOffs": "Spin-Offs",
+    "spinOffsDescription": "Former KOMA-Script packages now maintained as standalone projects.",
+    "otherFriends": "Other Friends",
+    "otherFriendsDescription": "Additional packages by the KOMA-Script author with ties to the ecosystem.",
+    "deprecated": "Deprecated",
+    "noMaintainer": "Maintainer wanted",
+    "experimental": "Experimental"
   },
   "footer": {
     "madeWith": "Built with",

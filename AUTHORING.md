@@ -1,7 +1,13 @@
 # Content Authoring Guide
 
-> **Für Markus & Co-Autoren:** So pflegst Du Inhalte auf der KOMA-Script Website,
-> **ohne irgendwelchen Code anfassen zu müssen.**
+> **Für Moritz & Co-Autoren:** So pflegst Du Inhalte auf der KOMA-Script-
+> Homepage, **ohne irgendwelchen Code anfassen zu müssen.**
+>
+> Diese Site ist ein Portfolio-Projekt und steht in keinem offiziellen
+> Zusammenhang mit dem KOMA-Script-LaTeX-Paket. Wenn Du Texte aus dem
+> Original-Projekt ([koma-script.sourceforge.io](https://koma-script.sourceforge.io/))
+> übernimmst, kennzeichne sie als Zitat (Callout `type="note"` mit
+> Quellenangabe).
 
 ---
 
@@ -17,9 +23,23 @@ Wenn Du eine neue Markdown-Datei anlegst, taucht sie automatisch als Seite auf.
 | `content/pages/de/` | Statische Seiten (Impressum, FAQ, Lizenz, …) | `/de/faq` |
 | `content/docs/de/` | Dokumentations-Artikel (Sidebar auto) | `/de/docs/installation` |
 | `content/news/de/` | News & Releases (sortiert nach Datum) | `/de/news/<slug>` |
-| `content/examples/de/` | Code-Beispiele | `/de/examples/<slug>` |
+| `content/examples/de/` | LaTeX-Beispiele | `/de/examples/<slug>` |
+| `content/friends/de/` | Spin-Off-Pakete des KOMA-Script-Ökosystems | `/de/friends/<slug>` |
 
 Für die englische Variante: `de` → `en`.
+
+### Sektion-Index-Seiten
+
+Verschachtelte Ordner unter `content/docs/` können eine eigene Übersichtsseite
+bekommen, indem dort eine `index.md` abgelegt wird:
+
+```
+content/docs/de/classes/index.md       → /de/docs/classes
+content/docs/de/packages/index.md      → /de/docs/packages
+```
+
+Die `index.md` wird automatisch erkannt — sie ist nicht klickbar in der
+Sidebar, sondern dient als Landing-Seite des jeweiligen Ordners.
 
 ---
 
@@ -77,11 +97,13 @@ pnpm dev
 
 ```bash
 git add content/pages/de/meine-neue-seite.md
-git commit -m "Neue Seite: Meine neue Seite"
+git commit -m "content(pages): add new page <title>"
 git push
 ```
 
 Das Deployment läuft automatisch via GitHub Actions.
+
+> **Commit-Messages auf Englisch.** Auch wenn der Inhalt deutsch ist.
 
 ---
 
@@ -97,8 +119,8 @@ Vollständige Liste aller Felder, die im Frontmatter möglich sind:
 | `updated` | – | YYYY-MM-DD | `2026-05-14` |
 | `author` | – | string | `"Markus Kohm"` |
 | `order` | – | Zahl ≥ 0 (default 999) | `10` |
-| `category` | – | string | `"Getting Started"` |
-| `tags` | – | Array von Strings | `["latex", "release"]` |
+| `category` | – | string | `"spin-off"`, `"classes"`, … |
+| `tags` | – | Array von Strings | `["deprecated", "no-maintainer"]` |
 | `draft` | – | true/false (default false) | `true` |
 | `toc` | – | true/false (default true) | `false` |
 | `hideTitle` | – | true/false (default false) | `true` |
@@ -109,8 +131,15 @@ Vollständige Liste aller Felder, die im Frontmatter möglich sind:
 
 - **`order`** — kleinere Werte erscheinen weiter oben in Listen und Sidebars
 - **`draft: true`** — Seite ist nur in `pnpm dev` sichtbar, nicht in Production
-- **`toc: false`** — kein "Auf dieser Seite"-Widget rechts
+- **`toc: false`** — kein „Auf dieser Seite"-Widget rechts
 - **`hideTitle: true`** — unterdrückt die automatische `<h1>` aus dem Frontmatter
+- **`category: "spin-off"`** — im Friends-Bereich landet die Seite dadurch im
+  oberen Block („Spin-Offs"). Ohne `category` landet sie unter „Andere Freunde".
+- **`tags`** im Friends-Bereich steuern die Badges in der Übersichtskarte:
+  - `"deprecated"` → Badge „Veraltet"
+  - `"no-maintainer"` → Badge „Maintainer gesucht"
+  - `"experimental"` → Badge „Experimentell"
+  - `"hak"` → keine Badge, aber Konvention für „Hoffnung-auf-Übernahme"-Pakete
 
 ---
 
@@ -138,7 +167,23 @@ Gefahr! Vorsichtig sein.
 </Callout>
 
 <Callout type="note">
-Eine neutrale Anmerkung.
+Eine neutrale Anmerkung — auch ideal für Zitate aus externen Quellen.
+</Callout>
+```
+
+### Originalzitate aus dem KOMA-Script-Projekt
+
+Beim Übernehmen längerer Texte aus dem Original-Projekt: `note`-Callout mit
+Markdown-Quote-Block + Quellenangabe verwenden:
+
+```mdx
+<Callout type="note">
+Markus Kohm selbst beschreibt das so:
+
+> „Das Pseudonym KOMA wurde ursprünglich einmal in gemischter
+> Groß-Kleinschreibung ‚KoMa' geschrieben …"
+
+— Quelle: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/koma/)
 </Callout>
 ```
 
@@ -271,6 +316,12 @@ Mit Untermenü:
 
 `config/footer.config.ts` → `columns`-Array bearbeiten. Identische Syntax.
 
+### Portfolio-Disclaimer im Footer
+
+Das Flag `showPrivate` in `config/footer.config.ts` schaltet den zweisprachigen
+Disclaimer („Reine Portfolio-Übung, kein offizieller Auftritt …") im Footer
+ein/aus. Vor dem öffentlichen Launch sollte er aktiviert bleiben.
+
 ---
 
 ## Aktuelle KOMA-Script-Version aktualisieren
@@ -286,6 +337,50 @@ Erscheint dann automatisch im Hero-Badge und im Footer.
 
 ---
 
+## Friends-Bereich pflegen
+
+Der Bereich `/friends` listet Pakete, die früher Teil von KOMA-Script waren
+oder im KOMA-Script-Ökosystem entstanden sind.
+
+### Neuen Friend anlegen
+
+```
+content/friends/de/<paketname>.md
+content/friends/en/<paketname>.md
+```
+
+Beispiel:
+
+```markdown
+---
+title: "marginnote"
+description: "Randbemerkungen ohne die Float-Eigenschaften von \\marginpar."
+order: 18
+category: "spin-off"            # optional — fehlt = "Andere Freunde"
+tags: ["no-maintainer"]
+---
+
+Das Paket `marginnote` …
+
+<Callout type="warning">
+Für dieses Paket wird ein neuer Maintainer gesucht.
+</Callout>
+```
+
+→ Verfügbar unter `/de/friends/marginnote`.
+
+Die Karte auf der Übersichtsseite bekommt automatisch eine Badge „Maintainer
+gesucht" (durch das Tag), und das Paket landet im oberen Block „Spin-Offs"
+(durch `category: "spin-off"`).
+
+### Sortierung der Übersicht
+
+- Innerhalb der beiden Blöcke (Spin-Offs / Andere Freunde) sortiert nach `order`.
+- Empfehlung: `order: 1–9` für Spin-Offs, `order: 10+` für andere Freunde
+  (siehe bestehende Dateien als Referenz).
+
+---
+
 ## Checks vor dem Commit
 
 ```bash
@@ -293,10 +388,11 @@ pnpm validate:content    # prüft Frontmatter aller .md-Files
 pnpm lint                # ESLint
 pnpm type-check          # TypeScript
 pnpm build               # Production-Build (für Sicherheit)
+pnpm build:search        # Such-Index neu bauen (bei größeren Inhaltsänderungen)
 ```
 
-Wenn `validate:content` schief geht: Fehlermeldung lesen — sie zeigt **genau**, welche
-Datei und welches Feld das Problem hat.
+Wenn `validate:content` schief geht: Fehlermeldung lesen — sie zeigt **genau**,
+welche Datei und welches Feld das Problem hat.
 
 ---
 
@@ -327,7 +423,16 @@ ls content/pages/de/
 ls content/docs/de/
 ls content/news/de/
 ls content/examples/de/
+ls content/friends/de/
 ```
+
+### Die Seite ist hinter einem Login — warum?
+
+Während der Pre-Launch-Phase steht die komplette Site hinter HTTP-Basic-Auth
+(Apache-`<Location />`-Block). Mit dem öffentlichen Launch wird der Block aus
+`deploy/apache2/komascript.de.conf` entfernt. Solange er aktiv ist, lädt
+Apache keinerlei HTML/JS/CSS/Bilder an den Browser, bevor ein gültiger
+Benutzername samt Passwort übermittelt wurde.
 
 ---
 
@@ -337,3 +442,7 @@ ls content/examples/de/
 - **Slug** — der URL-Teil (Dateiname ohne `.md`)
 - **MDX** — Markdown + JSX-Komponenten (z. B. `<Callout>`)
 - **i18n** — Internationalisierung (DE/EN)
+- **Friend** — ein Paket, das früher zu KOMA-Script gehörte oder im selben
+  Ökosystem entstanden ist (siehe `content/friends/`)
+- **LCO** — *Letter Configuration Option*; Konfigurationsdatei für `scrlttr2`
+  und `scrletter`

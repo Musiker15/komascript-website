@@ -15,10 +15,52 @@ recommendations of classical typesetting — adapted to modern LaTeX.
 
 ## History
 
-The project started in **1992** — even before the release of **LaTeX 2ε** —
-when Markus Kohm ported the original *Script* styles to the new class system.
-Since the first public release in **1993**, KOMA-Script has continuously evolved
-and today is one of the most widely used LaTeX class bundles worldwide.
+The project started in **1992** — even before the release of **LaTeX 2ε** — when
+Markus Kohm ported the *Script2* styles from LaTeX 2.09 to the new class system.
+The first public release followed in **1993**. KOMA-Script has continuously
+evolved since then, and today is one of the most widely used LaTeX class bundles
+worldwide.
+
+Over the years, not only did the features of the KOMA-Script classes grow, but
+many additional packages emerged around the bundle. Despite occasional
+contributors — for parts of the documentation or for the original letter class —
+KOMA-Script has at its core always remained a **one-person show**.
+
+### The Documentation Project
+
+Part of the KOMA-Script ecosystem used to be the **“KOMA-Script Documentation
+Project”** (`komascript.de`). Originally launched and funded by Robin Kroha on
+Zope, it was one of the first German-language LaTeX forums — long before GitHub
+or Codeberg. Later the whole project was migrated to Drupal.
+
+The hope of distributing maintenance across many shoulders did not materialise
+in the long run: spam, attacks, and administrative work increasingly landed on
+the KOMA-Script author's plate. The forum was eventually closed to community
+contributions, and content worth preserving was transferred to the
+[SourceForge wiki](https://sourceforge.net/p/koma-script/_list/wiki) —
+available in both [German](https://sourceforge.net/p/koma-script/wiki-de/) and
+[English](https://sourceforge.net/p/koma-script/wiki-en/).
+
+### Splitting into smaller projects
+
+Since **2018**, KOMA-Script has been progressively split into smaller, standalone
+projects. The main goal is to break down the bundle's significant complexity
+into manageable pieces — so that, in the long term, the work can be spread
+across multiple people. Many of those spin-off packages can be found in the
+[Friends](/en/friends) section.
+
+<Callout type="note">
+Markus Kohm describes the mission statement of the official KOMA-Script site
+in his own words like this:
+
+> “The purpose of this site is to provide information about certain aspects of
+> KOMA-Script and my — KOMA's — other projects. The whole thing has more of a
+> blog-like character than a wiki. In addition, there are also drafts and
+> collections of ideas. The fact that these cannot simply be publicly commented
+> on by anyone here is part of the concept.”
+
+— Source: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/)
+</Callout>
 
 <Callout type="info">
 KOMA-Script is part of most LaTeX distributions — it ships with **TeX Live**,

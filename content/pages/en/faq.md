@@ -8,9 +8,25 @@ order: 5
 
 ### What does "KOMA-Script" stand for?
 
-The name is simply derived from the author's name **KO**hm **MA**rkus — combined
-with *Script*, the predecessor bundle from which Markus developed today's
-KOMA-Script classes.
+The name is simply derived from the author's name **KO**hm **MA**rkus —
+combined with *Script*, the predecessor bundle from which Markus developed
+today's KOMA-Script classes.
+
+<Callout type="note">
+Markus Kohm himself explains the spelling like this:
+
+> “The pseudonym KOMA was originally written in mixed case as ‘KoMa' and is
+> composed of the first two letters of my last name and first name: ‘Kohm,
+> Markus.' I had been using this abbreviation in some of my software projects
+> long before KOMA-Script. It seemed natural in 1993 to use it for my first
+> large LaTeX 2ε project as well. The fact that the spelling was eventually
+> changed to all capital letters is, incidentally, less my doing than that of
+> the users. I simply adapted to conventional usage. However, I will not
+> adopt the increasingly common spelling with only one capital letter at the
+> beginning in the future either.”
+
+— Source: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/koma/)
+</Callout>
 
 ### Why should I use KOMA-Script over the standard classes?
 

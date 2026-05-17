@@ -1,7 +1,7 @@
 import type { Frontmatter } from "@/lib/frontmatter";
 import type { Locale } from "./config";
 
-export type ContentSection = "pages" | "docs" | "news" | "examples";
+export type ContentSection = "pages" | "docs" | "news" | "examples" | "friends";
 
 export interface ContentItem {
   section: ContentSection;

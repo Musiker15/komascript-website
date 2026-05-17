@@ -15,7 +15,7 @@ import type { Locale } from "../src/types/config";
 const CONTENT_ROOT = path.join(process.cwd(), "content");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const OUT_FILE = path.join(PUBLIC_DIR, "search-index.json");
-const SECTIONS: Array<"pages" | "docs" | "news" | "examples"> = ["pages", "docs", "news", "examples"];
+const SECTIONS: Array<"pages" | "docs" | "news" | "examples" | "friends"> = ["pages", "docs", "news", "examples", "friends"];
 const LOCALES: Locale[] = ["de", "en"];
 
 function walkSection(section: string, locale: string): string[][] {
