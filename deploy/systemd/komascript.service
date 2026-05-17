@@ -1,0 +1,105 @@
+# =============================================================================
+# systemd-Service — KOMA-Script Homepage (Next.js 16)
+# -----------------------------------------------------------------------------
+# Datei:       /etc/systemd/system/komascript.service
+# App-Pfad:    /opt/komascript/
+# User/Group:  komascript:komascript
+# Port:        3100 (loopback, hinter Apache2)
+# Node:        v22 LTS (über nvm oder apt nodesource)
+#
+# Hinweis: Dieser Service läuft *eigenständig* (nicht über PM2), damit Restart-
+# und Boot-Verhalten direkt von systemd verwaltet wird. PM2 wird hier nicht
+# benötigt; falls der bestehende pm2-komascript.service parallel läuft, sollte
+# komascript dort *nicht* registriert werden — sonst kollidieren beide um Port 3100.
+#
+# Installation:
+#   sudo cp deploy/systemd/komascript.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now komascript.service
+#   sudo systemctl status komascript.service
+#
+# Logs:
+#   sudo journalctl -u komascript.service -f
+#   sudo journalctl -u komascript.service --since "1 hour ago"
+# =============================================================================
+
+[Unit]
+Description=KOMA-Script Homepage (Next.js)
+Documentation=https://komascript.musiker15.de
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=komascript
+Group=komascript
+WorkingDirectory=/opt/komascript
+
+# ---------------------------------------------------------------------------
+# Umgebungsvariablen
+# ---------------------------------------------------------------------------
+Environment=NODE_ENV=production
+Environment=PORT=3100
+Environment=HOSTNAME=127.0.0.1
+Environment=NEXT_TELEMETRY_DISABLED=1
+# Lädt zusätzlich /opt/komascript/.env.production falls vorhanden
+EnvironmentFile=-/opt/komascript/.env.production
+
+# ---------------------------------------------------------------------------
+# Start / Stop / Reload
+# ---------------------------------------------------------------------------
+# Voraussetzung: `pnpm install --prod` und `pnpm build` wurden bereits ausgeführt
+# (siehe deploy.yml). Wir starten den Production-Server direkt via Node.
+ExecStart=/usr/bin/env node_modules/.bin/next start -p 3100 -H 127.0.0.1
+
+# Sanfter Reload bei SIGHUP (Next.js ignoriert das aktuell, daher voller Restart)
+ExecReload=/bin/kill -HUP $MAINPID
+
+# Stop: 30 s freundlich, dann SIGKILL
+KillSignal=SIGTERM
+KillMode=mixed
+TimeoutStopSec=30s
+
+# ---------------------------------------------------------------------------
+# Restart-Verhalten
+# ---------------------------------------------------------------------------
+Restart=always
+RestartSec=5s
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+# ---------------------------------------------------------------------------
+# Resource-Limits
+# ---------------------------------------------------------------------------
+LimitNOFILE=65535
+
+# ---------------------------------------------------------------------------
+# Security-Hardening
+# ---------------------------------------------------------------------------
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/komascript
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=false
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources @mount
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=komascript
+
+[Install]
+WantedBy=multi-user.target

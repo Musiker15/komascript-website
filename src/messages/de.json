@@ -1,0 +1,102 @@
+{
+  "common": {
+    "skipToContent": "Zum Inhalt springen",
+    "loading": "Lädt …",
+    "search": "Suchen",
+    "searchPlaceholder": "Dokumentation durchsuchen …",
+    "searchShortcut": "Strg",
+    "noResults": "Keine Ergebnisse",
+    "menu": "Menü",
+    "close": "Schließen",
+    "open": "Öffnen",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "readMore": "Mehr lesen",
+    "all": "Alle",
+    "version": "Version",
+    "released": "Veröffentlicht",
+    "updated": "Aktualisiert",
+    "by": "von",
+    "language": "Sprache",
+    "theme": "Theme",
+    "lightMode": "Heller Modus",
+    "darkMode": "Dunkler Modus",
+    "systemMode": "Systemeinstellung"
+  },
+  "home": {
+    "heroBadge": "Aktuelle Version",
+    "heroCtaPrimary": "Jetzt herunterladen",
+    "heroCtaSecondary": "Dokumentation lesen",
+    "featuresTitle": "Was KOMA-Script kann",
+    "featuresSubtitle": "Eine umfassende Sammlung von LaTeX-Klassen und Paketen für anspruchsvolle Dokumente.",
+    "showcaseTitle": "Klar, typografisch sauber, voll konfigurierbar",
+    "showcaseSubtitle": "Ein einfaches Beispiel — und schon sieht Dein Dokument professionell aus.",
+    "ctaTitle": "Bereit, loszulegen?",
+    "ctaSubtitle": "Installiere KOMA-Script und schreibe Dein nächstes Dokument mit modernster Typografie.",
+    "ctaPrimary": "Installation",
+    "ctaSecondary": "Beispiele ansehen",
+    "latestNews": "Aktuelle News"
+  },
+  "docs": {
+    "title": "Dokumentation",
+    "subtitle": "Vollständige Dokumentation zu KOMA-Script-Klassen, -Paketen und -Optionen.",
+    "onThisPage": "Auf dieser Seite",
+    "editPage": "Seite bearbeiten",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "categories": {
+      "installation": "Installation",
+      "getting-started": "Erste Schritte",
+      "classes": "Dokumentklassen",
+      "packages": "Pakete"
+    }
+  },
+  "news": {
+    "title": "News & Releases",
+    "subtitle": "Aktuelle Entwicklungen, Releases und Hinweise rund um KOMA-Script.",
+    "publishedOn": "Veröffentlicht am",
+    "readArticle": "Artikel lesen"
+  },
+  "examples": {
+    "title": "Beispiele",
+    "subtitle": "Vorlagen und Beispiele für typische KOMA-Script-Dokumente.",
+    "showCode": "Quellcode anzeigen",
+    "showPreview": "Vorschau anzeigen",
+    "copyCode": "Code kopieren",
+    "copied": "Kopiert!"
+  },
+  "search": {
+    "title": "Suche",
+    "placeholder": "Was möchtest Du finden?",
+    "resultsFor": "Ergebnisse für",
+    "noResultsFor": "Keine Ergebnisse für",
+    "tryDifferent": "Versuche es mit anderen Suchbegriffen.",
+    "groupDocs": "Dokumentation",
+    "groupNews": "News",
+    "groupExamples": "Beispiele",
+    "groupPages": "Seiten"
+  },
+  "footer": {
+    "madeWith": "Erstellt mit",
+    "and": "und",
+    "currentVersion": "Aktuelle Version"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "subtitle": "Die angeforderte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zur Startseite",
+    "search": "Stattdessen suchen"
+  },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "subtitle": "Beim Laden der Seite ist ein Fehler aufgetreten.",
+    "retry": "Erneut versuchen",
+    "backHome": "Zur Startseite"
+  },
+  "callout": {
+    "info": "Information",
+    "tip": "Tipp",
+    "warning": "Achtung",
+    "danger": "Gefahr",
+    "note": "Hinweis"
+  }
+}
