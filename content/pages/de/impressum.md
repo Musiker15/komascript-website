@@ -16,6 +16,12 @@ Deutschland
 
 **E-Mail:** info@musiker15.de
 
+**Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:**  
+DE364543992
+
+**Hinweis nach § 19 UStG:**  
+Gemäß § 19 UStG wird keine Umsatzsteuer erhoben und ausgewiesen (Kleinunternehmerregelung).
+
 ## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
 **Moritz Kohm**  
@@ -24,11 +30,6 @@ Hauptstraße 103
 Deutschland
 
 **E-Mail:** info@musiker15.de
-
-## Verbraucherstreitbeilegung
-
-Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-Verbraucherschlichtungsstelle teilzunehmen.
 
 ## Haftung für Inhalte
 
@@ -50,3 +51,12 @@ Anbieter oder Betreiber verantwortlich.
 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
 unterliegen dem deutschen Urheberrecht. KOMA-Script selbst ist unter der LPPL 1.3c
 lizenziert (siehe [Lizenz](/de/license)).
+
+## Widerspruch gegen Werbe-Mails
+
+Der Nutzung der im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.
+
+## Streitbeilegung
+### Verbraucher­streit­beilegung/Universal­schlichtungs­stelle
+
+Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
