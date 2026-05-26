@@ -124,6 +124,22 @@ export default function middleware(request: NextRequest): NextResponse {
   // -------------------------------------------------------------------------
   patchLocaleCookie(finalResponse);
 
+  // -------------------------------------------------------------------------
+  // 6. Next.js-Internalia aus der finalen Response entfernen
+  // -------------------------------------------------------------------------
+  // Wenn man NextResponse.next({ request: { headers } }) mit gepatchten
+  // Request-Headern aufruft, propagiert Next.js diese als
+  // `x-middleware-request-<headername>` und `x-middleware-override-headers`
+  // an den Browser. Diese Header sind nur intern für den Routing-Layer
+  // gedacht, sollten aber den Server NIE verlassen — sonst wird unser
+  // Nonce als `X-Middleware-Request-X-Nonce` doppelt geleakt (Mozilla
+  // Observatory: „Raw server headers"-Tab).
+  for (const key of Array.from(finalResponse.headers.keys())) {
+    if (key.toLowerCase().startsWith("x-middleware-")) {
+      finalResponse.headers.delete(key);
+    }
+  }
+
   return finalResponse;
 }
 

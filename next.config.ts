@@ -22,7 +22,10 @@ const securityHeaders = [
   },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "Referrer-Policy", value: "strict-origin" },
+  // Mozilla Observatory akzeptiert `strict-origin` aus unklarem Grund nicht
+  // (zieht trotz MDN-Konformität −5 ab). `no-referrer` ist eindeutig sicher
+  // und für eine Content-Site ohne Analytics/Outbound-Tracking unkritisch.
+  { key: "Referrer-Policy", value: "no-referrer" },
   {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
