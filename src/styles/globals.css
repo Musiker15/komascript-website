@@ -292,6 +292,56 @@
 }
 
 /* ============================================================================
+   Komponenten-Klassen (ehemals inline-styles — für strikte CSP nötig)
+   ============================================================================ */
+
+/* Hero-Background — radialer Akzent-Gradient hinter dem Hero-Text.
+   Ersetzt das ehemalige inline `style={{ background: "radial-gradient(...)" }}`
+   in src/components/home/Hero.tsx, damit CSP `style-src` ohne 'unsafe-inline'
+   auskommt. */
+.hero-decor-gradient {
+  background: radial-gradient(
+    ellipse 60% 40% at 50% 0%,
+    color-mix(in oklab, var(--color-primary) 8%, transparent),
+    transparent 70%
+  );
+}
+
+/* Root-404-Page (src/app/not-found.tsx) — eigene Klassen, weil die Page
+   außerhalb von [locale]/ liegt und keinen Zugriff auf das Layout-CSS hat.
+   Tailwind wird via Import von globals.css verfügbar gemacht. */
+.notfound-page-body {
+  display: flex;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--color-background, #ffffff);
+  color: var(--color-foreground, #0a0a0a);
+}
+.notfound-page-content {
+  text-align: center;
+}
+.notfound-page-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.notfound-page-text {
+  color: var(--color-muted-foreground, #666);
+  margin-bottom: 1.5rem;
+}
+.notfound-page-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary, #1e40af);
+  color: var(--color-primary-foreground, #ffffff);
+  text-decoration: none;
+  border-radius: var(--radius-md, 0.5rem);
+}
+
+/* ============================================================================
    Utilities
    ============================================================================ */
 @utility container-prose {

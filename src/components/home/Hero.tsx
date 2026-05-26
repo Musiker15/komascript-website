@@ -16,14 +16,11 @@ export function Hero({ locale }: HeroProps) {
 
   return (
     <section className="relative overflow-hidden border-b border-[var(--color-border)]">
-      {/* Background-Decoration */}
+      {/* Background-Decoration — Gradient in globals.css (.hero-decor-gradient).
+          Inline-Style entfernt, damit CSP `style-src` ohne 'unsafe-inline' auskommt. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 50% 0%, var(--color-primary)/8%, transparent 70%)",
-        }}
+        className="hero-decor-gradient pointer-events-none absolute inset-0 -z-10"
       />
 
       <div className="container-page grid items-center gap-10 py-16 md:py-20 lg:grid-cols-2 lg:py-28">

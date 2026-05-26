@@ -36,11 +36,25 @@ function buildCsp(nonce: string): string {
   return [
     "default-src 'none'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
-    // style-src: 'unsafe-inline' bleibt für Tailwind-generierte Inline-Styles.
-    // CSP3 erlaubt für style-src kein 'strict-dynamic' und Hashes/Nonces
-    // sind bei Tailwind v4 + Streaming-SSR praktisch nicht umsetzbar. Mozilla
-    // Observatory zieht für style-src 'unsafe-inline' keine Punkte ab.
-    "style-src 'self' 'unsafe-inline'",
+    // style-src: nonce-basiert. Tailwind v4 erzeugt eine externe CSS-Datei
+    // (kein inline-CSS). next-themes injiziert sein Anti-Flash-<style>-Tag
+    // mit dem nonce-Prop, das wir im Layout durchreichen.
+    //
+    // style-src-elem (für <style>-Tags): nur Nonce + 'self'. Keine inline-
+    // <style>-Tags ohne Nonce erlaubt — Observatory-konform.
+    //
+    // style-src-attr (für `style="..."`-Attribute): 'unsafe-inline' notwendig,
+    // weil Third-Party-Libraries automatisch style-Attribute setzen:
+    //   • next/image fügt `style="color:transparent"` auf <img>-Tags hinzu
+    //     (interner Placeholder vor Lazy-Load, nicht abschaltbar)
+    //   • Radix-UI NavigationMenu setzt `style="position:relative"` für sein
+    //     interaktives Layout
+    // Mozilla Observatory prüft nur `style-src` direkt auf 'unsafe-inline',
+    // nicht style-src-attr — der A+ Score bleibt erhalten. XSS-Risiko über
+    // style-Attribute ist deutlich niedriger als über script-src.
+    `style-src 'self' 'nonce-${nonce}'`,
+    `style-src-elem 'self' 'nonce-${nonce}'`,
+    "style-src-attr 'unsafe-inline'",
     "img-src 'self' data: blob:",
     "font-src 'self' data:",
     "connect-src 'self'",
@@ -107,8 +121,16 @@ export default function middleware(request: NextRequest): NextResponse {
 
     // intl-Response Headers (Link / Vary / Set-Cookie / …) übernehmen,
     // damit hreflang-Alternates etc. nicht verloren gehen.
+    //
+    // WICHTIG: `x-middleware-*` Header AUSSCHLIESSEN — sie sind Next.js-
+    // internal und finalResponse hat bereits die korrekten gesetzt (aus
+    // dem NextResponse.next({ request: { headers } }) oben). Ein Overwrite
+    // mit intl-Response-Werten kappt den Request-Header-Override an die
+    // Server Components → `headers().get("x-nonce")` wird dort `null`.
     intlResponse.headers.forEach((value, key) => {
-      if (key.toLowerCase() === "content-security-policy") return;
+      const lk = key.toLowerCase();
+      if (lk === "content-security-policy") return;
+      if (lk.startsWith("x-middleware-")) return;
       finalResponse.headers.set(key, value);
     });
     intlResponse.cookies.getAll().forEach((c) => finalResponse.cookies.set(c));
@@ -123,22 +145,6 @@ export default function middleware(request: NextRequest): NextResponse {
   // 5. NEXT_LOCALE Cookie mit HttpOnly nachpatchen (XSS-Schutz)
   // -------------------------------------------------------------------------
   patchLocaleCookie(finalResponse);
-
-  // -------------------------------------------------------------------------
-  // 6. Next.js-Internalia aus der finalen Response entfernen
-  // -------------------------------------------------------------------------
-  // Wenn man NextResponse.next({ request: { headers } }) mit gepatchten
-  // Request-Headern aufruft, propagiert Next.js diese als
-  // `x-middleware-request-<headername>` und `x-middleware-override-headers`
-  // an den Browser. Diese Header sind nur intern für den Routing-Layer
-  // gedacht, sollten aber den Server NIE verlassen — sonst wird unser
-  // Nonce als `X-Middleware-Request-X-Nonce` doppelt geleakt (Mozilla
-  // Observatory: „Raw server headers"-Tab).
-  for (const key of Array.from(finalResponse.headers.keys())) {
-    if (key.toLowerCase().startsWith("x-middleware-")) {
-      finalResponse.headers.delete(key);
-    }
-  }
 
   return finalResponse;
 }
