@@ -22,10 +22,13 @@ const securityHeaders = [
   },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "X-Content-Type-Options", value: "nosniff" },
-  // Mozilla Observatory akzeptiert `strict-origin` aus unklarem Grund nicht
-  // (zieht trotz MDN-Konformität −5 ab). `no-referrer` ist eindeutig sicher
-  // und für eine Content-Site ohne Analytics/Outbound-Tracking unkritisch.
-  { key: "Referrer-Policy", value: "no-referrer" },
+  // Mozilla Observatorys Whitelist scheint nur einen einzigen Wert sauber
+  // zu erkennen — den, den sie selbst im UI explizit empfehlen
+  // (`strict-origin-when-cross-origin`). Andere laut MDN/scoring.md sichere
+  // Werte (`no-referrer`, `strict-origin`) werden fälschlich −5 bewertet.
+  // Wir folgen der Recommendation, um den Test-Bug zu umgehen — der Wert
+  // ist trotzdem ein moderner Standard (Browser-Default in Chromium/Firefox).
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
