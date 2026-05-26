@@ -24,7 +24,7 @@
 - **Volltextsuche** (Cmd/Ctrl+K) auf Basis eines Build-Time-Index
 - **Voll konfigurierbar** über `config/*.ts` — Navbar, Footer, Site-Metadaten
 - **SEO-stark** — OpenGraph, JSON-LD, Sitemap, hreflang, robots
-- **Strikt datenschutzkonform** — keine externen Fonts/Skripte, strikte CSP
+- **Strikt datenschutzkonform** — keine externen Fonts/Skripte, Nonce-basierte CSP mit `'strict-dynamic'` (Mozilla Observatory: **A+**)
 - **Apache2 + systemd** ready (Debian, Reverse-Proxy auf Loopback :3100)
 
 ---
@@ -82,7 +82,7 @@ homepage/
 │   ├── messages/          # UI-Übersetzungen (de.json, en.json)
 │   ├── styles/            # globals.css (Tailwind v4)
 │   ├── types/             # TypeScript-Typen + Zod-Schemas
-│   └── proxy.ts           # next-intl Locale-Middleware
+│   └── proxy.ts           # Middleware: next-intl + Nonce-CSP + Cookie-Hardening
 ├── CLAUDE.md              # Architektur-Plan + Kontext für Claude
 ├── AUTHORING.md           # Anleitung zum Inhalte-Pflegen
 └── README.md
@@ -231,12 +231,29 @@ Fallback auf die letzten 5 Releases unter `/opt/komascript/releases/`.
 
 ## 🔒 Datenschutz & Sicherheit
 
-- **Strict CSP**: `img-src 'self' data: blob:`, `connect-src 'self'`,
-  `font-src 'self' data:` — kein Kontakt zu externen Hosts.
+**Mozilla Observatory: A+**
+
+- **Nonce-basierte CSP**: pro Request wird in [src/proxy.ts](./src/proxy.ts)
+  ein kryptographisch sicherer Nonce erzeugt und in `script-src 'self'
+  'nonce-XXX' 'strict-dynamic'` eingebettet. Kein `'unsafe-inline'` für
+  Scripts. `default-src 'none'`, `object-src 'none'`, `img-src 'self' data:
+  blob:`, `connect-src 'self'`, `font-src 'self' data:`.
+- **Single Source of Truth** für alle übrigen Security-Header in
+  [next.config.ts](./next.config.ts) — Apache vHost setzt keine eigenen,
+  sondern entfernt nur die von `security.conf` global gesetzten
+  (verhindert Doppelungen). `X-XSS-Protection` (veraltet) wird aktiv
+  entfernt — CSP übernimmt die Schutzfunktion.
+- **HSTS preload** (`max-age=63072000; includeSubDomains; preload`),
+  Referrer-Policy `strict-origin`, Permissions-Policy, COOP / CORP / COEP
+  `credentialless`.
+- **NEXT_LOCALE Cookie**: `Secure`, `HttpOnly`, `SameSite=Lax`, `Path=/`.
 - **Lokale Fonts** via `@fontsource-variable/*` (kein Google Fonts).
 - **Keine Analytics, kein Tracking, keine Cookies** im rechtlichen Sinn.
-- **HSTS preload**, X-Frame-Options, Referrer-Policy, Permissions-Policy.
 - **Pre-Launch**: zusätzliche HTTP-Basic-Auth-Schicht vor jedem Request.
+
+**Trade-off:** Alle App-Routes werden dynamisch gerendert (kein SSG) —
+notwendig, damit jeder Request einen frischen Nonce erhält. Statisch
+bleiben nur `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`.
 
 Details: Abschnitt „Datenschutz-Audit" in [CLAUDE.md](./CLAUDE.md).
 
