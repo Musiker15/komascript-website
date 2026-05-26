@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 import { SUPPORTED_LOCALES } from "@/types/config";
 
 const intlMiddleware = createMiddleware({
@@ -21,24 +21,110 @@ const intlMiddleware = createMiddleware({
   },
 });
 
-export default function middleware(request: NextRequest) {
-  const response = intlMiddleware(request);
+// =============================================================================
+// Content-Security-Policy mit Nonce + strict-dynamic
+// -----------------------------------------------------------------------------
+// • Pro Request wird ein kryptographisch sicherer 128-bit Nonce erzeugt.
+// • Der Nonce wird sowohl im x-nonce Request-Header (für Server Components
+//   via `headers()`) als auch in der CSP `script-src 'nonce-XXX'` gesetzt.
+// • `'strict-dynamic'` erlaubt es Next.js' Bootstrap-Script, weitere Module
+//   dynamisch nachzuladen — ohne dass jedes einzelne Script ein Nonce braucht.
+// • Folge: Alle Routes werden dynamisch gerendert (kein SSG). Bewusster
+//   Trade-off für eine Observatory-konforme strikte CSP.
+// =============================================================================
+function buildCsp(nonce: string): string {
+  return [
+    "default-src 'none'",
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
+    // style-src: 'unsafe-inline' bleibt für Tailwind-generierte Inline-Styles.
+    // CSP3 erlaubt für style-src kein 'strict-dynamic' und Hashes/Nonces
+    // sind bei Tailwind v4 + Streaming-SSR praktisch nicht umsetzbar. Mozilla
+    // Observatory zieht für style-src 'unsafe-inline' keine Punkte ab.
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob:",
+    "font-src 'self' data:",
+    "connect-src 'self'",
+    "media-src 'self'",
+    "manifest-src 'self'",
+    "worker-src 'self' blob:",
+    "object-src 'none'",
+    "frame-src 'none'",
+    "frame-ancestors 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "upgrade-insecure-requests",
+  ].join("; ");
+}
 
-  // next-intl setzt NEXT_LOCALE via response.cookies — wir patchen es danach
-  // mit HttpOnly nach, damit das Cookie nicht via document.cookie lesbar ist
-  // (XSS-Schutz). Der LocaleSwitcher liest das Cookie nicht client-seitig,
-  // sondern triggert lediglich router.push() — daher ist HttpOnly sicher.
-  const localeCookie = response.cookies.get("NEXT_LOCALE");
-  if (localeCookie) {
-    response.cookies.set("NEXT_LOCALE", localeCookie.value, {
-      secure: true,
-      httpOnly: true,
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 365,
-      path: "/",
+function patchLocaleCookie(response: NextResponse): void {
+  const cookie = response.cookies.get("NEXT_LOCALE");
+  if (!cookie) return;
+  response.cookies.set("NEXT_LOCALE", cookie.value, {
+    secure: true,
+    httpOnly: true,
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 365,
+    path: "/",
+  });
+}
+
+export default function middleware(request: NextRequest): NextResponse {
+  // -------------------------------------------------------------------------
+  // 1. Nonce (16 zufällige Bytes → Base64, ~24 Zeichen)
+  // -------------------------------------------------------------------------
+  const nonceBytes = new Uint8Array(16);
+  crypto.getRandomValues(nonceBytes);
+  const nonce = btoa(String.fromCharCode(...nonceBytes));
+  const csp = buildCsp(nonce);
+
+  // -------------------------------------------------------------------------
+  // 2. Request-Header für Server Components vorbereiten (x-nonce)
+  // -------------------------------------------------------------------------
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nonce", nonce);
+
+  // -------------------------------------------------------------------------
+  // 3. next-intl Middleware aufrufen (kann Redirect / Rewrite / Pass-through)
+  // -------------------------------------------------------------------------
+  const intlResponse = intlMiddleware(request);
+
+  const isRedirect = intlResponse.headers.has("location");
+  const isRewrite = intlResponse.headers.has("x-middleware-rewrite");
+
+  let finalResponse: NextResponse;
+
+  if (isRedirect || isRewrite) {
+    // Redirect/Rewrite kennt keine downstream-Server-Components → Request-
+    // Header müssen nicht propagiert werden. intl-Response direkt verwenden.
+    finalResponse = intlResponse;
+  } else {
+    // Pass-through: Eigene Response erzeugen, damit Server Components den
+    // x-nonce Request-Header sehen (Next.js liest ihn auch automatisch für
+    // generierte <script>-Tags).
+    finalResponse = NextResponse.next({
+      request: { headers: requestHeaders },
     });
+
+    // intl-Response Headers (Link / Vary / Set-Cookie / …) übernehmen,
+    // damit hreflang-Alternates etc. nicht verloren gehen.
+    intlResponse.headers.forEach((value, key) => {
+      if (key.toLowerCase() === "content-security-policy") return;
+      finalResponse.headers.set(key, value);
+    });
+    intlResponse.cookies.getAll().forEach((c) => finalResponse.cookies.set(c));
   }
-  return response;
+
+  // -------------------------------------------------------------------------
+  // 4. CSP-Header pro Response setzen
+  // -------------------------------------------------------------------------
+  finalResponse.headers.set("Content-Security-Policy", csp);
+
+  // -------------------------------------------------------------------------
+  // 5. NEXT_LOCALE Cookie mit HttpOnly nachpatchen (XSS-Schutz)
+  // -------------------------------------------------------------------------
+  patchLocaleCookie(finalResponse);
+
+  return finalResponse;
 }
 
 export const config = {

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -135,6 +136,11 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const l = locale as Locale;
 
+  // CSP-Nonce aus dem Request-Header lesen (von src/proxy.ts gesetzt) und
+  // an alle inline-<script>-Tags weitergeben. Der Aufruf macht die Route
+  // dynamisch (kein SSG mehr) — Trade-off für die strikte Nonce-CSP.
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   // JSON-LD: Organisation + Website
   const orgLd = buildJsonLd({
     "@type": "Organization",
@@ -164,10 +170,24 @@ export default async function LocaleLayout({
   return (
     <html lang={l} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-[var(--color-background)] text-[var(--color-foreground)] antialiased">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: orgLd }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: siteLd }} />
+        <script
+          type="application/ld+json"
+          nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: orgLd }}
+        />
+        <script
+          type="application/ld+json"
+          nonce={nonce}
+          dangerouslySetInnerHTML={{ __html: siteLd }}
+        />
 
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          nonce={nonce}
+        >
           <NextIntlClientProvider locale={l} messages={messages} timeZone="Europe/Berlin">
             <SkipLink />
             <Header locale={l} />
