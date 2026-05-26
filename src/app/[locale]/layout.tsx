@@ -57,7 +57,11 @@ export async function generateMetadata({
     description,
     applicationName: siteConfig.name,
     generator: "Next.js",
-    referrer: "origin-when-cross-origin",
+    // referrer: konsistent mit dem HTTP-Header `Referrer-Policy` aus
+    // next.config.ts. Achtung: Wenn der Wert hier von der HTTP-Header-Policy
+    // abweicht, überschreibt der <meta>-Tag den Header (Mozilla Observatory
+    // Issue #278). Daher beide Stellen synchron halten.
+    referrer: "strict-origin-when-cross-origin",
     keywords: [
       "KOMA-Script", "LaTeX", "scrartcl", "scrreprt", "scrbook", "scrlttr2",
       "typearea", "Markus Kohm", "Typografie", "TeX", "Setzerei", "Buchsatz",
