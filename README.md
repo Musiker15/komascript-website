@@ -270,14 +270,28 @@ Details: Abschnitt „Datenschutz-Audit" in [CLAUDE.md](./CLAUDE.md).
 
 ## 📄 Lizenz
 
-- **Code:** MIT
-- **Inhalte unter `content/`**: CC-BY 4.0 (außer Originalzitate, die als solche
-  gekennzeichnet sind und der Quelle [koma-script.sourceforge.io](https://koma-script.sourceforge.io/)
-  zugerechnet bleiben — siehe Callouts in `about.md` und `faq.md`)
-- **KOMA-Script** selbst (das LaTeX-Projekt): LPPL 1.3c — nicht in diesem Repo
+**Copyright © 2026 MSK Scripts — Alle Rechte vorbehalten.**
 
-Diese Site ist ein Portfolio-Projekt und steht in keinem offiziellen Zusammenhang
-mit dem KOMA-Script-LaTeX-Paket. Verantwortlich nach § 5 DDG: Moritz Kohm;
-inhaltlich verantwortlich nach § 18 Abs. 2 MStV (für die KOMA-Script-bezogenen
-Originalzitate): Markus Kohm. Volle Details in [Impressum](content/pages/de/impressum.md)
-und [Datenschutz](content/pages/de/datenschutz.md).
+Dieses Projekt steht unter der **MSK Source Available License (MSK-SAL) v1.0** —
+einer proprietären „Source Available"-Lizenz. Der Quellcode ist **einsehbar**,
+aber **nicht frei nutzbar**.
+
+> „Source Available" ≠ „Open Source"
+
+Volltext:
+- [LICENSE.md](LICENSE.md) (English)
+- [LICENSE_DE.md](LICENSE_DE.md) (Deutsch)
+
+Erlaubt (ohne weitere Genehmigung):
+- Lesen und Sichten des Quellcodes
+- Lokales Ausführen zu rein privaten, nicht-kommerziellen Studienzwecken
+- Bug-Reports via GitHub-Issues
+- Pull Requests, die dem Projekt zugutekommen
+
+Untersagt (ohne ausdrückliche schriftliche Genehmigung):
+Kopieren · abgeleitete Werke · öffentlicher Betrieb · kommerzielle Verwertung ·
+Weitergabe · Design-Nachahmung · Reverse Engineering · Entfernen von
+Urheberrechtshinweisen — siehe § 3 der Lizenz für die vollständige Liste.
+
+Für kommerzielle Lizenzen, Kooperationen oder Nutzungen außerhalb des
+gestatteten Rahmens: `info@msk-scripts.de` (Betreff: `MSK License Request`).
