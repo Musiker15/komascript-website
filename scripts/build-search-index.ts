@@ -56,6 +56,17 @@ function stripHtmlTags(s: string): string {
   return s;
 }
 
+// Baut eine garantiert interne, relative URL. Jedes aus einem Dateinamen
+// abgeleitete Slug-Segment wird per encodeURIComponent neutralisiert, damit
+// im Such-Index gespeicherte URLs (die später als Link-href dienen) niemals
+// ein fremdes Schema oder Steuerzeichen einschleusen können. Muss mit
+// buildInternalUrl in src/lib/content.ts synchron bleiben.
+function buildInternalUrl(locale: string, section: string, slug: string[]): string {
+  const segments = section === "pages" ? slug : [section, ...slug];
+  const encoded = segments.filter(Boolean).map((s) => encodeURIComponent(s));
+  return `/${encodeURIComponent(locale)}${encoded.length ? `/${encoded.join("/")}` : ""}`;
+}
+
 function stripMarkdown(md: string): string {
   return stripHtmlTags(
     md
@@ -95,11 +106,7 @@ function main() {
         if (!fm.success) continue;
         if (fm.data.draft) continue;
 
-        const pathStr = slug.join("/");
-        const url = `/${locale}/${section === "pages" ? pathStr : `${section}/${pathStr}`}`.replace(
-          /\/+$/,
-          "",
-        );
+        const url = buildInternalUrl(locale, section, slug);
 
         const body = stripMarkdown(content).slice(0, 5000);
 

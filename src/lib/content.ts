@@ -8,6 +8,23 @@ import type { Locale } from "@/types/config";
 const CONTENT_ROOT = path.join(process.cwd(), "content");
 
 /**
+ * Baut eine garantiert interne, relative URL für ein ContentItem.
+ *
+ * Jedes aus einem Dateinamen abgeleitete Slug-Segment wird durch
+ * encodeURIComponent neutralisiert. Dadurch kann ein Segment niemals ein
+ * anderes Schema (z. B. `javascript:`), einen protokoll-relativen Präfix
+ * (`//host`) oder Steuerzeichen in ein späteres `href` einschleusen. Das
+ * Ergebnis beginnt immer mit "/" und ist damit ein reiner Pfad. Für normale
+ * Slugs (Kleinbuchstaben, Ziffern, Bindestriche) ist das Encoding ein No-Op,
+ * die Routen bleiben also unverändert.
+ */
+function buildInternalUrl(locale: Locale, section: ContentSection, slug: string[]): string {
+  const segments = section === "pages" ? slug : [section, ...slug];
+  const encoded = segments.filter(Boolean).map((s) => encodeURIComponent(s));
+  return `/${encodeURIComponent(locale)}${encoded.length ? `/${encoded.join("/")}` : ""}`;
+}
+
+/**
  * Liest eine einzelne Content-Datei aus content/<section>/<locale>/<slug…>.md
  * Bei nicht-existierender Datei → null (Caller entscheidet über notFound()).
  */
@@ -43,7 +60,7 @@ export function getContent(
       locale,
       slug,
       path: section === "pages" ? pathStr : `${section}/${pathStr}`,
-      url: `/${locale}/${section === "pages" ? pathStr : `${section}/${pathStr}`}`.replace(/\/+$/, ""),
+      url: buildInternalUrl(locale, section, slug),
       frontmatter,
       content,
       modifiedAt: stat.mtime,
