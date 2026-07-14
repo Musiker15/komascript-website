@@ -13,12 +13,19 @@
 #   1. Auf Codeberg ein leeres Repository anlegen (ohne README, ohne Lizenz).
 #   2. Codeberg → Settings → Applications → Access Token erzeugen.
 #      Berechtigung: repository → read and write. Nichts weiter.
-#   3. In GitHub unter Settings → Secrets and variables → Actions eintragen:
-#        Secret   CODEBERG_TOKEN  → der eben erzeugte Token
-#        Variable CODEBERG_REPO   → z. B. musiker15/komascript-website
-#        Variable CODEBERG_USER   → der Codeberg-Benutzername
+#   3. In GitHub unter Settings → Secrets and variables → Actions als Secrets
+#      eintragen:
+#        CODEBERG_TOKEN  → der eben erzeugte Token
+#        CODEBERG_REPO   → z. B. musiker15/komascript-website
+#        CODEBERG_USER   → der Codeberg-Benutzername
 #   4. Workflow einmal manuell über "Run workflow" starten, danach läuft er
 #      bei jedem Push von allein.
+#
+# Repo-Name und Benutzername sind eigentlich keine Geheimnisse und wären als
+# Variables besser aufgehoben. Sie liegen hier trotzdem als Secrets, weil der
+# secrets-Kontext im Job-Level-`if` nicht lesbar ist und die Konfiguration so an
+# einer einzigen Stelle bleibt. Der einzige Nebeneffekt: GitHub maskiert beide
+# Werte in der Log-Ausgabe.
 # =============================================================================
 
 name: Mirror to Codeberg
@@ -45,9 +52,9 @@ jobs:
   mirror:
     name: Push to Codeberg
     runs-on: ubuntu-latest
-    # Solange CODEBERG_REPO nicht gesetzt ist, wird der Job übersprungen statt
-    # rot fehlzuschlagen. In Forks läuft er ohnehin nicht.
-    if: github.repository_owner == 'Musiker15' && vars.CODEBERG_REPO != ''
+    # In Forks nicht spiegeln. Ob die Secrets gesetzt sind, prüft der Step unten,
+    # der secrets-Kontext ist auf dieser Ebene nicht lesbar.
+    if: github.repository_owner == 'Musiker15'
 
     steps:
       - name: Checkout (vollständige History, alle Refs)
@@ -59,13 +66,13 @@ jobs:
       - name: Push branches and tags to Codeberg
         env:
           CODEBERG_TOKEN: ${{ secrets.CODEBERG_TOKEN }}
-          CODEBERG_USER: ${{ vars.CODEBERG_USER }}
-          CODEBERG_REPO: ${{ vars.CODEBERG_REPO }}
+          CODEBERG_USER: ${{ secrets.CODEBERG_USER }}
+          CODEBERG_REPO: ${{ secrets.CODEBERG_REPO }}
         run: |
           set -euo pipefail
 
           if [ -z "${CODEBERG_TOKEN:-}" ] || [ -z "${CODEBERG_USER:-}" ] || [ -z "${CODEBERG_REPO:-}" ]; then
-            echo "::error::CODEBERG_TOKEN (Secret), CODEBERG_USER und CODEBERG_REPO (Variables) müssen gesetzt sein."
+            echo "::error::Die Secrets CODEBERG_TOKEN, CODEBERG_USER und CODEBERG_REPO müssen gesetzt sein."
             exit 1
           fi
 
