@@ -8,11 +8,11 @@
 #             4. systemd-Reload (komascript.service)
 # -----------------------------------------------------------------------------
 # Erforderliche Repository-Secrets:
-#   DEPLOY_HOST  — Hostname oder IP des Servers
-#   DEPLOY_USER  — SSH-User mit sudo-Rechten für `chown` und `systemctl restart komascript`
-#                  (typisch: musiker15 — bestehender Deploy-User)
-#   DEPLOY_KEY   — Privater SSH-Key (passwort-los, key-only Auth)
-#   DEPLOY_PORT  — (optional) SSH-Port, default 22
+#   DEPLOY_HOST:  Hostname oder IP des Servers
+#   DEPLOY_USER:  SSH-User mit sudo-Rechten für `chown` und `systemctl restart komascript`
+#                 (typisch: musiker15, der bestehende Deploy-User)
+#   DEPLOY_KEY:   Privater SSH-Key (passwort-los, key-only Auth)
+#   DEPLOY_PORT:  (optional) SSH-Port, default 22
 #
 # Voraussetzung auf dem Server:
 #   • komascript-User existiert:   sudo useradd -r -s /usr/sbin/nologin komascript
@@ -29,7 +29,7 @@ on:
     branches: [main]
     # Dateien, die KEINEN Deploy auslösen sollen.
     #
-    # WICHTIG: NICHT "**.md" verwenden — das würde auch content/**/*.md
+    # WICHTIG: NICHT "**.md" verwenden, denn das würde auch content/**/*.md
     # ausschließen, also unsere echten Inhalte. Markdown UNTER content/
     # gehört zum gerenderten Output und MUSS einen Deploy triggern.
     paths-ignore:
@@ -184,10 +184,10 @@ jobs:
             sudo ln -sfn "$NEW" "$APP/current"
 
             echo "→ Hauptverzeichnis aktualisieren"
-            # Die systemd-Unit zeigt auf /opt/komascript direkt — daher
+            # Die systemd-Unit zeigt auf /opt/komascript direkt, daher
             # spiegeln wir die current-Inhalte über rsync.
             #
-            # WICHTIG: Die Excludes MÜSSEN mit "/" beginnen — sonst matcht rsync
+            # WICHTIG: Die Excludes MÜSSEN mit "/" beginnen, sonst matcht rsync
             # rekursiv jeden gleichnamigen Ordner (z.B. node_modules/next/dist/shared
             # wäre ohne führenden "/" auch betroffen → Next bricht mit
             # "Cannot find module '../shared/lib/constants'" ab).
@@ -210,14 +210,14 @@ jobs:
                 echo "✓ Service erreichbar"
                 break
               fi
-              echo "  Versuch $i/5 — warte 2s …"
+              echo "  Versuch $i/5, warte 2s …"
               sleep 2
             done
 
             echo "→ Aufräumen: behalte die letzten 5 Releases"
             cd "$RELEASES"
             sudo ls -1t | tail -n +6 | xargs -r sudo rm -rf
-            echo "✓ Deploy fertig — $TS"
+            echo "✓ Deploy fertig: $TS"
 
       - name: Verify deployment
         run: |
@@ -227,7 +227,7 @@ jobs:
               echo "✓ Live: ${{ env.PUBLIC_URL }} antwortet mit 200"
               exit 0
             fi
-            echo "Versuch $i/10 — Status $STATUS — warte 3s …"
+            echo "Versuch $i/10, Status $STATUS, warte 3s …"
             sleep 3
           done
           echo "✗ Production-Smoke-Test fehlgeschlagen"

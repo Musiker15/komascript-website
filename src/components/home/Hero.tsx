@@ -16,7 +16,7 @@ export function Hero({ locale }: HeroProps) {
 
   return (
     <section className="relative overflow-hidden border-b border-[var(--color-border)]">
-      {/* Background-Decoration — Gradient in globals.css (.hero-decor-gradient).
+      {/* Background-Decoration, Gradient in globals.css (.hero-decor-gradient).
           Inline-Style entfernt, damit CSP `style-src` ohne 'unsafe-inline' auskommt. */}
       <div
         aria-hidden

@@ -1,28 +1,27 @@
 ---
 title: "splitindex"
-description: "The LaTeX package splitidx plus the splitindex program for producing multiple indexes without hitting TeX's file handle limit."
-order: 20
+description: "The LaTeX package splitidx and the index preprocessor splitindex allow any number of indexes without running out of write registers."
+order: 30
+category: "other"
 tags: []
 ---
 
-The project `splitindex` came about years ago because someone asked how the
-KOMA-Script manual splits its index across several indexes. `makeidx` is the
-standard LaTeX package for producing a single index per document. Sometimes,
-however, more than one index is needed. Various packages exist with different
-approaches and different drawbacks for multi-index production.
+The `splitindex` project originated years ago in response to a question about
+how I manage the splitting of the index for the KOMA-Script manual. With
+`makeidx`, LaTeX provides a standard package for creating an index for
+each document. Sometimes, however, more than one index is needed. There are
+various packages offering different solutions, each with their own problems
+when creating multiple indexes. The LaTeX package `splitidx` offers
+another solution to this problem. Furthermore, `splitidx` allows for the
+individual customization of the typesetting and appearance of these indexes,
+as well as the formatting of individual index entries. Since classical TeX, as
+well as PDFTeX and XeTeX, support a maximum of 16 files open for writing at
+the same time, `splitidx` also offers a solution. Instead of opening multiple
+files simultaneously for the entries of the different indexes, all entries are
+collected in a single file and then split using the `splitindex` program.
+`splitindex` then automatically calls the desired index processor—usually
+`makeindex`— for each of these files.
 
-The LaTeX package `splitidx` is one more solution to this problem. In
-addition, `splitidx` allows individual customisation of the typesetting and
-appearance of each index, as well as of the formatting of individual index
-entries.
-
-Because classical TeX, PDFTeX, and XeTeX support at most 16 simultaneously
-open write streams, `splitidx` also offers a solution for that. Instead of
-opening multiple files at the same time for the entries of the different
-indexes, all entries are collected into a single file and then split up using
-the `splitindex` program. `splitindex` also automatically invokes the desired
-index processor — typically `makeindex` — for each of those files.
-
-The project is hosted on
-[Codeberg](https://codeberg.org/komascript/splitindex). See the [CTAN
-catalogue entry](https://www.ctan.org/pkg/splitindex) for more.
+The project will be hosted on
+[Codeberg](https://codeberg.org/komascript/splitindex). Further information
+can be found in the [CTAN catalog entry](https://www.ctan.org/pkg/splitindex).

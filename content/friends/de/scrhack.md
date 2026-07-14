@@ -1,7 +1,7 @@
 ---
 title: "scrhack"
-description: "Loader-Paket für die einzeln ausgelagerten Hacks der ehemaligen KOMA-Script-Erweiterung."
-order: 2
+description: "Lädt die aus den früheren Hack-Modulen entstandenen eigenständigen Pakete, sobald das jeweilige Originalpaket geladen ist."
+order: 10
 category: "spin-off"
 tags: ["deprecated"]
 ---
@@ -15,30 +15,22 @@ Ursprünglich wurde `scrhack` nicht nur entwickelt, um die Kompatibilität von
 Drittanbieter-Paketen mit KOMA-Script-Klassen zu verbessern, sondern auch, um
 Drittanbieter-Pakete generell zu optimieren. Das Paket bestand nicht nur aus
 der Paketdatei `scrhack.sty`, sondern auch aus mehreren sogenannten Hacks als
-separate Dateien mit der Endung `.hak`.
-
-Im Zuge der Ausgliederung ehemaliger KOMA-Script-Pakete aus der KOMA-Script-
-Sammlung wurde beschlossen, aus den einzelnen Hacks eigenständige Pakete zu
-erstellen. Diese neuen eigenständigen Pakete dienen dann als Ersatz für die
-ursprünglichen Pakete, die sie verbessern sollten. Um darüber hinaus die
-Funktionalität beizubehalten, die Erweiterungen nur dann zu laden, wenn das
-entsprechende Originalpaket geladen ist, wurde ein neues `scrhack` erstellt,
-das genau dies bewirkt. Der neue `scrhack` benötigt die Pakete
-[`floatbytocbasic`](/de/friends/floatbytocbasic),
+separate Dateien mit der Endung `.hak`. Im Zuge der Ausgliederung ehemaliger
+KOMA-Script-Pakete aus der KOMA-Script-Sammlung wurde beschlossen, aus den
+einzelnen Hacks eigenständige Pakete zu erstellen. Diese neuen eigenständigen
+Pakete dienen dann als Ersatz für die ursprünglichen Pakete, die sie
+verbessern sollten. Um darüber hinaus die Funktionalität beizubehalten, die
+Erweiterungen nur dann zu laden, wenn das entsprechende Originalpaket geladen
+ist, wurde ein neues `scrhack` erstellt, das genau dies bewirkt. Der neue
+`scrhack` benötigt die Pakete [`floatbytocbasic`](/de/friends/floatbytocbasic),
 [`floatrowbytocbasic`](/de/friends/floatrowbytocbasic),
 [`lscapeenhanced`](/de/friends/lscapeenhanced),
-[`setspaceenhanced`](/de/friends/setspaceenhanced) und
-[`standardsectioning`](/de/friends/standardsectioning).
+[`setspaceenhanced`](/de/friends/setspaceenhanced),
+[`standardsectioning`](/de/friends/standardsectioning). Für neue Dokumente wird
+empfohlen, nur diejenigen der aufgeführten Pakete zu laden, die tatsächlich
+verwendet werden, anstatt `scrhack`.
 
-Für neue Dokumente wird empfohlen, nur diejenigen der aufgeführten Pakete zu
-laden, die tatsächlich verwendet werden, anstatt `scrhack`.
-
-Das Paket ist Teil der „Third Party Enhancements", die auf
-[GitHub](https://github.com/komascript/third-party-enhancements) gehostet
+Das Paket ist Teil der „Third Party Enhancements“, die auf
+[GitHub](https://github.com/komascript/third-party-enhancements) gehosted
 werden. Weitere Informationen finden sich im
 [CTAN-Katalogeintrag](https://www.ctan.org/pkg/scrhack).
-
-<Callout type="warning">
-Dieses Paket ist veraltet. Es gibt nur noch sehr eingeschränkten oder gar
-keinen Support mehr.
-</Callout>

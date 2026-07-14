@@ -1,5 +1,5 @@
 # =============================================================================
-# CI — Lint, Type-Check, Tests, Build (alle Branches + Pull-Requests)
+# CI: Lint, Type-Check, Tests, Build (alle Branches + Pull-Requests)
 # -----------------------------------------------------------------------------
 # Trigger-Logik:
 #   • push    auf jede Branch        → CI läuft (auch auf main, parallel zu Deploy)
@@ -24,7 +24,7 @@ permissions:
   contents: read
 
 concurrency:
-  # Eindeutig pro Workflow + ref + event-quelle — verhindert Doppel-Runs
+  # Eindeutig pro Workflow + ref + event-quelle, verhindert Doppel-Runs
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
@@ -65,6 +65,6 @@ jobs:
           NEXT_TELEMETRY_DISABLED: "1"
 
       - name: Test (Vitest)
-        # --passWithNoTests ist im test-Script (package.json) gesetzt — verhindert
+        # --passWithNoTests ist im test-Script (package.json) gesetzt und verhindert
         # Exit 1, solange noch keine Tests existieren.
         run: pnpm test --run

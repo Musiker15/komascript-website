@@ -1,5 +1,5 @@
 # ============================================================
-# .gitignore — KOMA-Script Homepage
+# .gitignore für die KOMA-Script Homepage
 # ============================================================
 
 # --- Dependencies ------------------------------------------
@@ -56,7 +56,7 @@ test-results/
 # --- Generierte Such-Indizes --------------------------------
 public/search-index.json
 public/sitemap.xml
-# (werden zur Build-Zeit erzeugt — kein Commit)
+# (werden zur Build-Zeit erzeugt, kein Commit)
 
 # --- Editoren / IDEs ----------------------------------------
 .vscode/*
@@ -96,6 +96,10 @@ ehthumbs_vista.db
 *.zip
 release.tar.gz
 deploy-*.tar.gz
+
+# Ausnahme: die Beispielcode-Archive zum KOMA-Script-Buch sind Inhalt,
+# kein Build-Artefakt. Die FAQ verlinkt sie als Download.
+!public/files/*.zip
 
 # --- Vercel (falls als Preview-Umgebung genutzt) ------------
 .vercel

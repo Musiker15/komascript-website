@@ -1,26 +1,22 @@
 ---
 title: "scrwfile"
-description: "Experimental package that routes \\newwrite operations through the .aux file to dodge the LaTeX write-handle limit."
-order: 4
+description: "KOMA-Script spin-off that routes write operations through the .aux file so LaTeX almost never runs out of write registers."
+order: 10
 category: "spin-off"
 tags: ["no-maintainer"]
 ---
 
-The package `scrwfile` is a spin-off from KOMA-Script and was part of the
-bundle up to `scrwfile` 0.1.12 and KOMA-Script 3.38. It was moved out of
-KOMA-Script because it is an experimental package that is no longer officially
-maintained.
+Package `scrwfile` is a KOMA-Script spin-off and was part of that collection
+up to `scrwfile` version 0.1.12 resp. KOMA-Script version 3.38. It has been
+removed from KOMA-Script because it is experimental and no longer maintained
+officially.
 
-`scrwfile` is a LaTeX package that provides a way to route all
-`\newwrite`-style output (tables of contents and other auxiliary writes)
-through the LaTeX `.aux` file. The mechanism changes how `\newwrite` operates
-and ensures that the “`No room for new \write`” message virtually never
-appears anymore.
+`scrwfile` is a LaTeX package, that provides a means of sending all
+LaTeX `\newrite`, table of contents, and other miscellaneous output via
+the LaTeX `.aux`-file. The mechanism subverts the mechanism of
+`\newrite`, and means there will almost never be a “`No room for new \write`”
+message.
 
-The package is hosted on [GitHub](https://github.com/komascript/scrwfile). See
-the [CTAN catalogue entry](https://www.ctan.org/pkg/scrwfile) for more.
-
-<Callout type="warning">
-This package is looking for a new maintainer. Support is very limited or no
-longer available until one is found.
-</Callout>
+The package is hosted on
+[GitHub](https://github.com/komascript/scrwfile). Further information can be
+found in [the CTAN catalog entry](https://www.ctan.org/pkg/scrwfile).

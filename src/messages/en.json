@@ -30,24 +30,24 @@
     "featuresTitle": "What KOMA-Script can do",
     "featuresSubtitle": "A comprehensive bundle of LaTeX classes and packages for demanding documents.",
     "showcaseTitle": "Clean, typographically refined, fully configurable",
-    "showcaseSubtitle": "A simple example — and your document already looks professional.",
+    "showcaseSubtitle": "A simple example, and your document already looks professional.",
     "ctaTitle": "Ready to get started?",
     "ctaSubtitle": "Install KOMA-Script and write your next document with state-of-the-art typography.",
-    "ctaPrimary": "Installation",
+    "ctaPrimary": "Read the documentation",
     "ctaSecondary": "See examples",
     "latestNews": "Latest news"
   },
   "docs": {
     "title": "Documentation",
     "subtitle": "Complete documentation of KOMA-Script classes, packages and options.",
+    "sections": "Sections",
     "onThisPage": "On this page",
     "editPage": "Edit this page",
     "lastUpdated": "Last updated",
     "categories": {
-      "installation": "Installation",
-      "getting-started": "Getting Started",
-      "classes": "Document Classes",
-      "packages": "Packages"
+      "koma-script": "The KOMA-Script bundle",
+      "archive": "Archive",
+      "koma": "KOMA"
     }
   },
   "news": {
@@ -81,6 +81,8 @@
     "subtitle": "LaTeX packages that were formerly part of KOMA-Script or originated within the KOMA-Script ecosystem.",
     "spinOffs": "Spin-Offs",
     "spinOffsDescription": "Former KOMA-Script packages now maintained as standalone projects.",
+    "enhancements": "Improvements and extensions of third-party packages",
+    "enhancementsDescription": "Packages that improve third-party packages. They become obsolete once their maintainers adopt the functionality.",
     "otherFriends": "Other Friends",
     "otherFriendsDescription": "Additional packages by the KOMA-Script author with ties to the ecosystem.",
     "deprecated": "Deprecated",

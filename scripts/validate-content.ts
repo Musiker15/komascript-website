@@ -50,7 +50,7 @@ function main() {
         });
       } else {
         if (content.trim().length < 20) {
-          console.warn(`  ⚠ ${rel} — Body sehr kurz (< 20 Zeichen)`);
+          console.warn(`  ⚠ ${rel}: Body sehr kurz (< 20 Zeichen)`);
         }
         okCount++;
       }

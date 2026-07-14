@@ -38,14 +38,14 @@ content/docs/de/classes/index.md       → /de/docs/classes
 content/docs/de/packages/index.md      → /de/docs/packages
 ```
 
-Die `index.md` wird automatisch erkannt — sie ist nicht klickbar in der
+Die `index.md` wird automatisch erkannt. Sie ist nicht klickbar in der
 Sidebar, sondern dient als Landing-Seite des jeweiligen Ordners.
 
 ---
 
 ## Eine neue Seite anlegen
 
-### Schritt 1 — Datei erstellen
+### Schritt 1: Datei erstellen
 
 ```
 content/pages/de/meine-neue-seite.md
@@ -56,7 +56,7 @@ Der **Dateiname** wird zur **URL**:
 - `meine-neue-seite.md` → `/de/meine-neue-seite`
 - `klassen/scrartcl.md` → `/de/docs/klassen/scrartcl` (im `docs`-Ordner)
 
-### Schritt 2 — Frontmatter ausfüllen
+### Schritt 2: Frontmatter ausfüllen
 
 Jede Datei beginnt mit einem **Frontmatter**-Block (YAML zwischen `---`):
 
@@ -70,7 +70,7 @@ order: 10
 Hier kommt der Inhalt …
 ```
 
-### Schritt 3 — Markdown schreiben
+### Schritt 3: Markdown schreiben
 
 ```markdown
 ## Eine Überschrift
@@ -85,7 +85,7 @@ Ein Absatz mit **fett** und *kursiv* und `Inline-Code`.
 ![Ein Bild](/images/screenshot.png)
 ```
 
-### Schritt 4 — Lokale Vorschau
+### Schritt 4: Lokale Vorschau
 
 ```bash
 pnpm dev
@@ -93,7 +93,7 @@ pnpm dev
 
 → Öffne `http://localhost:3000/de/meine-neue-seite`
 
-### Schritt 5 — Veröffentlichen
+### Schritt 5: Veröffentlichen
 
 ```bash
 git add content/pages/de/meine-neue-seite.md
@@ -114,26 +114,28 @@ Vollständige Liste aller Felder, die im Frontmatter möglich sind:
 | Feld | Pflicht | Typ | Beispiel |
 |---|---|---|---|
 | `title` | ✓ | string (max 160) | `"Installation"` |
-| `description` | – | string (max 320) | `"Wie installiere ich KOMA-Script?"` |
-| `date` | – | YYYY-MM-DD | `2026-05-09` |
-| `updated` | – | YYYY-MM-DD | `2026-05-14` |
-| `author` | – | string | `"Markus Kohm"` |
-| `order` | – | Zahl ≥ 0 (default 999) | `10` |
-| `category` | – | string | `"spin-off"`, `"classes"`, … |
-| `tags` | – | Array von Strings | `["deprecated", "no-maintainer"]` |
-| `draft` | – | true/false (default false) | `true` |
-| `toc` | – | true/false (default true) | `false` |
-| `hideTitle` | – | true/false (default false) | `true` |
-| `image` | – | Pfad | `/images/hero.png` |
-| `imageAlt` | – | string | `"Screenshot"` |
+| `description` | | string (max 320) | `"Wie installiere ich KOMA-Script?"` |
+| `date` | | YYYY-MM-DD | `2026-05-09` |
+| `updated` | | YYYY-MM-DD | `2026-05-14` |
+| `author` | | string | `"Markus Kohm"` |
+| `order` | | Zahl ≥ 0 (default 999) | `10` |
+| `category` | | string | `"spin-off"`, `"classes"`, … |
+| `tags` | | Array von Strings | `["deprecated", "no-maintainer"]` |
+| `draft` | | true/false (default false) | `true` |
+| `toc` | | true/false (default true) | `false` |
+| `hideTitle` | | true/false (default false) | `true` |
+| `image` | | Pfad | `/images/hero.png` |
+| `imageAlt` | | string | `"Screenshot"` |
+
+Leere Zelle in der Spalte „Pflicht" heißt: Feld ist optional.
 
 ### Spezialfelder erklärt
 
-- **`order`** — kleinere Werte erscheinen weiter oben in Listen und Sidebars
-- **`draft: true`** — Seite ist nur in `pnpm dev` sichtbar, nicht in Production
-- **`toc: false`** — kein „Auf dieser Seite"-Widget rechts
-- **`hideTitle: true`** — unterdrückt die automatische `<h1>` aus dem Frontmatter
-- **`category: "spin-off"`** — im Friends-Bereich landet die Seite dadurch im
+- **`order`**: kleinere Werte erscheinen weiter oben in Listen und Sidebars
+- **`draft: true`**: Seite ist nur in `pnpm dev` sichtbar, nicht in Production
+- **`toc: false`**: kein „Auf dieser Seite"-Widget rechts
+- **`hideTitle: true`**: unterdrückt die automatische `<h1>` aus dem Frontmatter
+- **`category: "spin-off"`**: im Friends-Bereich landet die Seite dadurch im
   oberen Block („Spin-Offs"). Ohne `category` landet sie unter „Andere Freunde".
 - **`tags`** im Friends-Bereich steuern die Badges in der Übersichtskarte:
   - `"deprecated"` → Badge „Veraltet"
@@ -167,7 +169,7 @@ Gefahr! Vorsichtig sein.
 </Callout>
 
 <Callout type="note">
-Eine neutrale Anmerkung — auch ideal für Zitate aus externen Quellen.
+Eine neutrale Anmerkung, auch ideal für Zitate aus externen Quellen.
 </Callout>
 ```
 
@@ -183,7 +185,7 @@ Markus Kohm selbst beschreibt das so:
 > „Das Pseudonym KOMA wurde ursprünglich einmal in gemischter
 > Groß-Kleinschreibung ‚KoMa' geschrieben …"
 
-— Quelle: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/koma/)
+Quelle: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/koma/)
 </Callout>
 ```
 
@@ -216,9 +218,9 @@ Verfügbare Props:
 
 | Prop | Pflicht | Beschreibung |
 |---|---|---|
-| `title` | – | Überschrift über dem Code-Block |
-| `filename` | – | Dateiname in der Code-Block-Leiste (default `example.tex`) |
-| `preview` | – | optionaler ReactNode für die rechte Spalte (PDF-Vorschau) |
+| `title` | optional | Überschrift über dem Code-Block |
+| `filename` | optional | Dateiname in der Code-Block-Leiste (default `example.tex`) |
+| `preview` | optional | ReactNode für die rechte Spalte (PDF-Vorschau) |
 
 ### Code-Blöcke mit Syntax-Highlighting
 
@@ -356,7 +358,7 @@ Beispiel:
 title: "marginnote"
 description: "Randbemerkungen ohne die Float-Eigenschaften von \\marginpar."
 order: 18
-category: "spin-off"            # optional — fehlt = "Andere Freunde"
+category: "spin-off"            # optional, fehlt = "Andere Freunde"
 tags: ["no-maintainer"]
 ---
 
@@ -376,7 +378,7 @@ gesucht" (durch das Tag), und das Paket landet im oberen Block „Spin-Offs"
 ### Sortierung der Übersicht
 
 - Innerhalb der beiden Blöcke (Spin-Offs / Andere Freunde) sortiert nach `order`.
-- Empfehlung: `order: 1–9` für Spin-Offs, `order: 10+` für andere Freunde
+- Empfehlung: `order` 1 bis 9 für Spin-Offs, 10 und höher für andere Freunde
   (siehe bestehende Dateien als Referenz).
 
 ---
@@ -391,7 +393,7 @@ pnpm build               # Production-Build (für Sicherheit)
 pnpm build:search        # Such-Index neu bauen (bei größeren Inhaltsänderungen)
 ```
 
-Wenn `validate:content` schief geht: Fehlermeldung lesen — sie zeigt **genau**,
+Wenn `validate:content` schief geht: Fehlermeldung lesen. Sie zeigt **genau**,
 welche Datei und welches Feld das Problem hat.
 
 ---
@@ -405,7 +407,7 @@ Mögliche Ursachen:
 1. `draft: true` im Frontmatter → ändere zu `false`
 2. Datei in der falschen Sprache → `de/` vs. `en/`
 3. Tippfehler im Dateinamen
-4. `pnpm validate:content` aufrufen — meldet Fehler
+4. `pnpm validate:content` aufrufen, das meldet Fehler
 
 ### Wie sortiere ich Doku-Seiten in der Sidebar?
 
@@ -414,7 +416,7 @@ Mögliche Ursachen:
 ### Welche Sprache wird angezeigt, wenn die englische Datei fehlt?
 
 Aktuell: 404 auf der englischen Route. Lege einfach `content/pages/en/<slug>.md` an.
-(Eine *Fallback*-Logik kann später ergänzt werden — siehe `CLAUDE.md`.)
+(Eine *Fallback*-Logik kann später ergänzt werden, siehe `CLAUDE.md`.)
 
 ### Wo finde ich alle bestehenden Slugs?
 
@@ -426,7 +428,7 @@ ls content/examples/de/
 ls content/friends/de/
 ```
 
-### Die Seite ist hinter einem Login — warum?
+### Warum ist die Seite hinter einem Login?
 
 Während der Pre-Launch-Phase steht die komplette Site hinter HTTP-Basic-Auth
 (Apache-`<Location />`-Block). Mit dem öffentlichen Launch wird der Block aus
@@ -438,11 +440,11 @@ Benutzername samt Passwort übermittelt wurde.
 
 ## Glossar
 
-- **Frontmatter** — der YAML-Block am Anfang einer Markdown-Datei (zwischen `---`)
-- **Slug** — der URL-Teil (Dateiname ohne `.md`)
-- **MDX** — Markdown + JSX-Komponenten (z. B. `<Callout>`)
-- **i18n** — Internationalisierung (DE/EN)
-- **Friend** — ein Paket, das früher zu KOMA-Script gehörte oder im selben
+- **Frontmatter**: der YAML-Block am Anfang einer Markdown-Datei (zwischen `---`)
+- **Slug**: der URL-Teil (Dateiname ohne `.md`)
+- **MDX**: Markdown + JSX-Komponenten (z. B. `<Callout>`)
+- **i18n**: Internationalisierung (DE/EN)
+- **Friend**: ein Paket, das früher zu KOMA-Script gehörte oder im selben
   Ökosystem entstanden ist (siehe `content/friends/`)
-- **LCO** — *Letter Configuration Option*; Konfigurationsdatei für `scrlttr2`
+- **LCO**: *Letter Configuration Option*, Konfigurationsdatei für `scrlttr2`
   und `scrletter`

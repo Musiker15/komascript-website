@@ -132,6 +132,7 @@ export function listNews(locale: Locale): ContentItem[] {
 export function buildDocTree(locale: Locale): DocTreeNode[] {
   const items = listAllContentItems("docs", locale);
   const root: DocTreeNode[] = [];
+  const docsRoot = path.join(CONTENT_ROOT, "docs", locale);
 
   for (const item of items) {
     let level = root;
@@ -139,15 +140,21 @@ export function buildDocTree(locale: Locale): DocTreeNode[] {
       const segment = item.slug[i];
       if (!segment) continue;
       const isLeaf = i === item.slug.length - 1;
-      if (isLeaf) {
+      const segPath = path.join(docsRoot, ...item.slug.slice(0, i + 1));
+      const isFolder = existsSync(segPath) && statSync(segPath).isDirectory();
+
+      if (isLeaf && !isFolder) {
+        // Echte Seite (z. B. faq.md)
         level.push({
           type: "page",
           name: segment,
           label: item.frontmatter.title,
           href: item.url,
+          description: item.frontmatter.description,
           order: item.frontmatter.order,
         });
       } else {
+        // Ordner, ggf. mit eigener index.md (z. B. koma-script/index.md)
         let folder = level.find((n) => n.type === "folder" && n.name === segment);
         if (!folder) {
           folder = {
@@ -158,6 +165,14 @@ export function buildDocTree(locale: Locale): DocTreeNode[] {
             children: [],
           };
           level.push(folder);
+        }
+        if (isLeaf && isFolder) {
+          // Dieses Item ist der Ordner-Index → Metadaten übernehmen,
+          // statt einen zweiten (Leaf-)Knoten zu erzeugen.
+          folder.label = item.frontmatter.title;
+          folder.href = item.url;
+          folder.description = item.frontmatter.description;
+          folder.order = item.frontmatter.order;
         }
         level = folder.children ??= [];
       }

@@ -12,7 +12,7 @@ import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 import { buildJsonLd } from "@/lib/seo";
 
 // Fonts werden vollständig lokal über das @fontsource-Paket geladen.
-// Keine Kommunikation zu Google/Adobe — weder beim Build noch zur Laufzeit.
+// Keine Kommunikation zu Google/Adobe, weder beim Build noch zur Laufzeit.
 // Die .woff2-Dateien liegen unter node_modules/@fontsource-variable/* und
 // werden von Next.js automatisch in /_next/static/media/ kopiert.
 import "@fontsource-variable/inter";
@@ -45,7 +45,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!hasLocale(SUPPORTED_LOCALES, locale)) return {};
   const l = locale as Locale;
-  const title = `${siteConfig.name} — ${siteConfig.tagline[l]}`;
+  const title = `${siteConfig.name}: ${siteConfig.tagline[l]}`;
   const description = siteConfig.description[l];
 
   return {
@@ -142,7 +142,7 @@ export default async function LocaleLayout({
 
   // CSP-Nonce aus dem Request-Header lesen (von src/proxy.ts gesetzt) und
   // an alle inline-<script>-Tags weitergeben. Der Aufruf macht die Route
-  // dynamisch (kein SSG mehr) — Trade-off für die strikte Nonce-CSP.
+  // dynamisch (kein SSG mehr), Trade-off für die strikte Nonce-CSP.
   const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   // JSON-LD: Organisation + Website

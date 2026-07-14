@@ -22,7 +22,7 @@ We aim to acknowledge reports within **72 hours** and to ship a fix within **14 
 
 This policy covers the **website code** in this repository and the **production deployment** at `https://komascript.musiker15.de`. It does **not** cover:
 
-- The LaTeX package **KOMA-Script** itself — that is maintained by Markus Kohm at <https://komascript.de> / <https://komascript.org>.
+- The LaTeX package **KOMA-Script** itself, which is maintained by Markus Kohm at <https://komascript.de> / <https://komascript.org>.
 - Third-party services linked from the site (GitHub, Codeberg, SourceForge, CTAN, Mastodon).
 - The Apache/Debian infrastructure layer beyond what's documented in `deploy/apache2/`.
 
@@ -63,9 +63,9 @@ form-action 'self';
 upgrade-insecure-requests
 ```
 
-- **No `'unsafe-inline'`** in `script-src` — every `<script>` carries the per-request nonce.
-- **`default-src 'none'`** — deny by default.
-- **No external hosts** — `connect-src 'self'`, `img-src 'self' data: blob:`.
+- **No `'unsafe-inline'`** in `script-src`. Every `<script>` carries the per-request nonce.
+- **`default-src 'none'`**: deny by default.
+- **No external hosts**: `connect-src 'self'`, `img-src 'self' data: blob:`.
 - `style-src-attr 'unsafe-inline'` is required by `next/image` and Radix-UI for inline style attributes; it is outside Mozilla Observatory's A+ scoring and considered low-risk for this content-only site.
 
 ### Other Security Headers
@@ -76,14 +76,14 @@ All set as single source of truth in [`next.config.ts`](next.config.ts):
 |---|---|
 | `X-Frame-Options` | `SAMEORIGIN` |
 | `X-Content-Type-Options` | `nosniff` |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` (HTTP header **and** `<meta name="referrer">` synchronized — see [Mozilla Observatory Issue #278](https://github.com/mozilla/http-observatory/issues/278)) |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` (HTTP header **and** `<meta name="referrer">` synchronized, see [Mozilla Observatory Issue #278](https://github.com/mozilla/http-observatory/issues/278)) |
 | `Permissions-Policy` | `camera=(), microphone=(), geolocation=(), interest-cohort=()` |
 | `Cross-Origin-Opener-Policy` | `same-origin` |
 | `Cross-Origin-Resource-Policy` | `same-origin` |
 | `Cross-Origin-Embedder-Policy` | `credentialless` |
 | `X-Permitted-Cross-Domain-Policies` | `none` |
 | `X-DNS-Prefetch-Control` | `off` |
-| `X-XSS-Protection` | **removed** (deprecated, replaced by CSP) — actively unset in the Apache vHost from both `mod_headers` tables |
+| `X-XSS-Protection` | **removed** (deprecated, replaced by CSP), actively unset in the Apache vHost from both `mod_headers` tables |
 
 The Apache vHost ([`deploy/apache2/komascript.de.conf`](deploy/apache2/komascript.de.conf)) sets **no security headers of its own**. It actively unsets the headers that `/etc/apache2/conf-enabled/security.conf` injects globally, to prevent duplicate values (the leading cause of the earlier Observatory `B−` rating).
 
@@ -98,11 +98,11 @@ The Apache vHost ([`deploy/apache2/komascript.de.conf`](deploy/apache2/komascrip
 - **No analytics** (no Google Analytics, Plausible, Matomo, etc.).
 - **No tracking pixels**, no embedded social-media widgets.
 - **No CDN scripts** (jQuery, Bootstrap, FontAwesome via CDN, etc.).
-- **No external fonts** — Inter and JetBrains Mono are bundled locally via `@fontsource-variable/*`.
-- **No external images** — `next.config.ts` `remotePatterns` is empty.
+- **No external fonts**: Inter and JetBrains Mono are bundled locally via `@fontsource-variable/*`.
+- **No external images**: `next.config.ts` `remotePatterns` is empty.
 - Strict CSP `connect-src 'self'` prevents accidental fetches to third parties.
 
-The site initiates **zero** outbound requests to external hosts on page load. External hosts are only contacted when the user explicitly clicks a link (GitHub, Codeberg, Mastodon, SourceForge, CTAN, etc.) — which is expected behavior, not tracking.
+The site initiates **zero** outbound requests to external hosts on page load. External hosts are only contacted when the user explicitly clicks a link (GitHub, Codeberg, Mastodon, SourceForge, CTAN, etc.), which is expected behavior, not tracking.
 
 ### Pre-Launch Lockdown
 
@@ -133,7 +133,7 @@ Until the public launch, the entire site is protected by an Apache `<Location />
 
 ## Known Trade-offs
 
-- **All app routes are server-rendered on demand** (`ƒ Dynamic` in the Next.js build output) instead of statically generated. This is a deliberate trade-off — a nonce-based CSP requires a fresh nonce per request, which is incompatible with static generation. The performance impact is acceptable because the MDX content is pre-compiled (no filesystem round-trip per request).
+- **All app routes are server-rendered on demand** (`ƒ Dynamic` in the Next.js build output) instead of statically generated. This is a deliberate trade-off. A nonce-based CSP requires a fresh nonce per request, which is incompatible with static generation. The performance impact is acceptable because the MDX content is pre-compiled (no filesystem round-trip per request).
 - **`style-src-attr 'unsafe-inline'`** is allowed because `next/image` and Radix-UI emit style attributes (`color:transparent`, `position:relative`). The XSS risk via style attributes is significantly lower than via scripts, and Mozilla Observatory does not penalize it.
 
 ---

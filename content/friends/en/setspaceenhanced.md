@@ -1,24 +1,18 @@
 ---
 title: "setspaceenhanced"
-description: "Standalone successor of the scrhack module for setspace — supports font sizes outside the 10/11/12 pt set."
-order: 19
-tags: ["hak"]
+description: "Makes setspace work with base font sizes beyond 10pt, 11pt and 12pt and improves its handling of font size changes inside the document."
+order: 20
+category: "enhancement"
+tags: []
 ---
 
-The package `setspaceenhanced` was originally created years ago as a hack
-module of the then KOMA-Script package [`scrhack`](/en/friends/scrhack), to
-solve an issue when using [`setspace`](https://www.ctan.org/pkg/setspace) with
-body font sizes outside the 10 pt, 11 pt and 12 pt set supported by the
-standard classes.
-
-In addition, `setspaceenhanced` responds better to font-size changes within
-the document. This enhancement can be disabled optionally.
+The `setspaceenhanced` package was created years ago as a hack module for the
+former KOMA-Script package [`scrhack`](/en/friends/scrhack) to resolve an issue that
+occurred when using [`setspace`](https://www.ctan.org/pkg/setspace) with base font sizes outside the
+sizes supported by the standard classes (10pt, 11pt, and 12pt). In addition,
+the `setspaceenhanced` package also handles font size changes within the
+document more effectively. This enhancement can be optionally disabled.
 
 The package is part of the “Third Party Enhancements” hosted on
-[GitHub](https://github.com/komascript/third-party-enhancements). See the
-[CTAN catalogue entry](https://www.ctan.org/pkg/setspaceenhanced) for more.
-
-<Callout type="info">
-There is still some hope that this package will eventually become unnecessary —
-namely when the original package's maintainer adopts the functionality.
-</Callout>
+[GitHub](https://github.com/komascript/third-party-enhancements). Further
+information can be found in [the CTAN catalog entry](https://www.ctan.org/pkg/setspaceenhanced).

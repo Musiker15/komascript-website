@@ -7,7 +7,7 @@ import { SiteConfigSchema, type SiteConfig } from "@/types/config";
  * Hier werden globale Metadaten der Seite gepflegt: Name, Beschreibung, URL,
  * Version, Lizenz, Autor, Repository-Links und SEO-Defaults.
  *
- * Diese Datei darf gefahrlos editiert werden — alle Werte werden beim Start
+ * Diese Datei darf gefahrlos editiert werden, alle Werte werden beim Start
  * automatisch per Zod validiert, Fehler werden im Terminal angezeigt.
  * ============================================================================
  */
@@ -20,8 +20,8 @@ const config = {
   description: {
     // de: "KOMA-Script ist eine Sammlung von LaTeX-Klassen und Paketen, die seit 1992 als moderne, hochkonfigurierbare Alternative zu den Standard-Klassen entwickelt wird.",
     // en: "KOMA-Script is a bundle of versatile LaTeX classes and packages, developed since 1992 as a modern, highly configurable alternative to the standard classes.",
-    de: "Reine Portfolio-Übung, vollständig selbst entwickelt. Kein offizieller Auftritt – die Website steht in keinem Zusammenhang mit dem LaTeX-Paket KOMA-Script und wird auch nicht von dessen Entwicklern betrieben.",
-    en: "This is purely a portfolio project, developed entirely on my own. This is not an official site—the website is in no way affiliated with the LaTeX package KOMA-Script and is not operated by its developers.",
+    de: "Reine Portfolio-Übung, vollständig selbst entwickelt. Kein offizieller Auftritt. Die Website steht in keinem Zusammenhang mit dem LaTeX-Paket KOMA-Script und wird auch nicht von dessen Entwicklern betrieben.",
+    en: "This is purely a portfolio project, developed entirely on my own. This is not an official site. The website is in no way affiliated with the LaTeX package KOMA-Script and is not operated by its developers.",
   },
 
   // Öffentliche Basis-URL (ohne trailing Slash)
@@ -35,7 +35,7 @@ const config = {
 
   // Aktuelle KOMA-Script-Version (wird auch im Footer & VersionBadge angezeigt)
   currentVersion: "3.49.2",
-  versionDate: "2026-05-09",
+  versionDate: "2026-02-02",
 
   license: "LPPL 1.3c",
 

@@ -1,6 +1,7 @@
 import type { MDXComponents as MDXComponentsType } from "mdx/types";
 import Link from "next/link";
 import { Callout } from "./Callout";
+import { Details } from "./Details";
 import { LatexExample } from "./LatexExample";
 import { isExternal } from "@/lib/utils";
 
@@ -10,6 +11,7 @@ import { isExternal } from "@/lib/utils";
 export const mdxComponents: MDXComponentsType = {
   // Custom-Komponenten direkt in MDX nutzbar
   Callout,
+  Details,
   LatexExample,
 
   // Links: interne → next/link, externe → mit rel & target

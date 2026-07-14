@@ -14,9 +14,9 @@ LaTeX-Pakete entworfen wurde.
 
 ### Was darfst Du?
 
-✅ KOMA-Script **frei verwenden** — privat, in der Forschung, kommerziell.
-✅ Es **weiterverteilen** — alleine oder als Teil einer Sammlung.
-✅ Es **modifizieren** — sofern Du Dich an die Bedingungen der LPPL hältst.
+✅ KOMA-Script **frei verwenden**, privat, in der Forschung und kommerziell.
+✅ Es **weiterverteilen**, alleine oder als Teil einer Sammlung.
+✅ Es **modifizieren**, sofern Du Dich an die Bedingungen der LPPL hältst.
 
 ### Was ist zu beachten?
 

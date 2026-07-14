@@ -4,13 +4,13 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 
 // =============================================================================
-// Security-Header — Single Source of Truth (außer CSP)
+// Security-Header: Single Source of Truth (außer CSP)
 // -----------------------------------------------------------------------------
 // Alle "statischen" Security-Header (HSTS, X-Frame-Options, X-Content-Type-
 // Options, Referrer-Policy, Permissions-Policy, COOP, CORP, COEP, XPCDP,
 // X-DNS-Prefetch-Control) werden hier zentral gesetzt.
 //
-// Die Content-Security-Policy ist NICHT hier — sie wird pro Request in der
+// Die Content-Security-Policy ist NICHT hier, sie wird pro Request in der
 // Middleware (src/proxy.ts) mit einem frischen Nonce generiert und über
 // `'strict-dynamic'` durchgesetzt. Das ist die Observatory-konforme
 // Variante ohne `'unsafe-inline'` in script-src.
@@ -23,10 +23,10 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   // Mozilla Observatorys Whitelist scheint nur einen einzigen Wert sauber
-  // zu erkennen — den, den sie selbst im UI explizit empfehlen
+  // zu erkennen, nämlich den, den sie selbst im UI explizit empfehlen
   // (`strict-origin-when-cross-origin`). Andere laut MDN/scoring.md sichere
   // Werte (`no-referrer`, `strict-origin`) werden fälschlich −5 bewertet.
-  // Wir folgen der Recommendation, um den Test-Bug zu umgehen — der Wert
+  // Wir folgen der Recommendation, um den Test-Bug zu umgehen. Der Wert
   // ist trotzdem ein moderner Standard (Browser-Default in Chromium/Firefox).
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   {
@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
 
-  // Bild-Optimierung — KEINE remotePatterns, damit kein Server- oder Client-Fetch
+  // Bild-Optimierung: KEINE remotePatterns, damit kein Server- oder Client-Fetch
   // zu externen Hosts möglich ist. Alle Bilder müssen in /public/images/ liegen.
   // Falls Du später externe Bilder erlauben willst: remotePatterns explizit ergänzen.
   images: {
@@ -70,7 +70,7 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // Globale HTTP-Header — Single Source of Truth für Security-Headers.
+  // Globale HTTP-Header: Single Source of Truth für Security-Headers.
   // Apache vHost setzt keine eigenen mehr (siehe deploy/apache2/komascript.de.conf).
   async headers() {
     return [

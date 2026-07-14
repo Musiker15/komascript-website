@@ -70,7 +70,7 @@ export default async function DocPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleLd }} />
 
       <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)_14rem]">
-        {/* Sidebar — Doc-Baum */}
+        {/* Sidebar: Doc-Baum */}
         <aside className="hidden lg:block lg:sticky lg:top-20 lg:max-h-[calc(100dvh-6rem)] lg:overflow-y-auto">
           <DocSidebar tree={tree} />
         </aside>

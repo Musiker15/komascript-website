@@ -8,8 +8,9 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind v4](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 
-> ⚠️ Inhaltlich handelt es sich um ein Portfolio-Projekt von Moritz Kohm — 
-> **kein offizieller KOMA-Script-Auftritt** und nicht von dessen Entwicklern betrieben.
+> ⚠️ Inhaltlich handelt es sich um ein Portfolio-Projekt von Moritz Kohm.
+> Es ist **kein offizieller KOMA-Script-Auftritt** und wird nicht von dessen
+> Entwicklern betrieben.
 
 ---
 
@@ -18,13 +19,13 @@
 - **Next.js 16 + Turbopack** mit App-Router & Server Components
 - **TypeScript** strikt typisiert
 - **Tailwind CSS v4** (CSS-First-Config) inkl. Typography-Plugin
-- **Markdown / MDX-Content** — neue Seiten werden als `.md`-Dateien angelegt
+- **Markdown / MDX-Content**: neue Seiten werden als `.md`-Dateien angelegt
 - **Mehrsprachig** (Deutsch primär, Englisch sekundär) via `next-intl`
 - **Light / Dark / System-Theme** via `next-themes`
 - **Volltextsuche** (Cmd/Ctrl+K) auf Basis eines Build-Time-Index
-- **Voll konfigurierbar** über `config/*.ts` — Navbar, Footer, Site-Metadaten
-- **SEO-stark** — OpenGraph, JSON-LD, Sitemap, hreflang, robots
-- **Strikt datenschutzkonform** — keine externen Fonts/Skripte, Nonce-basierte CSP mit `'strict-dynamic'` (Mozilla Observatory: **A+**)
+- **Voll konfigurierbar** über `config/*.ts`: Navbar, Footer, Site-Metadaten
+- **SEO-stark**: OpenGraph, JSON-LD, Sitemap, hreflang, robots
+- **Strikt datenschutzkonform**: keine externen Fonts/Skripte, Nonce-basierte CSP mit `'strict-dynamic'` (Mozilla Observatory: **A+**)
 - **Apache2 + systemd** ready (Debian, Reverse-Proxy auf Loopback :3100)
 
 ---
@@ -129,8 +130,8 @@ Frontmatter-Felder steuern Übersicht und Badges:
 title: "paketname"
 description: "Was das Paket tut."
 order: 25
-category: "spin-off"            # optional — sortiert in den oberen Block
-tags: ["deprecated"]            # optional — steuert Badges (s. AUTHORING.md)
+category: "spin-off"            # optional, sortiert in den oberen Block
+tags: ["deprecated"]            # optional, steuert Badges (s. AUTHORING.md)
 ---
 ```
 
@@ -141,7 +142,7 @@ speichern. Fertig.
 
 ### Footer-Spalten ändern
 
-`config/footer.config.ts` — Spalten und Links pflegen. Das Flag `showPrivate`
+`config/footer.config.ts` öffnen und dort Spalten und Links pflegen. Das Flag `showPrivate`
 schaltet den Portfolio-Disclaimer ein/aus.
 
 ### Aktuelle Version aktualisieren
@@ -239,10 +240,10 @@ Fallback auf die letzten 5 Releases unter `/opt/komascript/releases/`.
   Scripts. `default-src 'none'`, `object-src 'none'`, `img-src 'self' data:
   blob:`, `connect-src 'self'`, `font-src 'self' data:`.
 - **Single Source of Truth** für alle übrigen Security-Header in
-  [next.config.ts](./next.config.ts) — Apache vHost setzt keine eigenen,
+  [next.config.ts](./next.config.ts). Der Apache vHost setzt keine eigenen,
   sondern entfernt nur die von `security.conf` global gesetzten
   (verhindert Doppelungen). `X-XSS-Protection` (veraltet) wird aktiv
-  entfernt — CSP übernimmt die Schutzfunktion.
+  entfernt, die Schutzfunktion übernimmt die CSP.
 - **HSTS preload** (`max-age=63072000; includeSubDomains; preload`),
   Referrer-Policy `strict-origin`, Permissions-Policy, COOP / CORP / COEP
   `credentialless`.
@@ -251,7 +252,7 @@ Fallback auf die letzten 5 Releases unter `/opt/komascript/releases/`.
 - **Keine Analytics, kein Tracking, keine Cookies** im rechtlichen Sinn.
 - **Pre-Launch**: zusätzliche HTTP-Basic-Auth-Schicht vor jedem Request.
 
-**Trade-off:** Alle App-Routes werden dynamisch gerendert (kein SSG) —
+**Trade-off:** Alle App-Routes werden dynamisch gerendert (kein SSG). Das ist
 notwendig, damit jeder Request einen frischen Nonce erhält. Statisch
 bleiben nur `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`.
 
@@ -261,18 +262,18 @@ Details: Abschnitt „Datenschutz-Audit" in [CLAUDE.md](./CLAUDE.md).
 
 ## 📚 Weiterführende Doku
 
-- [CLAUDE.md](./CLAUDE.md) — vollständige Architektur, Status & Roadmap
-- [AUTHORING.md](./AUTHORING.md) — Markdown-Anleitung für Content-Pflege
-- [deploy/](./deploy/) — Apache2 vHost & systemd-Service
-- [SECURITY.md](./SECURITY.md) — Verantwortlicher Umgang mit Sicherheits­meldungen
+- [CLAUDE.md](./CLAUDE.md): vollständige Architektur, Status & Roadmap
+- [AUTHORING.md](./AUTHORING.md): Markdown-Anleitung für Content-Pflege
+- [deploy/](./deploy/): Apache2 vHost & systemd-Service
+- [SECURITY.md](./SECURITY.md): Verantwortlicher Umgang mit Sicherheits­meldungen
 
 ---
 
 ## 📄 Lizenz
 
-**Copyright © 2026 MSK Scripts — Alle Rechte vorbehalten.**
+**Copyright © 2026 MSK Scripts. Alle Rechte vorbehalten.**
 
-Dieses Projekt steht unter der **MSK Source Available License (MSK-SAL) v1.0** —
+Dieses Projekt steht unter der **MSK Source Available License (MSK-SAL) v1.0**,
 einer proprietären „Source Available"-Lizenz. Der Quellcode ist **einsehbar**,
 aber **nicht frei nutzbar**.
 
@@ -291,7 +292,7 @@ Erlaubt (ohne weitere Genehmigung):
 Untersagt (ohne ausdrückliche schriftliche Genehmigung):
 Kopieren · abgeleitete Werke · öffentlicher Betrieb · kommerzielle Verwertung ·
 Weitergabe · Design-Nachahmung · Reverse Engineering · Entfernen von
-Urheberrechtshinweisen — siehe § 3 der Lizenz für die vollständige Liste.
+Urheberrechtshinweisen. Die vollständige Liste steht in § 3 der Lizenz.
 
 Für kommerzielle Lizenzen, Kooperationen oder Nutzungen außerhalb des
 gestatteten Rahmens: `info@msk-scripts.de` (Betreff: `MSK License Request`).

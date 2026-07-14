@@ -4,16 +4,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ============================================================================
-   KOMA-Script Design-Tokens (Tailwind v4 — CSS-First Config)
+   KOMA-Script Design-Tokens (Tailwind v4, CSS-First Config)
    ============================================================================ */
 @theme {
-  /* Typografie — Fonts werden 100% lokal über @fontsource-variable geladen
+  /* Typografie: Fonts werden 100% lokal über @fontsource-variable geladen
      (siehe imports in app/[locale]/layout.tsx). Keine externe Kommunikation. */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-  /* Farben — Light Mode (Tokens) */
+  /* Farben: Light Mode (Tokens) */
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
   --color-muted: #f4f4f5;
@@ -292,10 +292,10 @@
 }
 
 /* ============================================================================
-   Komponenten-Klassen (ehemals inline-styles — für strikte CSP nötig)
+   Komponenten-Klassen (ehemals inline-styles, für strikte CSP nötig)
    ============================================================================ */
 
-/* Hero-Background — radialer Akzent-Gradient hinter dem Hero-Text.
+/* Hero-Background: radialer Akzent-Gradient hinter dem Hero-Text.
    Ersetzt das ehemalige inline `style={{ background: "radial-gradient(...)" }}`
    in src/components/home/Hero.tsx, damit CSP `style-src` ohne 'unsafe-inline'
    auskommt. */
@@ -307,7 +307,7 @@
   );
 }
 
-/* Root-404-Page (src/app/not-found.tsx) — eigene Klassen, weil die Page
+/* Root-404-Page (src/app/not-found.tsx): eigene Klassen, weil die Page
    außerhalb von [locale]/ liegt und keinen Zugriff auf das Layout-CSS hat.
    Tailwind wird via Import von globals.css verfügbar gemacht. */
 .notfound-page-body {

@@ -27,7 +27,7 @@ const config = {
       icon: "Mail",
       title: { de: "Briefklasse scrlttr2", en: "Letter Class scrlttr2" },
       description: {
-        de: "Hochkonfigurierbare Briefe nach DIN, US, Schweiz, Frankreich und Japan — mit Sprach- und Layoutvarianten.",
+        de: "Hochkonfigurierbare Briefe nach DIN, US, Schweiz, Frankreich und Japan, mit Sprach- und Layoutvarianten.",
         en: "Highly configurable letters following DIN, US, Swiss, French and Japanese conventions.",
       },
     },
@@ -43,24 +43,24 @@ const config = {
       icon: "Layers",
       title: { de: "scrlayer für Kopf-/Fußzeilen", en: "scrlayer for Headers/Footers" },
       description: {
-        de: "Vollständig in KOMA-Script integriertes Layer-System für komplexe Kopf- und Fußzeilen — etablierte Alternative zu fancyhdr.",
-        en: "Fully integrated layer system for complex headers and footers — an established alternative to fancyhdr.",
+        de: "Vollständig in KOMA-Script integriertes Layer-System für komplexe Kopf- und Fußzeilen. Etablierte Alternative zu fancyhdr.",
+        en: "Fully integrated layer system for complex headers and footers. An established alternative to fancyhdr.",
       },
     },
     {
       icon: "Languages",
       title: { de: "Mehrsprachig", en: "Multilingual" },
       description: {
-        de: "Vollständige Unterstützung für Deutsch, Englisch und viele weitere Sprachen — inkl. babel und polyglossia.",
-        en: "Full support for German, English and many other languages — including babel and polyglossia.",
+        de: "Vollständige Unterstützung für Deutsch, Englisch und viele weitere Sprachen, inklusive babel und polyglossia.",
+        en: "Full support for German, English and many other languages, including babel and polyglossia.",
       },
     },
     {
       icon: "Settings",
       title: { de: "Hohe Konfigurierbarkeit", en: "Highly Configurable" },
       description: {
-        de: "Hunderte von Optionen über \\KOMAoption{} — vom Schriftgrad bis zum Kapitellayout.",
-        en: "Hundreds of options via \\KOMAoption{} — from font size to chapter layout.",
+        de: "Hunderte von Optionen über \\KOMAoption{}, vom Schriftgrad bis zum Kapitellayout.",
+        en: "Hundreds of options via \\KOMAoption{}, from font size to chapter layout.",
       },
     },
     {
@@ -75,8 +75,8 @@ const config = {
       icon: "Award",
       title: { de: "Bewährter Standard", en: "Proven Standard" },
       description: {
-        de: "Seit 1992 aktiv entwickelt — heute eine der meistgenutzten LaTeX-Klassen weltweit.",
-        en: "Actively developed since 1992 — today one of the most widely used LaTeX class bundles worldwide.",
+        de: "Seit 1992 aktiv entwickelt und heute eine der meistgenutzten LaTeX-Klassen weltweit.",
+        en: "Actively developed since 1992 and today one of the most widely used LaTeX class bundles worldwide.",
       },
     },
   ],

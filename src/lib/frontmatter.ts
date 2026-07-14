@@ -2,7 +2,7 @@ import { z } from "zod";
 
 /**
  * Schema für YAML-Frontmatter aller Markdown-Dateien unter content/.
- * Wird im Loader bei jedem Aufruf geprüft — invaliden Content findet man sofort.
+ * Wird im Loader bei jedem Aufruf geprüft, so findet man invaliden Content sofort.
  */
 export const FrontmatterSchema = z.object({
   title: z.string().min(1).max(160),

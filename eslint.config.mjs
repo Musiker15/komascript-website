@@ -1,10 +1,10 @@
 // =============================================================================
-// ESLint v9 — Native Flat Config
+// ESLint v9: Native Flat Config
 // -----------------------------------------------------------------------------
 // Wir nutzen NICHT eslint-config-next, weil dessen Compat-Schicht mit
 // @eslint/eslintrc.FlatCompat in v16 zirkuläre Plugin-Referenzen produziert.
 // Die wichtigsten Next.js-spezifischen Checks (img-element, link-passhref, etc.)
-// macht Next.js bereits zur Build-Zeit selbst — die Lint-Stufe deckt hier
+// macht Next.js bereits zur Build-Zeit selbst. Die Lint-Stufe deckt hier
 // hauptsächlich allgemeine TypeScript-Sauberkeit ab.
 // =============================================================================
 
@@ -13,7 +13,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    // Globale Ignores — werden auf ALLE Dateien angewendet
+    // Globale Ignores, werden auf ALLE Dateien angewendet
     ignores: [
       ".next/**",
       "out/**",
@@ -39,7 +39,7 @@ export default tseslint.config(
       "@typescript-eslint/no-explicit-any": "warn",
       // Empty-Object-Type in Interface-Erweiterungen ist OK
       "@typescript-eslint/no-empty-object-type": "off",
-      // Wir brauchen keinen no-undef in TS-Dateien — TypeScript erledigt das selbst
+      // Wir brauchen keinen no-undef in TS-Dateien, TypeScript erledigt das selbst
       "no-undef": "off",
     },
   },

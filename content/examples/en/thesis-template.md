@@ -76,5 +76,5 @@ between for the bibliography). LuaLaTeX requires neither `inputenc` nor
 your system via `fontspec`.
 
 More ready-made templates for typical document types (German):
-[KOMA-Script wiki — HowTo Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
+[KOMA-Script wiki: HowTo Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
 </Callout>

@@ -19,8 +19,8 @@ Germany
 ## General
 
 This website processes only the data strictly necessary for operation. There are
-**no cookies**, **no tracking**, **no analytics**, and **no external resources** —
-fonts, scripts, images, and stylesheets are served exclusively from our own server.
+**no cookies**, **no tracking**, **no analytics**, and **no external resources**.
+Fonts, scripts, images, and stylesheets are served exclusively from our own server.
 
 ## Hosting
 
@@ -39,7 +39,7 @@ When visiting this website, technical data is stored in server logs:
 - referrer
 
 This data is processed exclusively for **technical troubleshooting** and **attack
-defence** (legal basis: Art. 6 (1) lit. f GDPR — legitimate interest in stable and
+defence** (legal basis: Art. 6 (1) lit. f GDPR, legitimate interest in stable and
 secure operation of the website). It is automatically deleted after **at most 14
 days**. Log data is not combined with other data sources.
 
@@ -78,7 +78,7 @@ You have the right at any time to:
 - **Restriction** (Art. 18 GDPR)
 - **Data portability** (Art. 20 GDPR)
 - **Objection** (Art. 21 GDPR)
-- **Complaint** to a supervisory authority (Art. 77 GDPR) — the competent
+- **Complaint** to a supervisory authority (Art. 77 GDPR). The competent
   authority is the data protection authority of the German federal state in
   which the controller resides.
 

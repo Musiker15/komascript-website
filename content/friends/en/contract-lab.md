@@ -1,27 +1,24 @@
 ---
 title: "contract-lab"
-description: "Experimental successor project to contract — currently private."
-order: 10
+description: "Internal experiment exploring what a contract package could look like on top of the still-evolving latex-lab code."
+order: 30
+category: "other"
 tags: ["experimental"]
 ---
 
-The package `contract-lab` is currently only an internal experiment. The
-background is that since 2026 LaTeX behaves drastically differently when the
-command `\DocumentMetadata` is set (before `\documentclass`). Increasingly,
-many parts of the LaTeX kernel for class and package authors are then replaced
-by the still-evolving
-[`latex-lab`](https://www.ctan.org/pkg/latex-lab). The current release can
-already differ substantially from the development version
-[`latex-lab-dev`](https://www.ctan.org/pkg/latex-lab-dev). As long as this
-remains unstable on the kernel side, it does not make sense to publish the
-experiment on [CTAN](https://www.ctan.org).
+The `contract-lab` package is currently just an internal experiment. The
+reason for this experiment is that, starting in 2026, LaTeX works very
+differently when the `\DocumentMetadata` command (placed before
+`\documentclass`) is set. An increasing number of parts of the LaTeX
+core for class and package authors is then replaced by the
+still-under-development [`latex-lab`](https://www.ctan.org/pkg/latex-lab). The current version may already
+differ significantly from the current developer version [`latex-lab-dev`](https://www.ctan.org/pkg/latex-lab-dev). As long as the whole thing on the LaTeX core side is
+not at least somewhat stable, it seems to make little sense to make the
+experiment itself available on [CTAN](https://www.ctan.org).
 
-Whether this will eventually result in a package with similar functionality to
-[`contract`](/en/friends/contract), something entirely different, or nothing
-at all cannot be said at this time. The project is currently hosted *privately*
-on [Codeberg](https://codeberg.org/komascript/contract-lab). Access is
-restricted to privileged users involved in the development.
-
-<Callout type="info">
-This package is experimental and not (yet) publicly available.
-</Callout>
+Whether this will ultimately result in a package with functionality similar to
+[`contract`](/en/friends/contract), something completely different, or even nothing at
+all, is also impossible to say at this point. Currently the project is hosted
+*privately* at
+[Codeberg](https://codeberg.org/komascript/contract-lab). Currently, only
+privileged users involved in the development have access permission.

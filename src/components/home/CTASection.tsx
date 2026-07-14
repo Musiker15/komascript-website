@@ -23,7 +23,7 @@ export function CTASection({ locale }: Props) {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" variant="primary">
-              <Link href={`/${locale}/docs/installation`}>
+              <Link href={`/${locale}/docs`}>
                 {t("ctaPrimary")}
                 <ArrowRight className="h-4 w-4" />
               </Link>

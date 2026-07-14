@@ -7,7 +7,7 @@ Dateien in diesem Ordner werden **unverändert** unter `/` ausgeliefert.
 | Datei | Status | Hinweis |
 |---|---|---|
 | `favicon.svg` | ✓ vorhanden | KOMA-K Logo |
-| `favicon.ico` | ⚠ fehlt | klassisches 32×32 Favicon — von `favicon.svg` ableiten |
+| `favicon.ico` | ⚠ fehlt | klassisches 32×32 Favicon, von `favicon.svg` ableiten |
 | `apple-touch-icon.png` | ⚠ fehlt | 180×180 PNG für iOS-Startbildschirm |
 | `android-chrome-192x192.png` | ⚠ fehlt | PWA-Icon klein |
 | `android-chrome-512x512.png` | ⚠ fehlt | PWA-Icon groß |

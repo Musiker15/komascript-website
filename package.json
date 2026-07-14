@@ -2,7 +2,7 @@
   "name": "komascript-homepage",
   "version": "1.0.0",
   "private": true,
-  "description": "Offizielle Homepage für KOMA-Script — vielseitige LaTeX-Klassen und Pakete",
+  "description": "Offizielle Homepage für KOMA-Script, vielseitige LaTeX-Klassen und Pakete",
   "license": "MIT",
   "author": "Markus Kohm",
   "type": "module",

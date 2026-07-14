@@ -1,21 +1,21 @@
 # MSK SOURCE AVAILABLE LICENSE (MSK-SAL)
-### Version 1.0 — 2026
+### Version 1.0 (2026)
 
-> **Copyright (c) 2026 MSK Scripts — All Rights Reserved.**
+> **Copyright (c) 2026 MSK Scripts. All Rights Reserved.**
 
 This license governs the use, access, and distribution of all contents of
-**this repository** — including but not limited to source code, designs,
+**this repository**, including but not limited to source code, designs,
 graphics, user interfaces, logic, configuration files, scripts, and assets
 (hereinafter referred to as "the Project").
 
-By accessing this repository — whether by cloning, forking, reading, or any
-other means — you agree to the terms and conditions set forth below.
+By accessing this repository, whether by cloning, forking, reading, or any
+other means, you agree to the terms and conditions set forth below.
 
 📄 [License (EN)](LICENSE.md) · [License (DE)](LICENSE_DE.md)
 
 ---
 
-## § 1 — Definitions
+## § 1: Definitions
 
 | Term | Definition |
 |---|---|
@@ -27,29 +27,29 @@ other means — you agree to the terms and conditions set forth below.
 
 ---
 
-## § 2 — Granted Rights
+## § 2: Granted Rights
 
 Subject to the restrictions in § 3, the Author grants you a **limited, non-exclusive, non-transferable, revocable right** to:
 
 - **(a)** read and view the source code;
 - **(b)** run the Project locally on your own device solely for private, non-commercial study purposes;
 - **(c)** submit issues (bug reports) in the official repository;
-- **(d)** submit pull requests that explicitly benefit the Project — whereby all submitted contributions transfer fully to the Author (see § 4).
+- **(d)** submit pull requests that explicitly benefit the Project, whereby all submitted contributions transfer fully to the Author (see § 4).
 
 ---
 
-## § 3 — Prohibited Actions
+## § 3: Prohibited Actions
 
 Without the express, written permission of the Author, the following actions are expressly **PROHIBITED**:
 
 ### 3.1 Copying & Reproduction
-Any complete or partial reproduction of the source code, designs, user interfaces, or logic — regardless of whether it is verbatim or in modified form.
+Any complete or partial reproduction of the source code, designs, user interfaces, or logic, regardless of whether it is verbatim or in modified form.
 
 ### 3.2 Derivative Works
 The creation of works that are based on, derived from, or contain substantial portions of the Project, including restructurings, translations, or ports to other programming languages.
 
 ### 3.3 Public Operation
-The public operation, hosting, or provision of the Project or substantial parts thereof as a service, bot, website, API, or in any other form to third parties — regardless of whether free of charge or paid.
+The public operation, hosting, or provision of the Project or substantial parts thereof as a service, bot, website, API, or in any other form to third parties, regardless of whether free of charge or paid.
 
 ### 3.4 Commercial Exploitation
 Any commercial use, in particular:
@@ -58,10 +58,10 @@ Any commercial use, in particular:
 - (c) monetizing through advertising, subscriptions, or donations based on the Project without express consent.
 
 ### 3.5 Distribution & Redistribution
-The distribution of source code, binaries, configurations, or other components to third parties — neither publicly nor privately.
+The distribution of source code, binaries, configurations, or other components to third parties, neither publicly nor privately.
 
 ### 3.6 Design Imitation
-The deliberate imitation, copying, or recreation of the visual design, UI layouts, color schemes, animations, or other aesthetic elements of the Project — even if no source code is directly copied.
+The deliberate imitation, copying, or recreation of the visual design, UI layouts, color schemes, animations, or other aesthetic elements of the Project, even if no source code is directly copied.
 
 ### 3.7 Reverse Engineering
 The reverse engineering, decompilation, or analysis of the Project with the aim of reproducing the underlying algorithms, structures, or business logic for one's own purposes.
@@ -74,7 +74,7 @@ The transfer, sublicensing, or assignment of the rights granted under § 2 to th
 
 ---
 
-## § 4 — Contributions
+## § 4: Contributions
 
 If you submit a contribution (e.g., pull request, patch, code suggestion):
 
@@ -84,31 +84,31 @@ If you submit a contribution (e.g., pull request, patch, code suggestion):
 
 ---
 
-## § 5 — Disclaimer of Warranties & Liability
+## § 5: Disclaimer of Warranties & Liability
 
 > **THE PROJECT IS PROVIDED "AS IS"**, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT OF THIRD-PARTY RIGHTS.
 >
-> IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO LOSS OF DATA, LOSS OF PROFITS, OR BUSINESS INTERRUPTION) ARISING OUT OF OR IN CONNECTION WITH THE USE OR INABILITY TO USE THE PROJECT — EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+> IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO LOSS OF DATA, LOSS OF PROFITS, OR BUSINESS INTERRUPTION) ARISING OUT OF OR IN CONNECTION WITH THE USE OR INABILITY TO USE THE PROJECT, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 ---
 
-## § 6 — License Violations & Enforcement
+## § 6: License Violations & Enforcement
 
 - **6.1** Upon any violation of this license, all rights granted under § 2 shall **terminate automatically and without notice**.
-- **6.2** The Author reserves the right, in the event of license violations, to: (a) assert injunctive relief, (b) claim damages — including lost profits, (c) demand the removal of infringing content from platforms, (d) pursue further legal action under applicable law.
+- **6.2** The Author reserves the right, in the event of license violations, to: (a) assert injunctive relief, (b) claim damages, including lost profits, (c) demand the removal of infringing content from platforms, (d) pursue further legal action under applicable law.
 - **6.3** Failure to pursue a violation does not constitute a waiver of the right to pursue it at a later time.
 
 ---
 
-## § 7 — Governing Law & Jurisdiction
+## § 7: Governing Law & Jurisdiction
 
 - **7.1** This license shall be governed by and construed in accordance with the laws of the **Federal Republic of Germany**, excluding the UN Convention on Contracts for the International Sale of Goods (CISG).
-- **7.2** The exclusive place of jurisdiction for all disputes arising from or in connection with this license shall be — to the extent permitted by law — the Author's place of residence or business.
+- **7.2** The exclusive place of jurisdiction for all disputes arising from or in connection with this license shall be, to the extent permitted by law, the Author's place of residence or business.
 - **7.3** Should any provision of this license be or become wholly or partially invalid or unenforceable, the validity of the remaining provisions shall remain unaffected. The invalid provision shall be replaced by a valid provision that most closely achieves the economic purpose of the original **(Severability Clause)**.
 
 ---
 
-## § 8 — Licensing Inquiries
+## § 8: Licensing Inquiries
 
 For commercial licenses, collaborations, white-label requests, or any use beyond the scope of § 2, please contact:
 
@@ -119,7 +119,7 @@ Requests are typically answered within 7 business days.
 
 ---
 
-## § 9 — Amendments to this License
+## § 9: Amendments to this License
 
 The Author reserves the right to update this license at any time. The most current version is available in the repository under the path `LICENSE.md`. For already concluded usage agreements, the version valid at the time of conclusion shall apply.
 
@@ -127,7 +127,7 @@ The Author reserves the right to update this license at any time. The most curre
 
 <div align="center">
 
-**Copyright (c) 2026 MSK Scripts — All Rights Reserved.**
+**Copyright (c) 2026 MSK Scripts. All Rights Reserved.**
 
 *This project is not an open-source project.*  
 *The source code is viewable, but not freely usable.*  

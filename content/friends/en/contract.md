@@ -1,17 +1,16 @@
 ---
 title: "contract"
-description: "Spin-off from KOMA-Script (formerly scrjura) — standalone package for typesetting legal contracts."
-order: 1
+description: "KOMA-Script spin-off, formerly named scrjura, now an independent package for typesetting contracts."
+order: 10
 category: "spin-off"
 tags: []
 ---
 
-The package `contract` is a spin-off from KOMA-Script. While it was part of
-KOMA-Script, it was called `scrjura`. As part of splitting KOMA-Script into
-smaller projects, it became a standalone project.
+This package `contract` is a KOMA-Script spin-off. As long as the package was
+part of KOMA-Script it was named `scrjura`. As part of the process of breaking
+KOMA-Script down into smaller projects, it became an independent project. The
+project is hosted at
+[Codeberg](https://codeberg.org/komascript/latex-contract). For more
+information see [the CTAN Catalogue entry](https://www.ctan.org/pkg/contract).
 
-The project is hosted on
-[Codeberg](https://codeberg.org/komascript/latex-contract). More information
-can be found in the [CTAN catalogue entry](https://www.ctan.org/pkg/contract).
-
-See also the experimental successor package [`contract-lab`](/en/friends/contract-lab).
+See also the experimentel new contract package [`contract-lab`](/en/friends/contract-lab).

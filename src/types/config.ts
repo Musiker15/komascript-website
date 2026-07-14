@@ -6,7 +6,7 @@ import { z } from "zod";
 export const SUPPORTED_LOCALES = ["de", "en"] as const;
 export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
-// I18n-String: entweder ein String (für beide Sprachen identisch — z.B. Eigennamen
+// I18n-String: entweder ein String (für beide Sprachen identisch, z.B. Eigennamen
 // wie "GitHub") oder ein Objekt mit allen Sprachen.
 export const I18nStringSchema = z.union([
   z.string(),

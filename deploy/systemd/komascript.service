@@ -1,5 +1,5 @@
 # =============================================================================
-# systemd-Service — KOMA-Script Homepage (Next.js 16)
+# systemd-Service für die KOMA-Script Homepage (Next.js 16)
 # -----------------------------------------------------------------------------
 # Datei:       /etc/systemd/system/komascript.service
 # App-Pfad:    /opt/komascript/
@@ -10,7 +10,7 @@
 # Hinweis: Dieser Service läuft *eigenständig* (nicht über PM2), damit Restart-
 # und Boot-Verhalten direkt von systemd verwaltet wird. PM2 wird hier nicht
 # benötigt; falls der bestehende pm2-komascript.service parallel läuft, sollte
-# komascript dort *nicht* registriert werden — sonst kollidieren beide um Port 3100.
+# komascript dort *nicht* registriert werden, sonst kollidieren beide um Port 3100.
 #
 # Installation:
 #   sudo cp deploy/systemd/komascript.service /etc/systemd/system/

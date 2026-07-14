@@ -31,7 +31,10 @@ export default async function FriendsIndexPage({ params }: Props) {
   );
 
   const spinOffs = items.filter((i) => i.frontmatter.category === "spin-off");
-  const others = items.filter((i) => i.frontmatter.category !== "spin-off");
+  const enhancements = items.filter((i) => i.frontmatter.category === "enhancement");
+  const others = items.filter(
+    (i) => i.frontmatter.category !== "spin-off" && i.frontmatter.category !== "enhancement",
+  );
 
   return (
     <div className="container-page max-w-5xl py-10">
@@ -48,6 +51,16 @@ export default async function FriendsIndexPage({ params }: Props) {
           <h2 className="mb-2 text-xl font-semibold tracking-tight">{t("spinOffs")}</h2>
           <p className="mb-5 text-sm text-[var(--color-muted-foreground)]">{t("spinOffsDescription")}</p>
           <FriendsGrid items={spinOffs} tFlags={t} />
+        </section>
+      )}
+
+      {enhancements.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-2 text-xl font-semibold tracking-tight">{t("enhancements")}</h2>
+          <p className="mb-5 text-sm text-[var(--color-muted-foreground)]">
+            {t("enhancementsDescription")}
+          </p>
+          <FriendsGrid items={enhancements} tFlags={t} />
         </section>
       )}
 

@@ -30,24 +30,24 @@
     "featuresTitle": "Was KOMA-Script kann",
     "featuresSubtitle": "Eine umfassende Sammlung von LaTeX-Klassen und Paketen für anspruchsvolle Dokumente.",
     "showcaseTitle": "Klar, typografisch sauber, voll konfigurierbar",
-    "showcaseSubtitle": "Ein einfaches Beispiel — und schon sieht Dein Dokument professionell aus.",
+    "showcaseSubtitle": "Ein einfaches Beispiel, und schon sieht Dein Dokument professionell aus.",
     "ctaTitle": "Bereit, loszulegen?",
     "ctaSubtitle": "Installiere KOMA-Script und schreibe Dein nächstes Dokument mit modernster Typografie.",
-    "ctaPrimary": "Installation",
+    "ctaPrimary": "Zur Dokumentation",
     "ctaSecondary": "Beispiele ansehen",
     "latestNews": "Aktuelle News"
   },
   "docs": {
     "title": "Dokumentation",
     "subtitle": "Vollständige Dokumentation zu KOMA-Script-Klassen, -Paketen und -Optionen.",
+    "sections": "Bereiche",
     "onThisPage": "Auf dieser Seite",
     "editPage": "Seite bearbeiten",
     "lastUpdated": "Zuletzt aktualisiert",
     "categories": {
-      "installation": "Installation",
-      "getting-started": "Erste Schritte",
-      "classes": "Dokumentklassen",
-      "packages": "Pakete"
+      "koma-script": "Die KOMA-Script-Sammlung",
+      "archive": "Archiv",
+      "koma": "KOMA"
     }
   },
   "news": {
@@ -81,6 +81,8 @@
     "subtitle": "LaTeX-Pakete, die früher Teil von KOMA-Script waren oder im KOMA-Script-Ökosystem entstanden sind.",
     "spinOffs": "Spin-Offs",
     "spinOffsDescription": "Ehemalige KOMA-Script-Pakete, die als eigenständige Projekte weitergeführt werden.",
+    "enhancements": "Verbesserungen und Erweiterungen von Drittpaketen",
+    "enhancementsDescription": "Pakete, die Fremdpakete verbessern. Sie werden überflüssig, sobald deren Maintainer die Funktionalität übernimmt.",
     "otherFriends": "Andere Freunde",
     "otherFriendsDescription": "Weitere Pakete des KOMA-Script-Autors mit Bezug zum KOMA-Script-Ökosystem.",
     "deprecated": "Veraltet",

@@ -6,11 +6,11 @@ import { NavigationConfigSchema, type NavigationConfig } from "@/types/config";
  * ----------------------------------------------------------------------------
  * Hier werden alle Einträge der Hauptnavigation (Navbar) gepflegt.
  *
- *  • `primary`   — Hauptmenü (Desktop + Mobile)
- *  • `actions`   — Rechte Icon-Leiste (Suche, Sprache, Theme, externe Links)
+ *  • `primary`   : Hauptmenü (Desktop + Mobile)
+ *  • `actions`   : Rechte Icon-Leiste (Suche, Sprache, Theme, externe Links)
  *
  * STRUKTUR EINES NAV-ITEMS
- *   label:       I18n-Beschriftung — entweder String oder { de, en }
+ *   label:       I18n-Beschriftung, entweder String oder { de, en }
  *   href:        Ziel-URL (relativ ohne Locale-Prefix, z.B. "/docs")
  *   highlight?:  true → wird als CTA-Button hervorgehoben
  *   external?:   true → öffnet in neuem Tab + rel=noopener
@@ -31,35 +31,43 @@ const config = {
       href: "/docs",
       children: [
         {
-          label: { de: "Installation", en: "Installation" },
-          href: "/docs/installation",
+          label: { de: "Die KOMA-Script-Sammlung", en: "The KOMA-Script bundle" },
+          href: "/docs/koma-script",
           description: {
-            de: "KOMA-Script in TeX Live / MiKTeX einrichten",
-            en: "Set up KOMA-Script in TeX Live / MiKTeX",
+            de: "Alle Klassen und Pakete der Sammlung im Überblick",
+            en: "Overview of all classes and packages in the bundle",
           },
         },
         {
-          label: { de: "Erste Schritte", en: "Getting Started" },
-          href: "/docs/getting-started",
+          label: { de: "FAQ", en: "FAQ" },
+          href: "/faq",
           description: {
-            de: "Dein erstes Dokument mit KOMA-Script",
-            en: "Your first document with KOMA-Script",
+            de: "Häufige Fragen und Antworten",
+            en: "Frequently asked questions",
           },
         },
         {
-          label: { de: "Dokumentklassen", en: "Document Classes" },
-          href: "/docs/classes/scrartcl",
+          label: { de: "Alte Versionen", en: "Old Versions" },
+          href: "/docs/koma-script/releases",
           description: {
-            de: "scrartcl, scrreprt, scrbook, scrlttr2",
-            en: "scrartcl, scrreprt, scrbook, scrlttr2",
+            de: "Wo sich alte KOMA-Script-Versionen finden lassen",
+            en: "Where to find old KOMA-Script releases",
           },
         },
         {
-          label: { de: "Pakete", en: "Packages" },
-          href: "/docs/packages/typearea",
+          label: { de: "Archiv", en: "Archive" },
+          href: "/docs/koma-script/archive",
           description: {
-            de: "typearea, scrbase, tocbasic & mehr",
-            en: "typearea, scrbase, tocbasic & more",
+            de: "Ältere Materialien aus dem Dokumentationsprojekt",
+            en: "Older material from the documentation project",
+          },
+        },
+        {
+          label: { de: "Wer ist KOMA?", en: "Who is KOMA?" },
+          href: "/docs/koma",
+          description: {
+            de: "Über den Autor, Danksagungen, Wunschliste",
+            en: "About the author, thank yous, wishlist",
           },
         },
       ],

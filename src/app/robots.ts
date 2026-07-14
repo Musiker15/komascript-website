@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/_next/", "/*.json$"],
       },
-      // Aggressive AI-Crawler (optional blockieren — kann später entfernt werden)
+      // Aggressive AI-Crawler (optional blockieren, kann später entfernt werden)
       { userAgent: "GPTBot", disallow: "/" },
       { userAgent: "Google-Extended", disallow: "/" },
       { userAgent: "CCBot", disallow: "/" },

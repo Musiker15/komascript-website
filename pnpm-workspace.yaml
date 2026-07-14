@@ -6,7 +6,7 @@
 # =============================================================================
 
 # Postinstall-Scripts: Welche Pakete dürfen ihre Build-Scripts ausführen?
-# (pnpm 10+ blockiert sie standardmäßig — Security-Feature)
+# (pnpm 10+ blockiert sie standardmäßig, ein Security-Feature)
 allowBuilds:
   '@parcel/watcher': true
   '@swc/core': true
@@ -23,7 +23,7 @@ overrides:
   # CVE: server.fs.deny bypass on Windows alternate paths (high) +
   # launch-editor NTLMv2 hash disclosure via UNC path (medium).
   # Beide sind in vite 8.0.16 gepatcht. Exakt gepinnt (gleiche 8.0.x-Minor
-  # wie zuvor, nur der Security-Patch) — ein Range-Override wurde von pnpm
+  # wie zuvor, nur der Security-Patch). Ein Range-Override wurde von pnpm
   # hier nicht zuverlässig neu aufgelöst.
   vite: 8.0.16
 

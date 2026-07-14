@@ -1,101 +1,84 @@
 ---
-title: "Über KOMA-Script"
-description: "Geschichte, Ziele und Philosophie hinter KOMA-Script — der modernen Alternative zu den Standard-LaTeX-Klassen."
+title: "Über KOMA-Script und Freunde"
+description: "Historie, Gegenwart und Mission der KOMA-Script-Sammlung und der davon abgeleiteten Pakete, erzählt vom KOMA-Script-Autor Markus Kohm."
 order: 1
 ---
 
-## Was ist KOMA-Script?
+Hier geht es um die KOMA-Script-LaTeX-Sammlung und andere Pakete des
+KOMA-Script-Autors, die in irgendeiner Weise mit KOMA-Script in Verbindung
+stehen oder davon abgeleitet sind. KOMA-Script selbst wird derzeit auf
+[SourceForge](https://sourceforge.net/p/koma-script) gehostet. Die
+übrigen Pakete sind auf
+[![Codeberg](/images/komascript/codeberg-nobg.svg)](https://codeberg.org/komascript),
+[![GitHub](/images/komascript/github.png)](https://github.com/komascript) oder
+[![GitLab](/images/komascript/gitlab.svg)](https://gitlab.com/komascript) zu finden.
 
-**KOMA-Script** ist eine umfangreiche Sammlung von Klassen und Paketen für **LaTeX**.
-Es bietet hochkonfigurierbare Ersatzklassen für die Standard-Dokumentklassen `article`,
-`report` und `book`, sowie eine eigene Briefklasse `scrlttr2`.
+## Die Historie
 
-Die Klassen orientieren sich an europäischer typografischer Tradition und folgen den
-Empfehlungen klassischer Setzerei — mit modernen, an LaTeX angepassten Mitteln.
+KOMA-Script ist eine Sammlung von LaTeX-Klassen und -Paketen. Das
+Projekt begann 1992, wenige Monate vor der ersten Veröffentlichung von
+LaTeX 2ε, mit dem Ziel, die Script2-Stile von LaTeX 2.09 in Klassen und
+Pakete umzuwandeln. Die erste Veröffentlichung erfolgte 1993.
 
-## Geschichte
+Im Laufe der Jahre wurden nicht nur immer mehr Funktionen zu den
+KOMA-Script-Klassen hinzugefügt, sondern es entstanden auch immer mehr Pakete
+innerhalb der Sammlung und ihres Ökosystems. Auch wenn es gelegentlich
+Mitwirkende gab, die eine Zeit lang halfen, indem sie Teile der Dokumentation
+oder sogar die ursprüngliche Buchklasse beisteuerten, blieb KOMA-Script im
+Wesentlichen immer eine Ein-Mann-Show.
 
-Das Projekt entstand bereits **1992** — noch vor der Veröffentlichung von **LaTeX 2ε** —
-als Markus Kohm die damaligen *Script2*-Stile aus LaTeX 2.09 in das neue Klassen-System
-portierte. Die erste Veröffentlichung folgte **1993**. Seitdem hat sich KOMA-Script
-kontinuierlich weiterentwickelt; heute gehört es zu den am häufigsten genutzten
-LaTeX-Klassenpaketen weltweit.
+Teil des KOMA-Script-Projekts war einst das „KOMA-Script Documentation
+Project“, auch bekannt als [komascript.de](https://komascript.de). Das Ganze
+wurde ursprünglich von Robin Kroha ins Leben gerufen und finanziert, wobei
+Zope, eines der frühesten Content-Management-Systeme, zum Einsatz kam. Die
+Idee war zum einen, Dokumentation – und insbesondere Beispiele – über das
+eigentliche Benutzerhandbuch hinaus online verfügbar zu machen. Darüber hinaus
+sollte es, lange vor GitHub, Codeberg usw., als Anlaustelle für Support
+dienen. Zu dieser Zeit war es eines der allerersten deutschsprachigen
+LaTeX-Foren. Schließlich wurde das gesamte Projekt auf Drupal migriert.
 
-Über die Jahre wuchsen nicht nur die Funktionen der KOMA-Script-Klassen, sondern es
-entstanden auch zahlreiche Pakete im Umfeld der Sammlung. Trotz gelegentlicher
-Mitwirkender — etwa bei Teilen der Dokumentation oder bei der ursprünglichen
-Briefklasse — blieb KOMA-Script im Kern stets eine **Ein-Personen-Show**.
+Leider hat sich die Hoffnung, die Arbeitslast des „KOMA-Script
+Dokumentationsprojekts“ auf möglichst viele Personen zu verteilen, nicht
+wirklich erfüllt. Zwar gab es zeitweise eine Reihe sehr aktiver Mitwirkender
+im Forum, doch stieg der Verwaltungsaufwand aufgrund von Spam und Angriffen
+auf die Website. Dies führte dazu, dass der KOMA-Script-Autor praktisch immer
+mehr zum Administrator von komascript.de wurde.
 
-### Das Documentation Project
+Infolgedessen wurde komascript.de für Beiträge von Community-Autoren
+geschlossen und nur noch für einige wenige Veröffentlichungen des
+KOMA-Script-Autors weitergeführt. Nach und nach wurden erhaltenswerte Inhalte
+in das [KOMA-Script-Wiki auf
+SourceForge](https://sourceforge.net/p/koma-script/_list/wiki) übertragen, wo
+sie sowohl auf [Deutsch](https://sourceforge.net/p/koma-script/wiki-de/) als
+auch auf [Englisch](https://sourceforge.net/p/koma-script/wiki-en/) verfügbar
+sind. Eine kleine Menge an Inhalten blieb jedoch auf komascript.de
+erhalten. Es machte jedoch keinen Sinn, ein komplexes System wie Drupal
+ausschließlich für diese Inhalte zu unterhalten. Daher begann der
+KOMA-Script-Autor im Jahr 2026 mit der Suche nach einem schlanken System,
+vorzugsweise mit statischen Seiten, die schwer anzugreifen sind. Genau das
+finden Sie hier.
 
-Teil des KOMA-Script-Ökosystems war einst das **„KOMA-Script Documentation Project"**
-(`komascript.de`). Ursprünglich von Robin Kroha auf Zope ins Leben gerufen und
-finanziert, war es eines der ersten deutschsprachigen LaTeX-Foren — lange vor
-GitHub und Codeberg. Später wurde das Projekt auf Drupal migriert.
+## Die Gegenwart
 
-Die Hoffnung, die Pflege auf viele Schultern zu verteilen, erfüllte sich jedoch
-nicht dauerhaft: Spam, Angriffe und administrative Arbeit landeten zunehmend beim
-KOMA-Script-Autor selbst. Das Forum wurde schließlich für Community-Beiträge
-geschlossen, erhaltenswerte Inhalte ins
-[SourceForge-Wiki](https://sourceforge.net/p/koma-script/_list/wiki) übertragen —
-verfügbar sowohl auf
-[Deutsch](https://sourceforge.net/p/koma-script/wiki-de/) als auch auf
-[Englisch](https://sourceforge.net/p/koma-script/wiki-en/).
+Seit 2018 wird daran gearbeitet, die KOMA-Script-Sammlungen in kleinere
+Projekte aufzuteilen. Das Hauptziel dabei ist es, die enorme Komplexität des
+Gesamtprojekts in einzelne, weniger komplexe Teile aufzuteilen, um so die
+Arbeit mittel- bis langfristig auf mehrere Personen verteilen zu können.
 
-### Aufteilung in kleinere Projekte
-
-Seit **2018** wird KOMA-Script schrittweise in kleinere, eigenständige Projekte
-aufgeteilt. Hauptziel ist es, die enorme Komplexität der Gesamtsammlung in
-handhabbare Teile zu zerlegen — und so langfristig die Arbeit auf mehrere
-Personen verteilen zu können. Viele dieser ausgegliederten Pakete findet man
-heute im Bereich [Freunde](/de/friends).
+## Die Mission
 
 <Callout type="note">
-Markus Kohm beschreibt das Mission-Statement der offiziellen KOMA-Script-Seite
-selbst so:
-
-> „Der Zweck dieser Seite ist es, Informationen zu bestimmten Aspekten von
-> KOMA-Script und meinen — also KOMA's — anderen Projekten bereitzustellen.
-> Das Ganze hat eher den Charakter eines Blogs als eines Wikis. Darüber hinaus
-> gibt es hier auch Entwürfe und Ideensammlungen. Dass diese hier nicht einfach
-> von jedem öffentlich kommentiert werden können, ist Teil des Konzepts."
-
-— Quelle: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/)
+Dieser Abschnitt stammt wörtlich von der Original-Seite „KOMA-Script und Freunde“ und
+spricht aus Sicht von Markus Kohm. Quelle: [koma-script.sourceforge.io](https://koma-script.sourceforge.io/)
 </Callout>
 
-<Callout type="info">
-KOMA-Script ist Teil der meisten LaTeX-Distributionen — bei **TeX Live**, **MiKTeX**
-und **MacTeX** ist es vorinstalliert. Eine manuelle Installation ist normalerweise
-nicht nötig.
-</Callout>
-
-## Dokumentation
-
-Die offizielle KOMA-Script-Anleitung ist in **LaTeX** geschrieben und mehrfach komplett
-überarbeitet worden. Eine Besonderheit der Quellen: aus ihnen lassen sich **sowohl die
-freie Anleitung als auch das *Deutsche KOMA-Script-Buch*** erzeugen — beim Buch
-kommen lediglich einige zusätzliche Dateien hinzu. Das Buchformat führt entsprechend
-zu einigen Besonderheiten im LaTeX-Quelltext.
-
-## Philosophie
-
-KOMA-Script verfolgt drei Leitprinzipien:
-
-1. **Konfigurierbarkeit ohne Bruch.** Tausende Optionen erlauben individuelle Anpassungen,
-   ohne dass die Dokumentstruktur leidet.
-2. **Typografische Korrektheit.** Voreinstellungen folgen den Regeln klassischer Setzerei —
-   nicht den Standards von Textverarbeitungen.
-3. **Lokale Anpassbarkeit.** Eingebaute Unterstützung für deutsche, schweizerische,
-   französische, US-amerikanische und japanische Konventionen.
-
-## Autor
-
-KOMA-Script wird seit über drei Jahrzehnten federführend von **Markus Kohm** entwickelt.
-Beiträge der Community sind willkommen — vor allem im Rahmen der Spin-off-Projekte
-auf [GitHub](https://github.com/komascript) und [Codeberg](https://codeberg.org/komascript).
-
-## Lizenz
-
-KOMA-Script wird unter der **LaTeX Project Public License (LPPL) 1.3c** veröffentlicht
-und darf frei verwendet, weitergegeben und modifiziert werden — vorausgesetzt, die
-Bedingungen der LPPL werden eingehalten.
+„KOMA-Script und Freunde“ ist eine rein private Website zu meinem Hobby. Der
+Zweck dieser Seite ist es, Informationen zu bestimmten Aspekten von
+KOMA-Script und meinen – also KOMA’s – anderen Projekten
+bereitzustellen. Neben den Überblick-Seiten zu diesen Projekten gibt es auch
+einen Blog und ein Archiv mit einigen wenigen älteren Materialien, die noch
+aus dem „KOMA-Script Documentation Project“ stammen. Dass Besucher sich hier
+weder anmelden noch Inhalte wie Kommentare hinterlassen können, ist Teil des
+Konzepts. Aber natürlich bin ich jederzeit erreichbar auf
+[Mastodon](https://mastodontech.de/@koma), unter der bekannten
+KOMA-Script-E-Mail-Adresse und über die Issue-Seiten der einzelnen Projekte.

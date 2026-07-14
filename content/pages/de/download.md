@@ -1,6 +1,6 @@
 ---
 title: "Download"
-description: "KOMA-Script ist Teil aller großen TeX-Distributionen. So bekommst Du es."
+description: "KOMA-Script ist Teil aller großen TeX-Distributionen und liegt auf CTAN. Gehostet wird das Projekt auf SourceForge."
 order: 3
 ---
 
@@ -34,7 +34,7 @@ tlmgr update koma-script
 ### TeX Live aus Linux-/macOS-Paketmanagern
 
 Wenn Du TeX Live über den Paketmanager Deines Systems installiert hast, **bleibe bei
-diesem Paketmanager** für Updates — `tlmgr` und System-Paketmanager parallel zu nutzen
+diesem Paketmanager** für Updates. `tlmgr` und System-Paketmanager parallel zu nutzen
 funktioniert nur selten zuverlässig.
 
 ```bash
@@ -61,13 +61,27 @@ MiKTeX installiert benötigte Pakete automatisch beim ersten Aufruf. Alternativ 
 die **MiKTeX Console** öffnen und `koma-script` über die Paketverwaltung installieren
 und aktualisieren.
 
-## Direkt von der Quelle
+## Bezugsquellen
 
-| Quelle | Link |
-|---|---|
-| **CTAN** | [ctan.org/pkg/koma-script](https://ctan.org/pkg/koma-script) |
-| **SourceForge** | [sourceforge.net/projects/koma-script](https://sourceforge.net/projects/koma-script/files/) |
-| **GitHub** | [github.com/komascript](https://github.com/komascript) |
+| Quelle | Link | Wofür |
+|---|---|---|
+| **CTAN** | [ctan.org/pkg/koma-script](https://ctan.org/pkg/koma-script) | Katalogeintrag der gesamten Sammlung. Die einzelnen Klassen und Pakete haben zusätzlich eigene CTAN-Einträge. |
+| **SourceForge** | [sourceforge.net/p/koma-script](https://sourceforge.net/p/koma-script/) | Projekt-Hosting: Quellcode, Wiki, Issue-Tracker, Dateiarchiv |
+| **Alte Versionen** | [sourceforge.net/projects/koma-script/files/KOMA-Script](https://sourceforge.net/projects/koma-script/files/KOMA-Script/) | Releases aus mehr als den letzten zehn Jahren, siehe [Alte Versionen](/de/docs/koma-script/releases) |
+
+<Callout type="note">
+KOMA-Script selbst wird auf **SourceForge** gehostet, nicht auf GitHub. Auf
+[Codeberg](https://codeberg.org/komascript), [GitHub](https://github.com/komascript) und
+[GitLab](https://gitlab.com/komascript) liegen die anderen Pakete des KOMA-Script-Autors,
+also die [Freunde](/de/friends).
+</Callout>
+
+## Quellcode
+
+Der Quellcode von KOMA-Script wird derzeit in einem öffentlichen
+**Subversion-Repository auf SourceForge** verwaltet. Eine Umstellung auf Git ist in
+Planung, im Zuge dessen ist auch ein Umzug nach Codeberg angedacht. Details dazu stehen
+unter [Das Subversion-Repository](/de/docs/koma-script/code).
 
 <Callout type="warning">
 Eine manuelle Installation aus den Quellen sollte nur erfolgen, wenn Du die *neueste*
@@ -76,7 +90,7 @@ Version benötigst und die Verzeichnisstruktur Deiner TeX-Distribution kennst.
 
 ## Updates
 
-Halte Deine TeX-Distribution aktuell, um die neueste Version zu erhalten — und nutze
+Halte Deine TeX-Distribution aktuell, um die neueste Version zu erhalten, und nutze
 dabei **konsistent eine Update-Methode**:
 
 | Installiert über | Update-Befehl |
@@ -88,5 +102,5 @@ dabei **konsistent eine Update-Methode**:
 <Callout type="warning">
 **Nicht mischen!** `tlmgr` zusammen mit System-Paketmanagern (apt, dnf, brew, …)
 auf derselben TeX-Live-Installation führt fast immer zu inkonsistenten
-Versionen — bleib bei der Methode, mit der Du installiert hast.
+Versionen. Bleib bei der Methode, mit der Du installiert hast.
 </Callout>

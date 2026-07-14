@@ -1,32 +1,27 @@
 ---
 title: "lscapeenhanced"
-description: "Standalone successor of the scrhack module for the lscape package — fixes \\textheight/\\textwidth on landscape pages."
-order: 16
-tags: ["hak"]
+description: "Fixes the handling of \\textheight and \\textwidth on landscape pages in lscape and can load pdflscape via an option."
+order: 20
+category: "enhancement"
+tags: []
 ---
 
-The package `lscapeenhanced` was originally created years ago as a hack module
-of the then KOMA-Script package [`scrhack`](/en/friends/scrhack), to fix an
-issue that appeared when using [`lscape`](https://www.ctan.org/pkg/lscape)
-together with the KOMA-Script packages `scrlayer` or `scrlayer-scrpage`. The
-underlying reason is `lscape`'s somewhat unfortunate handling of `\textheight`
-and `\textwidth` on landscape pages. This causes problems not only with
-KOMA-Script but also with other packages, e.g.
-[`showframe`](https://www.ctan.org/pkg/showframe).
+The Package `lscapeenhanced` has started as hack module of the former
+KOMA-Script package [`scrhack`](/en/friends/scrhack) years ago to fix an issue when
+using package [`lscape`](https://www.ctan.org/pkg/lscape) with KOMA-Script packages `scrlayer` or
+`scrlayer-scrpage`. This became necessary because package `lscape` has a
+somehow strange handling of `\textheight` resp. `\textwidth` at landscape
+pages. This is not only an issue with KOMA-Script but also other packages,
+e.g., [`showframe`](https://www.ctan.org/pkg/showframe). Package `lscapeenhanced` solves this issue. This
+is a really small change and best would be, if the `lscape` author would at
+least include this change optionally. The user interface of `lscape` remains
+usable unchanged.
 
-`lscapeenhanced` fixes this. It is really a very small change, and it would be
-best if the author of `lscape` adopted it — at least as an option — in their
-own package. The user interface of `lscape` itself remains unchanged.
-
-In addition, `lscapeenhanced` offers an option to load `pdflscape` instead of
-`lscape`. With it, you only need to load `lscapeenhanced` with the `pdflscape`
-option rather than both `lscapeenhanced` and `pdflscape`.
+Additionally `lscapeenhanced` provides an option to not only load package
+`lscape` but `pdflscape`. So if you want the functionality of `pdflscape` you
+don't need to load `lscapeenhanced` and `pdflscape` but only `lscapeenhanced`
+with option `pdflscape`.
 
 The package is part of the “Third Party Enhancements” hosted on
-[GitHub](https://github.com/komascript/third-party-enhancements). See the
-[CTAN catalogue entry](https://www.ctan.org/pkg/lscapeenhanced) for more.
-
-<Callout type="info">
-There is still some hope that this package will eventually become unnecessary —
-namely when the original package's maintainer adopts the functionality.
-</Callout>
+[GitHub](https://github.com/komascript/third-party-enhancements). Further
+information can be found in [the CTAN catalog entry](https://www.ctan.org/pkg/lscapeenhanced).

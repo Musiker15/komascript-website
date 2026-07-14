@@ -13,9 +13,9 @@ The LPPL is a **free software license** designed specifically for LaTeX packages
 
 ### You may
 
-✅ **Use** KOMA-Script freely — privately, in research, commercially.
-✅ **Redistribute** it — standalone or as part of a collection.
-✅ **Modify** it — provided you comply with the LPPL terms.
+✅ **Use** KOMA-Script freely, privately, in research and commercially.
+✅ **Redistribute** it, standalone or as part of a collection.
+✅ **Modify** it, provided you comply with the LPPL terms.
 
 ### Note
 

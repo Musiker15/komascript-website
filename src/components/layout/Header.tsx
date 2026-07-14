@@ -22,7 +22,7 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
 export function Header({ locale }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-background)]/85 backdrop-blur-md supports-[backdrop-filter]:bg-[var(--color-background)]/70">
-      {/* Volle Browserbreite — nur leichtes Edge-Padding für Atmungsfreiheit */}
+      {/* Volle Browserbreite, nur leichtes Edge-Padding für Atmungsfreiheit */}
       <div className="flex h-16 w-full items-center gap-4 px-4 md:px-6 lg:px-8">
         {/* Logo */}
         <Link

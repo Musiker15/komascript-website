@@ -128,5 +128,5 @@ noch `fontenc` und gibt Dir mit `fontspec` Zugriff auf jeden auf Deinem System
 installierten OpenType-Font.
 
 Weitere fertige Templates für typische Dokumentarten:
-[KOMA-Script-Wiki — HowTo Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
+[KOMA-Script-Wiki: HowTo Template](https://sourceforge.net/p/koma-script/wiki-de/HowTo_Template/)
 </Callout>

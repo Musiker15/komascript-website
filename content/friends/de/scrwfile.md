@@ -1,7 +1,7 @@
 ---
 title: "scrwfile"
-description: "Experimentelles Paket zur Umleitung von \\newwrite-Schreibvorgängen über die .aux-Datei."
-order: 4
+description: "Leitet alle \\newrite-Ausgaben über die .aux-Datei um, damit die Meldung „No room for new \\write“ praktisch nie erscheint."
+order: 10
 category: "spin-off"
 tags: ["no-maintainer"]
 ---
@@ -11,17 +11,12 @@ Das Paket `scrwfile` ist ein Ableger von KOMA-Script und war bis zur Version
 Sammlung. Es wurde aus KOMA-Script ausgegliedert, da es sich um ein
 experimentelles Paket handelt, das nicht mehr offiziell gepflegt wird.
 
-`scrwfile` ist ein LaTeX-Paket, das eine Möglichkeit bietet, alle LaTeX-
-`\newwrite`-Befehle, Inhaltsverzeichnisse und sonstige Ausgabedaten über die
-LaTeX-`.aux`-Datei zu senden. Der Mechanismus verändert die Funktionsweise von
-`\newwrite` und sorgt dafür, dass fast nie die Meldung „`No room for new
-\write`" erscheint.
+`scrwfile` ist ein LaTeX-Paket, das eine Möglichkeit bietet, alle
+LaTeX-`\newrite`-Befehle, Inhaltsverzeichnisse und sonstige
+Ausgabedaten über die LaTeX-`.aux`-Datei zu senden. Der Mechanismus
+verändert die Funktionsweise von `\newrite` und sorgt dafür, dass fast nie die
+Meldung „`No room for new \write`“ erscheint.
 
 Das Paket wird auf [GitHub](https://github.com/komascript/scrwfile)
-gehostet. Weitere Informationen finden sich im
+gehostet. Weitere Informationen finden Sie im
 [CTAN-Katalogeintrag](https://www.ctan.org/pkg/scrwfile).
-
-<Callout type="warning">
-Für dieses Paket wird ein neuer Maintainer gesucht. Bis dahin gibt es nur
-sehr eingeschränkten oder gar keinen Support mehr.
-</Callout>

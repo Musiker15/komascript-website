@@ -11,7 +11,7 @@ const intlMiddleware = createMiddleware({
   // • secure   → nur über HTTPS übertragen
   // • sameSite → "lax" reicht für Locale-Persistenz
   // • maxAge   → 1 Jahr, gleicher Wert wie next-intl Default
-  // (`httpOnly` unterstützt next-intl im Typ nicht — wir setzen es danach
+  // (`httpOnly` unterstützt next-intl im Typ nicht, wir setzen es danach
   //  manuell über die Response, siehe unten.)
   localeCookie: {
     secure: true,
@@ -28,7 +28,7 @@ const intlMiddleware = createMiddleware({
 // • Der Nonce wird sowohl im x-nonce Request-Header (für Server Components
 //   via `headers()`) als auch in der CSP `script-src 'nonce-XXX'` gesetzt.
 // • `'strict-dynamic'` erlaubt es Next.js' Bootstrap-Script, weitere Module
-//   dynamisch nachzuladen — ohne dass jedes einzelne Script ein Nonce braucht.
+//   dynamisch nachzuladen, ohne dass jedes einzelne Script ein Nonce braucht.
 // • Folge: Alle Routes werden dynamisch gerendert (kein SSG). Bewusster
 //   Trade-off für eine Observatory-konforme strikte CSP.
 // =============================================================================
@@ -41,7 +41,7 @@ function buildCsp(nonce: string): string {
     // mit dem nonce-Prop, das wir im Layout durchreichen.
     //
     // style-src-elem (für <style>-Tags): nur Nonce + 'self'. Keine inline-
-    // <style>-Tags ohne Nonce erlaubt — Observatory-konform.
+    // <style>-Tags ohne Nonce erlaubt, Observatory-konform.
     //
     // style-src-attr (für `style="..."`-Attribute): 'unsafe-inline' notwendig,
     // weil Third-Party-Libraries automatisch style-Attribute setzen:
@@ -50,7 +50,7 @@ function buildCsp(nonce: string): string {
     //   • Radix-UI NavigationMenu setzt `style="position:relative"` für sein
     //     interaktives Layout
     // Mozilla Observatory prüft nur `style-src` direkt auf 'unsafe-inline',
-    // nicht style-src-attr — der A+ Score bleibt erhalten. XSS-Risiko über
+    // nicht style-src-attr, der A+ Score bleibt erhalten. XSS-Risiko über
     // style-Attribute ist deutlich niedriger als über script-src.
     `style-src 'self' 'nonce-${nonce}'`,
     `style-src-elem 'self' 'nonce-${nonce}'`,
@@ -122,7 +122,7 @@ export default function middleware(request: NextRequest): NextResponse {
     // intl-Response Headers (Link / Vary / Set-Cookie / …) übernehmen,
     // damit hreflang-Alternates etc. nicht verloren gehen.
     //
-    // WICHTIG: `x-middleware-*` Header AUSSCHLIESSEN — sie sind Next.js-
+    // WICHTIG: `x-middleware-*` Header AUSSCHLIESSEN, sie sind Next.js-
     // internal und finalResponse hat bereits die korrekten gesetzt (aus
     // dem NextResponse.next({ request: { headers } }) oben). Ein Overwrite
     // mit intl-Response-Werten kappt den Request-Header-Override an die

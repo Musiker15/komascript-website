@@ -12,7 +12,7 @@ interface LatexExampleProps {
 /**
  * LaTeX-Beispiel mit Code-Block (Children-Pattern) und optionaler PDF-Vorschau.
  *
- * Verwendung in MDX — Children sind ein normaler Markdown-Code-Block:
+ * Verwendung in MDX. Children sind ein normaler Markdown-Code-Block:
  *
  *   <LatexExample title="Minimaler Brief" filename="brief.tex">
  *
@@ -25,7 +25,7 @@ interface LatexExampleProps {
  *
  *   </LatexExample>
  *
- * Die Leerzeilen vor und nach dem Code-Block sind wichtig — damit MDX den Block
+ * Die Leerzeilen vor und nach dem Code-Block sind wichtig, damit MDX den Block
  * korrekt als Markdown-Code-Fence verarbeitet (Syntax-Highlighting via Shiki).
  *
  * Hinweis: Das Children-Pattern ist mit `next-mdx-remote >= 6.0` kompatibel,
