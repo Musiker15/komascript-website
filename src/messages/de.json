@@ -25,7 +25,7 @@
   },
   "home": {
     "heroBadge": "Aktuelle Version",
-    "heroCtaPrimary": "Jetzt herunterladen",
+    "heroCtaPrimary": "Jetzt installieren",
     "heroCtaSecondary": "Dokumentation lesen",
     "featuresTitle": "Was KOMA-Script kann",
     "featuresSubtitle": "Eine umfassende Sammlung von LaTeX-Klassen und Paketen für anspruchsvolle Dokumente.",
@@ -35,7 +35,7 @@
     "ctaSubtitle": "Installiere KOMA-Script und schreibe Dein nächstes Dokument mit modernster Typografie.",
     "ctaPrimary": "Zur Dokumentation",
     "ctaSecondary": "Beispiele ansehen",
-    "latestNews": "Aktuelle News"
+    "latestNews": "Letzte Beiträge"
   },
   "docs": {
     "title": "Dokumentation",
@@ -51,8 +51,8 @@
     }
   },
   "news": {
-    "title": "News & Releases",
-    "subtitle": "Aktuelle Entwicklungen, Releases und Hinweise rund um KOMA-Script.",
+    "title": "Persönlicher Blog",
+    "subtitle": "Markus schreibt: Gedanken, Neuigkeiten und Ankündigungen rund um KOMA-Script, LaTeX und Typografie.",
     "publishedOn": "Veröffentlicht am",
     "readArticle": "Artikel lesen"
   },

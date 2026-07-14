@@ -26,7 +26,8 @@ const config = {
       links: [
         { label: { de: "Über KOMA-Script", en: "About" }, href: "/about" },
         { label: { de: "Funktionen", en: "Features" }, href: "/features" },
-        { label: { de: "Lizenz", en: "License" }, href: "/license" },
+        { label: { de: "Freunde", en: "Friends" }, href: "/friends" },
+        { label: { de: "Blog", en: "Blog" }, href: "/news" },
       ],
     },
     {
@@ -35,12 +36,12 @@ const config = {
         { label: { de: "Dokumentation", en: "Documentation" }, href: "/docs" },
         { label: { de: "Beispiele", en: "Examples" }, href: "/examples" },
         { label: { de: "FAQ", en: "FAQ" }, href: "/faq" },
-        { label: { de: "News", en: "News" }, href: "/news" },
       ],
     },
     {
       title: { de: "Community", en: "Community" },
       links: [
+        { label: { de: "Community", en: "Community" }, href: "/community" },
         { label: "CTAN", href: "https://ctan.org/pkg/koma-script", external: true },
         { label: "SourceForge", href: "https://sourceforge.net/projects/koma-script/", external: true },
         { label: "Codeberg", href: "https://codeberg.org/komascript", external: true },

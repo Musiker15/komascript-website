@@ -95,11 +95,10 @@ export async function generateMetadata({
       images: [siteConfig.ogImage],
     },
     icons: {
-      icon: [
-        { url: "/favicon.ico" },
-        { url: "/favicon.svg", type: "image/svg+xml" },
-      ],
-      apple: "/apple-touch-icon.png",
+      // Bewusst nur die .ico. Bietet man zusätzlich eine SVG an, bevorzugen
+      // Chrome und Firefox diese und die .ico wird nie angezeigt.
+      icon: [{ url: "/favicon.ico", sizes: "any", type: "image/x-icon" }],
+      shortcut: "/favicon.ico",
     },
     manifest: "/manifest.webmanifest",
     robots: {
@@ -174,14 +173,24 @@ export default async function LocaleLayout({
   return (
     <html lang={l} suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-[var(--color-background)] text-[var(--color-foreground)] antialiased">
+        {/*
+          suppressHydrationWarning ist hier nötig, nicht kosmetisch: Browser
+          leeren das nonce-Attribut im DOM direkt nach dem Parsen (HTML-Spec,
+          verhindert das Ausspähen des Nonce über CSS-Attribut-Selektoren).
+          Der Client liest also nonce="", der Server hat nonce="<wert>"
+          gerendert, und React meldet eine Hydration-Mismatch. Die CSP prüft
+          den internen Wert, der erhalten bleibt, das Script läuft korrekt.
+        */}
         <script
           type="application/ld+json"
           nonce={nonce}
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: orgLd }}
         />
         <script
           type="application/ld+json"
           nonce={nonce}
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: siteLd }}
         />
 

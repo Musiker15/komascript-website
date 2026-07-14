@@ -23,8 +23,20 @@ import { NavigationConfigSchema, type NavigationConfig } from "@/types/config";
 const config = {
   primary: [
     {
-      label: { de: "Start", en: "Home" },
+      label: { de: "Home", en: "Home" },
       href: "/",
+    },
+    {
+      label: { de: "Über", en: "About" },
+      href: "/about",
+    },
+    {
+      label: { de: "Funktionen", en: "Features" },
+      href: "/features",
+    },
+    {
+      label: { de: "Freunde", en: "Friends" },
+      href: "/friends",
     },
     {
       label: { de: "Dokumentation", en: "Documentation" },
@@ -73,27 +85,7 @@ const config = {
       ],
     },
     {
-      label: { de: "Funktionen", en: "Features" },
-      href: "/features",
-    },
-    {
-      label: { de: "Beispiele", en: "Examples" },
-      href: "/examples",
-    },
-    {
-      label: { de: "Freunde", en: "Friends" },
-      href: "/friends",
-    },
-    {
-      label: { de: "News", en: "News" },
-      href: "/news",
-    },
-    {
-      label: { de: "Community", en: "Community" },
-      href: "/community",
-    },
-    {
-      label: { de: "Download", en: "Download" },
+      label: { de: "Installation", en: "Installation" },
       href: "/download",
       highlight: true,
     },
@@ -105,11 +97,11 @@ const config = {
     { type: "theme" },
     {
       type: "link",
-      label: "GitHub",
-      href: "https://github.com/komascript",
+      label: "Codeberg",
+      href: "https://codeberg.org/komascript",
       icon: "github",
       external: true,
-      "aria-label": "KOMA-Script auf GitHub",
+      "aria-label": "KOMA-Script auf Codeberg",
     },
   ],
 } satisfies NavigationConfig;

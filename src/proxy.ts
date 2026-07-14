@@ -33,9 +33,15 @@ const intlMiddleware = createMiddleware({
 //   Trade-off für eine Observatory-konforme strikte CSP.
 // =============================================================================
 function buildCsp(nonce: string): string {
+  // React braucht im Dev-Modus eval() für Debug-Features (Callstacks über
+  // Server/Client-Grenzen hinweg). Ohne 'unsafe-eval' bricht der Dev-Server mit
+  // "eval() is not supported in this environment" ab. In Produktion nutzt React
+  // niemals eval(), dort bleibt die CSP also strikt.
+  const devEval = process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : "";
+
   return [
     "default-src 'none'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${devEval}`,
     // style-src: nonce-basiert. Tailwind v4 erzeugt eine externe CSS-Datei
     // (kein inline-CSS). next-themes injiziert sein Anti-Flash-<style>-Tag
     // mit dem nonce-Prop, das wir im Layout durchreichen.
