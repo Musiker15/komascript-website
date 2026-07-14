@@ -70,6 +70,11 @@ const config = {
 
   showVersion: false,
   showPrivate: true,
+
+  privateText: {
+    de: "Reine Portfolio-Übung, vollständig selbst entwickelt. Kein offizieller Auftritt. Die Website steht in keinem Zusammenhang mit dem LaTeX-Paket KOMA-Script und wird auch nicht von dessen Entwicklern betrieben.",
+    en: "This is purely a portfolio project, developed entirely on my own. This is not an official site. The website is in no way affiliated with the LaTeX package KOMA-Script and is not operated by its developers.",
+  }
 } satisfies FooterConfig;
 
 export const footerConfig: FooterConfig = FooterConfigSchema.parse(config);

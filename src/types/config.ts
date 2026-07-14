@@ -129,6 +129,13 @@ export const FooterConfigSchema = z.object({
   copyright: z.object({ de: z.string(), en: z.string() }),
   showVersion: z.boolean().default(true),
   showPrivate: z.boolean().default(false),
+  /** Portfolio-Disclaimer, wird nur gezeigt, wenn showPrivate true ist. */
+  privateText: z
+    .object({ de: z.string(), en: z.string() })
+    .default({
+      de: "Reine Portfolio-Übung, vollständig selbst entwickelt. Kein offizieller Auftritt. Die Website steht in keinem Zusammenhang mit dem LaTeX-Paket KOMA-Script und wird auch nicht von dessen Entwicklern betrieben.",
+      en: "This is purely a portfolio project, developed entirely on my own. This is not an official site. The website is in no way affiliated with the LaTeX package KOMA-Script and is not operated by its developers.",
+    }),
 });
 export type FooterConfig = z.infer<typeof FooterConfigSchema>;
 

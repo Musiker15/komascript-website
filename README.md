@@ -256,13 +256,10 @@ Fallback auf die letzten 5 Releases unter `/opt/komascript/releases/`.
 notwendig, damit jeder Request einen frischen Nonce erhält. Statisch
 bleiben nur `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`.
 
-Details: Abschnitt „Datenschutz-Audit" in [CLAUDE.md](./CLAUDE.md).
-
 ---
 
 ## 📚 Weiterführende Doku
 
-- [CLAUDE.md](./CLAUDE.md): vollständige Architektur, Status & Roadmap
 - [AUTHORING.md](./AUTHORING.md): Markdown-Anleitung für Content-Pflege
 - [deploy/](./deploy/): Apache2 vHost & systemd-Service
 - [SECURITY.md](./SECURITY.md): Verantwortlicher Umgang mit Sicherheits­meldungen

@@ -156,5 +156,3 @@ curl -skI https://komascript.musiker15.de/de
 # SSL/TLS configuration
 # https://www.ssllabs.com/ssltest/analyze.html?d=komascript.musiker15.de
 ```
-
-Detailed audit log in [`CLAUDE.md` → §16 Sicherheit](CLAUDE.md) and the *Datenschutz-Audit* section.
