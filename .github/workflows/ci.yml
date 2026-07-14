@@ -18,6 +18,11 @@ on:
   push:
     branches: ["**"]
 
+# Least-Privilege: der validate-Job liest nur den Code aus (checkout + build).
+# Kein Schreibzugriff auf Repo-Inhalte, Deployments o. Ä. nötig.
+permissions:
+  contents: read
+
 concurrency:
   # Eindeutig pro Workflow + ref + event-quelle — verhindert Doppel-Runs
   group: ci-${{ github.workflow }}-${{ github.ref }}

@@ -44,13 +44,26 @@ function walkSection(section: string, locale: string): string[][] {
   return out;
 }
 
+// Entfernt HTML-Tags robust. Ein einzelner .replace(/<[^>]+>/g, "") lässt sich
+// durch verschachtelte Sequenzen (z.B. "<scr<ipt>ipt>") umgehen, daher in einer
+// Schleife anwenden, bis sich nichts mehr ändert.
+function stripHtmlTags(s: string): string {
+  let prev: string;
+  do {
+    prev = s;
+    s = s.replace(/<[^>]*>/g, "");
+  } while (s !== prev);
+  return s;
+}
+
 function stripMarkdown(md: string): string {
-  return md
-    .replace(/```[\s\S]*?```/g, "")
-    .replace(/`[^`]+`/g, "")
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
-    .replace(/<[^>]+>/g, "")
+  return stripHtmlTags(
+    md
+      .replace(/```[\s\S]*?```/g, "")
+      .replace(/`[^`]+`/g, "")
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1"),
+  )
     .replace(/[#*_~>|]+/g, "")
     .replace(/\s+/g, " ")
     .trim();

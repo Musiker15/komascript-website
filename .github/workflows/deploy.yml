@@ -44,6 +44,13 @@ on:
       - "!.github/workflows/deploy.yml"   # … außer deploy.yml selbst
   workflow_dispatch:
 
+# Least-Privilege: Build liest den Code und reicht ein Artifact weiter, Deploy
+# lädt es und deployt via SSH (nutzt Secrets, nicht den GITHUB_TOKEN). Kein
+# Schreibzugriff auf Repo-Inhalte nötig. Same-Run-Artifact-Transfer funktioniert
+# mit contents: read.
+permissions:
+  contents: read
+
 concurrency:
   group: deploy-production
   cancel-in-progress: false
