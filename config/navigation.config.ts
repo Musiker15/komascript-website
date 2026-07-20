@@ -99,7 +99,7 @@ const config = {
       type: "link",
       label: "Codeberg",
       href: "https://codeberg.org/komascript",
-      icon: "github",
+      icon: "codeberg",
       external: true,
       "aria-label": "KOMA-Script auf Codeberg",
     },

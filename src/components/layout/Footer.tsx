@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { GitHubIcon, CodebergIcon } from "@/components/ui/BrandIcons";
 import { useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site.config";
 import { footerConfig } from "@/config/footer.config";
@@ -101,7 +102,7 @@ export function Footer({ locale }: FooterProps) {
 }
 
 function SocialIcon({ platform }: { platform: string }) {
-  if (platform === "github") return <Github className="h-4 w-4" />;
+  if (platform === "github") return <GitHubIcon className="h-4 w-4" />;
   if (platform === "mastodon") {
     return (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
@@ -109,13 +110,7 @@ function SocialIcon({ platform }: { platform: string }) {
       </svg>
     );
   }
-  if (platform === "codeberg") {
-    return (
-      <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
-        <path d="M11.955.49A12 12 0 0 0 0 12.49a12 12 0 0 0 1.1 4.999L11.642 3.563a.469.469 0 0 1 .714 0L22.9 17.49A12 12 0 0 0 24 12.49a12 12 0 0 0-12-12 12 12 0 0 0-.045 0zm.04 4.227a.392.392 0 0 0-.318.156L4.288 14.41a.355.355 0 0 0-.064.27l1.41 7.247a.434.434 0 0 0 .242.318c1.886.91 3.99 1.416 6.124 1.416 2.135 0 4.238-.505 6.124-1.416a.434.434 0 0 0 .242-.318l1.41-7.247a.355.355 0 0 0-.064-.27L12.323 4.873a.392.392 0 0 0-.328-.156z"/>
-      </svg>
-    );
-  }
+  if (platform === "codeberg") return <CodebergIcon className="h-4 w-4" />;
   if (platform === "sourceforge") {
     return (
       <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
