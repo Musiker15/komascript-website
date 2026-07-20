@@ -54,7 +54,15 @@ jobs:
     runs-on: ubuntu-latest
     # In Forks nicht spiegeln. Ob die Secrets gesetzt sind, prüft der Step unten,
     # der secrets-Kontext ist auf dieser Ebene nicht lesbar.
-    if: github.repository_owner == 'Musiker15'
+    #
+    # Bei Dependabot-Pushes überspringen: GitHub gibt Dependabot-getriggerten
+    # Läufen keine Repo-Secrets, der Codeberg-Push würde also zwangsläufig
+    # fehlschlagen und jeden Dependabot-PR rot färben. Die kurzlebigen
+    # dependabot/*-Branches landen ohnehin beim nächsten regulären Push im
+    # Spiegel (der pusht mit --prune den kompletten Ref-Stand).
+    if: >-
+      github.repository_owner == 'Musiker15' &&
+      github.actor != 'dependabot[bot]'
 
     steps:
       - name: Checkout (vollständige History, alle Refs)
