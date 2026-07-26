@@ -27,9 +27,9 @@ overrides:
   # hier nicht zuverlässig neu aufgelöst.
   vite: 8.0.16
 
-  # CVE: XSS via Unescaped </style> in CSS Stringify Output
-  # postcss < 8.5.0 ist betroffen.
-  postcss: '>=8.5.0'
+  # CVE: XSS via Unescaped </style> in CSS Stringify Output (< 8.5.0) sowie ein
+  # weiteres Advisory, das erst in 8.5.18 gepatcht ist.
+  postcss: '>=8.5.18'
 
   # CVE: esbuild erlaubt arbitrary file read beim Dev-Server unter Windows.
   # Gepatcht in 0.28.1. Bounded auf 0.28.x, damit vite 8 kompatibel bleibt.
@@ -48,3 +48,7 @@ overrides:
   # Override. Bounded auf 0.35.x, damit ein späterer Major nicht ungeprüft
   # hereinrutscht. sharp wird von next/image für die Bildoptimierung genutzt.
   sharp: '>=0.35.0 <0.36'
+
+  # CVE: brace-expansion ReDoS. Gepatcht in 1.1.16 (1.x) bzw. 2.0.3 (2.x).
+  # Kommt nur über Dev-Werkzeuge herein, wird aber sauber mitgezogen.
+  brace-expansion@1: '>=1.1.16 <2'

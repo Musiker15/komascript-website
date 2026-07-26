@@ -27,7 +27,7 @@
     "prebuild": "pnpm run validate:content && pnpm run build:search"
   },
   "dependencies": {
-    "next": "^16.2.7",
+    "next": "^16.2.12",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "next-intl": "^4.13.0",
