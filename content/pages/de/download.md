@@ -4,16 +4,16 @@ description: "KOMA-Script ist Teil aller großen TeX-Distributionen und liegt au
 order: 3
 ---
 
-## Schon installiert?
+## Ist es schon installiert?
 
-In den allermeisten Fällen ist KOMA-Script **bereits installiert**, sobald Du eine
-LaTeX-Distribution verwendest. Prüfe es in der Konsole:
+In den allermeisten Fällen ist KOMA-Script bereits installiert, sobald Du eine
+LaTeX-Distribution verwendest. Prüfen lässt sich das in der Konsole:
 
 ```bash
 kpsewhich scrbook.cls
 ```
 
-Wenn ein Pfad zurückgegeben wird, ist alles bereit.
+Wird ein Pfad ausgegeben, ist KOMA-Script vorhanden.
 
 ## Über die Distribution
 
@@ -21,7 +21,7 @@ Wenn ein Pfad zurückgegeben wird, ist alles bereit.
 
 Wenn Du TeX Live direkt von [tug.org](https://www.tug.org/texlive/) installiert
 hast (nicht über apt/dnf/brew), installierst und aktualisierst Du KOMA-Script mit
-**`tlmgr`**:
+`tlmgr`:
 
 ```bash
 # Installation
@@ -33,9 +33,9 @@ tlmgr update koma-script
 
 ### TeX Live aus Linux-/macOS-Paketmanagern
 
-Wenn Du TeX Live über den Paketmanager Deines Systems installiert hast, **bleibe bei
-diesem Paketmanager** für Updates. `tlmgr` und System-Paketmanager parallel zu nutzen
-funktioniert nur selten zuverlässig.
+Wenn Du TeX Live über den Paketmanager Deines Systems installiert hast, solltest Du
+für Updates bei diesem Paketmanager bleiben. `tlmgr` und System-Paketmanager parallel
+zu nutzen funktioniert nur selten zuverlässig.
 
 ```bash
 # Debian / Ubuntu
@@ -58,7 +58,7 @@ brew upgrade --cask mactex
 ### MiKTeX (Windows / macOS / Linux)
 
 MiKTeX installiert benötigte Pakete automatisch beim ersten Aufruf. Alternativ kannst Du
-die **MiKTeX Console** öffnen und `koma-script` über die Paketverwaltung installieren
+die MiKTeX Console öffnen und `koma-script` dort über die Paketverwaltung installieren
 und aktualisieren.
 
 ## Bezugsquellen
@@ -70,7 +70,7 @@ und aktualisieren.
 | **Alte Versionen** | [sourceforge.net/projects/koma-script/files/KOMA-Script](https://sourceforge.net/projects/koma-script/files/KOMA-Script/) | Releases aus mehr als den letzten zehn Jahren, siehe [Alte Versionen](/de/docs/koma-script/releases) |
 
 <Callout type="note">
-KOMA-Script selbst wird auf **SourceForge** gehostet, nicht auf GitHub. Auf
+KOMA-Script selbst wird auf SourceForge gehostet, nicht auf GitHub. Auf
 [Codeberg](https://codeberg.org/komascript), [GitHub](https://github.com/komascript) und
 [GitLab](https://gitlab.com/komascript) liegen die anderen Pakete des KOMA-Script-Autors,
 also die [Freunde](/de/friends).
@@ -79,7 +79,7 @@ also die [Freunde](/de/friends).
 ## Quellcode
 
 Der Quellcode von KOMA-Script wird derzeit in einem öffentlichen
-**Subversion-Repository auf SourceForge** verwaltet. Eine Umstellung auf Git ist in
+Subversion-Repository auf SourceForge verwaltet. Eine Umstellung auf Git ist in
 Planung, im Zuge dessen ist auch ein Umzug nach Codeberg angedacht. Details dazu stehen
 unter [Das Subversion-Repository](/de/docs/koma-script/code).
 
@@ -90,8 +90,8 @@ Version benötigst und die Verzeichnisstruktur Deiner TeX-Distribution kennst.
 
 ## Updates
 
-Halte Deine TeX-Distribution aktuell, um die neueste Version zu erhalten, und nutze
-dabei **konsistent eine Update-Methode**:
+Wer die TeX-Distribution aktuell hält, bekommt die neueste Version automatisch mit.
+Wichtig ist dabei, konsistent bei einer Update-Methode zu bleiben:
 
 | Installiert über | Update-Befehl |
 |---|---|
@@ -100,7 +100,7 @@ dabei **konsistent eine Update-Methode**:
 | MiKTeX | `miktex update` oder MiKTeX Console |
 
 <Callout type="warning">
-**Nicht mischen!** `tlmgr` zusammen mit System-Paketmanagern (apt, dnf, brew, …)
-auf derselben TeX-Live-Installation führt fast immer zu inkonsistenten
-Versionen. Bleib bei der Methode, mit der Du installiert hast.
+`tlmgr` zusammen mit System-Paketmanagern (apt, dnf, brew und so weiter) auf derselben
+TeX-Live-Installation führt fast immer zu inkonsistenten Versionen. Bleib bei der
+Methode, mit der Du installiert hast.
 </Callout>

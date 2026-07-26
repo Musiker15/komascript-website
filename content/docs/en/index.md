@@ -4,14 +4,18 @@ description: "An overview of the KOMA-Script collection, the archive of older ma
 order: 1
 ---
 
-This is where you find everything about the KOMA-Script collection: the classes and
+This section collects the information about the KOMA-Script collection: the classes and
 packages, where to get them on CTAN, the old releases, the issue tracker and the wiki.
-In addition, there is an archive with a few older materials left over from the
-“KOMA-Script Documentation Project”, plus a section about KOMA himself, the author
-behind the pseudonym.
+There is also an archive with some older material from the “KOMA-Script Documentation
+Project”, and a section about KOMA himself, the author behind the pseudonym.
 
-Answers to questions that come up again and again are on their own page,
-[Frequently Asked Questions](/en/faq).
+Answers to questions that come up again and again are on a page of their own,
+the [FAQ](/en/faq).
 
-Detailed usage examples and recipes for everyday work live in the English
+Concrete usage examples are in the English
 [KOMA-Script wiki on SourceForge](https://sourceforge.net/p/koma-script/wiki-en/HowTo/).
+
+<Callout type="note">
+The pages in this section are the words of Markus Kohm. Source:
+[koma-script.sourceforge.io](https://koma-script.sourceforge.io/).
+</Callout>

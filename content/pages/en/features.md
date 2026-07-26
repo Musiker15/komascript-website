@@ -5,8 +5,8 @@ order: 2
 ---
 
 KOMA-Script is not a single class but a collection of document classes and packages.
-This page gives a user-oriented overview. The complete, authoritative list of everything
-in the bundle lives at [The KOMA-Script Collection](/en/docs/koma-script).
+This page gives an overview from a user's point of view. The complete list of everything
+in the bundle is at [The KOMA-Script Collection](/en/docs/koma-script).
 
 <Callout type="warning">
 Currently **none** of the KOMA-Script classes supports `\DocumentMetadata` or LaTeX
@@ -123,10 +123,10 @@ formats, date layouts, and salutation conventions:
 - **NF** (French norm)
 - **JP** (Japanese layout)
 
-## Comprehensive documentation
+## The manual
 
-The official KOMA-Script manual spans more than **600 pages** in German (`scrguide`) and
-English (`scrguien`) and covers every class, package, and option with plenty of examples.
+The official manual runs to more than 600 pages in German (`scrguide`) and English
+(`scrguien`). It covers all classes, packages and options and includes many examples.
 
 <Callout type="tip">
 Open the German manual from your console with `texdoc scrguide`, the English one with

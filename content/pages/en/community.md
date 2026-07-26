@@ -4,7 +4,7 @@ description: "Where to get help, report problems and meet other KOMA-Script user
 order: 4
 ---
 
-## Help & examples
+## Help and examples
 
 ### The KOMA-Script wiki
 
@@ -21,8 +21,8 @@ HowTo pages with many concrete examples:
 
 Questions about KOMA-Script are discussed in the relevant LaTeX forums, among them
 [TeX Stack Exchange](https://tex.stackexchange.com/questions/tagged/koma-script) under the
-**`koma-script`** tag and, in German, [TeXwelt](https://texwelt.de/). Many questions have
-already been answered there, so searching first usually pays off.
+`koma-script` tag and, in German, [TeXwelt](https://texwelt.de/). Much of it has been
+answered there already, so a search up front often saves time.
 
 ### Frequently asked questions
 
@@ -37,7 +37,7 @@ The KOMA-Script author can be reached in these ways:
 - **Email:** at the familiar KOMA-Script email address
 - **Issue pages** of the individual projects (see below)
 
-## Bugs & suggestions
+## Bugs and suggestions
 
 Bug reports and similar issues are collected in the
 [KOMA-Script issue tracker on SourceForge](https://sourceforge.net/p/koma-script/tickets/).
@@ -49,21 +49,19 @@ The [friends](/en/friends), the other packages of the KOMA-Script author, are ho
 [GitLab](https://gitlab.com/komascript) and each has its own issue tracker.
 
 <Callout type="tip">
-Before filing a bug: build a **minimal working example** that reproduces the problem, and
-state the exact **version number** (`\listfiles`). What makes an example a proper minimal
-working example, and why it matters so much, is explained in the [FAQ](/en/faq).
+A bug report needs a minimal working example that reproduces the problem, plus the exact
+version number from `\listfiles`. What makes an example a proper minimal working example
+is explained in the [FAQ](/en/faq).
 </Callout>
 
 ## Contributing
 
 At its core, KOMA-Script has always been a one-man show. That is why, since 2018, the
-collection has been split step by step into smaller projects, so that the enormous
-complexity of the overall project can be distributed among several people in the medium to
-long term.
+collection has been split step by step into smaller projects, so the work can be spread
+across more shoulders in the medium to long term.
 
-The most helpful thing you can do is pass on what you know: answer questions in the LaTeX
-forums, share your findings in the issue trackers of the individual packages, and file
-reproducible bug reports.
+The main way to help is to pass on what you know, in the LaTeX forums or in the issue
+trackers of the individual packages. A reproducible bug report helps too.
 
 If you would like to say thank you beyond that, have a look at
 [KOMA's wish list](/en/docs/koma/wishlist). Those who have helped over the years are listed

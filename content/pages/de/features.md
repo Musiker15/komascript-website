@@ -5,8 +5,8 @@ order: 2
 ---
 
 KOMA-Script ist keine einzelne Klasse, sondern eine Sammlung aus Dokumentklassen und
-Paketen. Diese Seite gibt einen anwenderorientierten Überblick. Die vollständige,
-maßgebliche Liste aller Bestandteile findest Du unter
+Paketen. Diese Seite gibt einen Überblick aus Anwendersicht. Die vollständige Liste
+aller Bestandteile steht unter
 [Die KOMA-Script-Sammlung](/de/docs/koma-script).
 
 <Callout type="warning">
@@ -127,11 +127,11 @@ Adressformaten, Datums-Layouts und Anrede-Konventionen:
 - **NF** (französische Norm)
 - **JP** (japanisches Layout)
 
-## Ausführliche Dokumentation
+## Die Anleitung
 
-Die offizielle KOMA-Script-Dokumentation umfasst über **600 Seiten** in Deutsch (`scrguide`)
-und Englisch (`scrguien`) und behandelt alle Klassen, Pakete und Optionen mit zahlreichen
-Beispielen.
+Die offizielle Anleitung umfasst über 600 Seiten auf Deutsch (`scrguide`) und Englisch
+(`scrguien`). Sie behandelt alle Klassen, Pakete und Optionen und enthält viele
+Beispiele.
 
 <Callout type="tip">
 Die deutsche Dokumentation rufst Du in der Konsole mit `texdoc scrguide` auf,

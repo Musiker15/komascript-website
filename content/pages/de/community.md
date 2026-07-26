@@ -4,7 +4,7 @@ description: "Wo Du Hilfe findest, Probleme meldest und mit anderen KOMA-Script-
 order: 4
 ---
 
-## Hilfe & Anwendungsbeispiele
+## Hilfe und Anwendungsbeispiele
 
 ### Das KOMA-Script-Wiki
 
@@ -21,8 +21,8 @@ HowTo-Seiten mit vielen konkreten Beispielen:
 
 Fragen rund um KOMA-Script werden in den einschlägigen LaTeX-Foren diskutiert, unter
 anderem auf [TeX Stack Exchange](https://tex.stackexchange.com/questions/tagged/koma-script)
-unter dem Tag **`koma-script`** und auf [TeXwelt](https://texwelt.de/). Viele Fragen
-sind dort bereits beantwortet, eine Suche lohnt sich also vor dem Fragen.
+unter dem Tag `koma-script` und auf [TeXwelt](https://texwelt.de/). Vieles ist dort
+schon beantwortet, eine Suche vorab spart oft Zeit.
 
 ### Häufige Fragen
 
@@ -37,7 +37,7 @@ Der KOMA-Script-Autor ist auf diesen Wegen erreichbar:
 - **E-Mail:** unter der bekannten KOMA-Script-E-Mail-Adresse
 - **Issue-Seiten** der einzelnen Projekte (siehe unten)
 
-## Bugs & Anregungen
+## Fehler und Anregungen
 
 Bug-Reports und ähnliches finden sich im
 [Issue-Tracker von KOMA-Script auf SourceForge](https://sourceforge.net/p/koma-script/tickets/).
@@ -49,21 +49,20 @@ Die [Freunde](/de/friends), also die anderen Pakete des KOMA-Script-Autors, lieg
 [GitLab](https://gitlab.com/komascript) und haben jeweils ihren eigenen Issue-Tracker.
 
 <Callout type="tip">
-Vor dem Bug-Report: Baue ein **vollständiges Minimalbeispiel**, mit dem sich das Problem
-reproduzieren lässt, und gib die genaue **Versionsnummer** an (`\listfiles`). Was ein
-vollständiges Minimalbeispiel ausmacht und warum es so wichtig ist, steht in den
-[häufigen Fragen](/de/faq).
+Für einen Fehlerbericht braucht es ein vollständiges Minimalbeispiel, mit dem sich das
+Problem nachvollziehen lässt, dazu die genaue Versionsnummer aus `\listfiles`. Was ein
+vollständiges Minimalbeispiel ausmacht, steht in den [häufigen Fragen](/de/faq).
 </Callout>
 
 ## Mitwirken
 
 KOMA-Script war im Kern immer eine Ein-Mann-Show. Seit 2018 wird die Sammlung deshalb
-Schritt für Schritt in kleinere Projekte aufgeteilt, damit sich die enorme Komplexität
-des Gesamtprojekts mittel- bis langfristig auf mehrere Personen verteilen lässt.
+Schritt für Schritt in kleinere Projekte aufgeteilt, damit sich die Arbeit mittel- bis
+langfristig auf mehrere Schultern verteilen lässt.
 
-Am meisten hilft es dem Projekt, wenn Du Dein Wissen weitergibst: Beantworte Fragen in
-den LaTeX-Foren, teile Deine Erkenntnisse in den Issue-Trackern der einzelnen Pakete und
-melde nachvollziehbare Bug-Reports.
+Helfen kann man vor allem, indem man sein Wissen weitergibt, etwa in den LaTeX-Foren
+oder in den Issue-Trackern der einzelnen Pakete. Auch ein nachvollziehbarer
+Fehlerbericht ist eine Hilfe.
 
 Wer sich darüber hinaus bedanken möchte, findet Hinweise auf
 [KOMAs Wunschliste](/de/docs/koma/wishlist). Wer über die Jahre schon geholfen hat, steht
