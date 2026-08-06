@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { getContent, listContent } from "@/lib/content";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getAvailableLocales, getContent, listContent } from "@/lib/content";
 import { renderMDX } from "@/lib/mdx";
-import { buildArticleMetadata } from "@/lib/seo";
+import { buildArticleMetadata, buildJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/config/site.config";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 
 interface Props {
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const item = getContent("friends", locale, [slug]);
   if (!item) return {};
-  return buildArticleMetadata(item.frontmatter, locale, item.url);
+  return buildArticleMetadata(item.frontmatter, locale, item.url, getAvailableLocales("friends", [slug]));
 }
 
 export default async function FriendPage({ params }: Props) {
@@ -38,8 +40,29 @@ export default async function FriendPage({ params }: Props) {
 
   const content = await renderMDX(item.content);
 
+  // Jede Friends-Seite beschreibt ein eigenständiges LaTeX-Paket, deshalb
+  // SoftwareSourceCode statt Article. `isBasedOn` hält die Herkunft der
+  // Spin-Offs aus KOMA-Script fest.
+  const ld = buildJsonLd({
+    "@type": "SoftwareSourceCode",
+    name: item.frontmatter.title,
+    description: item.frontmatter.description,
+    url: `${siteConfig.url}${item.url}`,
+    programmingLanguage: { "@type": "ComputerLanguage", name: "TeX" },
+    runtimePlatform: "LaTeX",
+    codeRepository: `https://ctan.org/pkg/${slug}`,
+    ...(item.frontmatter.category === "spin-off"
+      ? { isBasedOn: { "@type": "SoftwareSourceCode", name: siteConfig.name, url: siteConfig.url } }
+      : {}),
+    author: { "@type": "Person", name: item.frontmatter.author ?? "Markus Kohm" },
+    dateModified: (item.frontmatter.updated ?? item.modifiedAt).toISOString(),
+    inLanguage: locale === "de" ? "de-DE" : "en-US",
+    isAccessibleForFree: true,
+  });
+
   return (
     <article className="container-page max-w-4xl py-10">
+      <JsonLd data={ld} />
       <Breadcrumbs
         locale={locale}
         items={[{ label: t("title"), href: `/${locale}/friends` }, { label: item.frontmatter.title }]}

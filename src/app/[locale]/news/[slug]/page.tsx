@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Calendar, User } from "lucide-react";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { getContent, listContent } from "@/lib/content";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getAvailableLocales, getContent, listContent } from "@/lib/content";
 import { renderMDX } from "@/lib/mdx";
 import { buildArticleMetadata, buildJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
@@ -29,7 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const item = getContent("news", locale, [slug]);
   if (!item) return {};
-  return buildArticleMetadata(item.frontmatter, locale, item.url);
+  // Nur 7 der 43 Beiträge sind übersetzt, deshalb muss hier wirklich geprüft
+  // werden, welche Sprachvarianten es gibt.
+  return buildArticleMetadata(item.frontmatter, locale, item.url, getAvailableLocales("news", [slug]));
 }
 
 export default async function NewsArticlePage({ params }: Props) {
@@ -45,15 +48,24 @@ export default async function NewsArticlePage({ params }: Props) {
     "@type": "BlogPosting",
     headline: item.frontmatter.title,
     description: item.frontmatter.description,
+    url: `${siteConfig.url}${item.url}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.url}${item.url}` },
     datePublished: item.frontmatter.date?.toISOString(),
     dateModified: (item.frontmatter.updated ?? item.modifiedAt).toISOString(),
     author: { "@type": "Person", name: item.frontmatter.author ?? siteConfig.author.name },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/logo.png` },
+    },
+    image: `${siteConfig.url}${item.frontmatter.image ?? siteConfig.ogImage}`,
     inLanguage: locale === "de" ? "de-DE" : "en-US",
+    isAccessibleForFree: true,
   });
 
   return (
     <article className="container-page max-w-3xl py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld }} />
+      <JsonLd data={ld} />
       <Breadcrumbs
         locale={locale}
         items={[{ label: t("title"), href: `/${locale}/news` }, { label: item.frontmatter.title }]}

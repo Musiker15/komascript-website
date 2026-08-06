@@ -6,7 +6,8 @@ import { CalendarClock, Pencil } from "lucide-react";
 import { Breadcrumbs, type Crumb } from "@/components/layout/Breadcrumbs";
 import { DocSidebar } from "@/components/content/DocSidebar";
 import { TableOfContents } from "@/components/content/TableOfContents";
-import { buildDocTree, getContent, listContent } from "@/lib/content";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildDocTree, getAvailableLocales, getContent, listContent } from "@/lib/content";
 import { renderMDX, extractHeadings } from "@/lib/mdx";
 import { buildArticleMetadata, buildJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
@@ -31,7 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const item = getContent("docs", locale, slug);
   if (!item) return {};
-  return buildArticleMetadata(item.frontmatter, locale, item.url);
+  // Das Archiv liegt nur auf Deutsch vor, hreflang darf hier nicht pauschal
+  // beide Sprachen behaupten.
+  return buildArticleMetadata(item.frontmatter, locale, item.url, getAvailableLocales("docs", slug));
 }
 
 export default async function DocPage({ params }: Props) {
@@ -46,12 +49,21 @@ export default async function DocPage({ params }: Props) {
   const content = await renderMDX(item.content);
   const tree = buildDocTree(locale);
 
-  // Breadcrumbs aufbauen
+  // Breadcrumbs aufbauen. Zwischenstufen werden gegen ihre index.md aufgelöst,
+  // damit dort der echte Seitentitel und ein Link stehen statt eines aus dem
+  // Ordnernamen gebastelten "Koma Script". Das betrifft die sichtbare
+  // Navigation genauso wie das BreadcrumbList-Schema, das für Zwischenstufen
+  // ohne Link unvollständig wäre.
   const crumbs: Crumb[] = [{ label: t("title"), href: `/${locale}/docs` }];
   for (let i = 0; i < slug.length - 1; i++) {
     const seg = slug[i];
     if (!seg) continue;
-    crumbs.push({ label: seg.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) });
+    const ancestor = getContent("docs", locale, slug.slice(0, i + 1));
+    crumbs.push(
+      ancestor
+        ? { label: ancestor.frontmatter.title, href: ancestor.url }
+        : { label: seg.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()) },
+    );
   }
   crumbs.push({ label: item.frontmatter.title });
 
@@ -59,15 +71,27 @@ export default async function DocPage({ params }: Props) {
     "@type": "TechArticle",
     headline: item.frontmatter.title,
     description: item.frontmatter.description,
+    url: `${siteConfig.url}${item.url}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.url}${item.url}` },
     datePublished: item.frontmatter.date?.toISOString(),
     dateModified: (item.frontmatter.updated ?? item.modifiedAt).toISOString(),
     author: { "@type": "Person", name: item.frontmatter.author ?? siteConfig.author.name },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}/logo.png` },
+    },
+    // Verankert die Doku am Paket selbst, statt sie als freistehenden Artikel
+    // stehen zu lassen.
+    about: { "@type": "SoftwareSourceCode", name: siteConfig.name, version: siteConfig.currentVersion },
+    proficiencyLevel: "Beginner",
     inLanguage: locale === "de" ? "de-DE" : "en-US",
+    isAccessibleForFree: true,
   });
 
   return (
     <div className="container-page py-8 lg:py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleLd }} />
+      <JsonLd data={articleLd} />
 
       <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)_14rem]">
         {/* Sidebar: Doc-Baum */}

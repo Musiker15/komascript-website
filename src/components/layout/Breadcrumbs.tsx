@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildBreadcrumbLd } from "@/lib/seo";
 import type { Locale } from "@/types/config";
 
 export interface Crumb {
@@ -12,9 +14,16 @@ interface Props {
   locale: Locale;
 }
 
-export function Breadcrumbs({ items, locale }: Props) {
+/**
+ * Die strukturierten Daten hängen hier an der Komponente, nicht an den
+ * einzelnen Seiten. Dadurch bekommt jede Seite, die Breadcrumbs anzeigt,
+ * automatisch das passende BreadcrumbList-Schema, und beides kann nicht
+ * auseinanderlaufen.
+ */
+export async function Breadcrumbs({ items, locale }: Props) {
   return (
     <nav aria-label="Breadcrumb" className="mb-4 text-sm">
+      <JsonLd data={buildBreadcrumbLd(locale, items)} />
       <ol className="flex flex-wrap items-center gap-1 text-[var(--color-muted-foreground)]">
         <li>
           <Link

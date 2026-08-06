@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { getContent, listContent } from "@/lib/content";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getAvailableLocales, getContent, listContent } from "@/lib/content";
 import { renderMDX } from "@/lib/mdx";
-import { buildArticleMetadata } from "@/lib/seo";
+import { buildArticleMetadata, buildJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/config/site.config";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 
 interface Props {
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const item = getContent("examples", locale, [slug]);
   if (!item) return {};
-  return buildArticleMetadata(item.frontmatter, locale, item.url);
+  return buildArticleMetadata(item.frontmatter, locale, item.url, getAvailableLocales("examples", [slug]));
 }
 
 export default async function ExamplePage({ params }: Props) {
@@ -38,8 +40,25 @@ export default async function ExamplePage({ params }: Props) {
 
   const content = await renderMDX(item.content);
 
+  // Beispiele sind Anleitungen mit Codeanteil, deshalb TechArticle mit
+  // Bezug auf das Paket, um das es geht.
+  const ld = buildJsonLd({
+    "@type": "TechArticle",
+    headline: item.frontmatter.title,
+    description: item.frontmatter.description,
+    url: `${siteConfig.url}${item.url}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.url}${item.url}` },
+    datePublished: item.frontmatter.date?.toISOString(),
+    dateModified: (item.frontmatter.updated ?? item.modifiedAt).toISOString(),
+    author: { "@type": "Person", name: item.frontmatter.author ?? siteConfig.author.name },
+    about: { "@type": "SoftwareSourceCode", name: siteConfig.name, version: siteConfig.currentVersion },
+    inLanguage: locale === "de" ? "de-DE" : "en-US",
+    isAccessibleForFree: true,
+  });
+
   return (
     <article className="container-page max-w-4xl py-10">
+      <JsonLd data={ld} />
       <Breadcrumbs
         locale={locale}
         items={[{ label: t("title"), href: `/${locale}/examples` }, { label: item.frontmatter.title }]}

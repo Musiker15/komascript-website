@@ -16,6 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     title: t("title"),
     locale,
     path: `/${locale}/search`,
+    // Suchergebnisseiten gehören nicht in den Index: Sie erzeugen pro Query
+    // eine eigene URL mit Inhalten, die es an anderer Stelle schon gibt.
+    // `follow` bleibt an, damit die verlinkten Zielseiten weiter gefunden
+    // werden.
+    index: false,
   });
 }
 

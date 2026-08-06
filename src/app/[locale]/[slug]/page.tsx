@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { getContent, listContent } from "@/lib/content";
+import { getAvailableLocales, getContent, listContent } from "@/lib/content";
 import { renderMDX } from "@/lib/mdx";
 import { buildArticleMetadata } from "@/lib/seo";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
@@ -26,7 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const item = getContent("pages", locale, [slug]);
   if (!item) return {};
-  return buildArticleMetadata(item.frontmatter, locale, item.url);
+  // Achtung: Rechtstexte heißen je Sprache anders (impressum/imprint,
+  // datenschutz/privacy). Für die gilt der Slug nur in einer Sprache, sie
+  // bekommen deshalb korrekterweise kein hreflang-Paar.
+  return buildArticleMetadata(item.frontmatter, locale, item.url, getAvailableLocales("pages", [slug]));
 }
 
 export default async function CatchAllPage({ params }: Props) {

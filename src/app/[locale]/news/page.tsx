@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { listNews } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
+import { siteConfig } from "@/config/site.config";
 import type { Locale } from "@/types/config";
 
 interface Props {
@@ -15,12 +16,20 @@ interface Props {
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "news" });
-  return buildMetadata({
+  const meta = buildMetadata({
     title: t("title"),
     description: t("subtitle"),
     locale,
     path: `/${locale}/news`,
   });
+  return {
+    ...meta,
+    alternates: {
+      ...meta.alternates,
+      // Macht den Feed für Reader und Browser auffindbar.
+      types: { "application/rss+xml": `${siteConfig.url}/${locale}/news/feed.xml` },
+    },
+  };
 }
 
 export default async function NewsIndexPage({ params }: Props) {

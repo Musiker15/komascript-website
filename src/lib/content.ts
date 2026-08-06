@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { FrontmatterSchema, type Frontmatter } from "./frontmatter";
 import type { ContentItem, ContentSection, DocTreeNode } from "@/types/content";
-import type { Locale } from "@/types/config";
+import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content");
 
@@ -67,6 +67,31 @@ export function getContent(
     };
   }
   return null;
+}
+
+/**
+ * Prüft, ob es zu einem Slug in der angegebenen Sprache eine Datei gibt.
+ *
+ * Bewusst ohne Parsen des Frontmatters, es geht nur um die Existenz. Einzige
+ * Ausnahme ist der Draft-Fall: ein Entwurf ist in Produktion keine
+ * ausspielbare Seite und darf deshalb auch nicht als Sprachvariante gelten.
+ */
+export function contentExists(section: ContentSection, locale: Locale, slug: string[]): boolean {
+  return getContent(section, locale, slug) !== null;
+}
+
+/**
+ * Liefert die Sprachen, in denen es diesen Slug tatsächlich gibt.
+ *
+ * Grundlage für die hreflang-Annotationen. Ein hreflang, das auf eine nicht
+ * existierende Übersetzung zeigt, ist ein Fehler: Google verlangt, dass jede
+ * angegebene Variante erreichbar ist und zurückverweist. Ist das nicht der
+ * Fall, wird im Zweifel das ganze Cluster verworfen. Die News liegen zu 43
+ * auf Deutsch, aber nur zu 7 auf Englisch vor, deshalb ist das hier kein
+ * theoretischer Randfall.
+ */
+export function getAvailableLocales(section: ContentSection, slug: string[]): Locale[] {
+  return SUPPORTED_LOCALES.filter((locale) => contentExists(section, locale, slug));
 }
 
 /**

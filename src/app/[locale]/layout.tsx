@@ -86,19 +86,23 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title,
       description,
-      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
+      images: [
+        { url: `${siteConfig.ogImage}?lang=${l}`, width: 1200, height: 630, alt: siteConfig.name },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [siteConfig.ogImage],
+      images: [`${siteConfig.ogImage}?lang=${l}`],
     },
     icons: {
       // Bewusst nur die .ico. Bietet man zusätzlich eine SVG an, bevorzugen
       // Chrome und Firefox diese und die .ico wird nie angezeigt.
       icon: [{ url: "/favicon.ico", sizes: "any", type: "image/x-icon" }],
       shortcut: "/favicon.ico",
+      // Eigener rel, kollidiert nicht mit der Auswahl oben.
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
     manifest: "/manifest.webmanifest",
     robots: {
