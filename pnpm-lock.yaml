@@ -8,8 +8,6 @@ overrides:
   vite: 8.0.16
   postcss: '>=8.5.23'
   esbuild: '>=0.28.1 <0.29'
-  js-yaml@3: '>=3.15.1 <4'
-  js-yaml@4: '>=4.3.1 <5'
   sharp: '>=0.35.0 <0.36'
   brace-expansion@1: '>=1.1.16 <2'
 

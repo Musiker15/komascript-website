@@ -52,8 +52,6 @@ overrides:
   # Scoped + gebounded, damit der 3.x-Consumer (gray-matter, verlangt ^3.13.1)
   # nicht auf die inkompatible 4.x/5.x-API springt und der 4.x-Consumer
   # (@eslint/eslintrc, verlangt ^4.1.0) innerhalb 4.x bleibt.
-  js-yaml@3: '>=3.15.1 <4'
-  js-yaml@4: '>=4.3.1 <5'
 
   # CVE-2026-33327/33328/35590/35591: sharp erbt Schwachstellen aus libvips,
   # gepatcht in sharp 0.35.0. Next 16.2.x fordert nominell ^0.34.5, deshalb der
