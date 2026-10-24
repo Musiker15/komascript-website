@@ -33,7 +33,7 @@ export default async function DocsIndexPage({ params }: Props) {
 
   // Top-Level-Index (content/docs/<locale>/index.md) rendern, falls vorhanden.
   const index = getContent("docs", locale, []);
-  const indexContent = index ? await renderMDX(index.content) : null;
+  const indexContent = index ? (await renderMDX(index.content)).content : null;
   const heading = index?.frontmatter.title ?? t("title");
   const subtitle = index?.frontmatter.description ?? t("subtitle");
 

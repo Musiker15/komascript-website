@@ -126,7 +126,7 @@ Die Anweisung unterscheidet sich von `\DayName` in derselben Weise wie sich
 ## Heute
 
 Mit `\todaysnumber` wurde im Abschnitt [„Anweisungen, die Werte
-zurückliefern“](#anweisungen-die-werte-zurückliefern) bereits eine Anweisung
+zurückliefern“](#anweisungen-die-werte-zurueckliefern) bereits eine Anweisung
 vorgestellt, die sich auf das aktuelle Datum bezieht und die zugehörige
 Wochentagsnummer liefert. Es gibt einige weitere Anweisungen, die sich
 ebenfalls auf das durch the TeX-Register `\year`, `\month` und `\day`

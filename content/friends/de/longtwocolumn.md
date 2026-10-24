@@ -37,7 +37,7 @@ wird genau das bei `\longtwocolumn` getan.
 Manuelle Seitenumbrüche innerhal von `<einspaltiger Inhalt>` mit `\pagebreak`
 und `\newpage` sind zwar möglich, ergeben in der Regel aber wenig Sinn, da man
 dann auch einfach den Teil vor dem Seitenumbruch vor `\longtwocolumn`
-verschieben kann und dann nicht mit den [Einschränkungen](#einschränkungen)
+verschieben kann und dann nicht mit den [Einschränkungen](#einschraenkungen)
 leben muss.
 
 ## Beispiel

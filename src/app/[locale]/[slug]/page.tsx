@@ -38,7 +38,7 @@ export default async function CatchAllPage({ params }: Props) {
   const item = getContent("pages", locale, [slug]);
   if (!item) notFound();
 
-  const content = await renderMDX(item.content);
+  const { content } = await renderMDX(item.content);
 
   return (
     <article className="container-page max-w-3xl py-10">

@@ -5,6 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { NonceSetup } from "@/components/layout/NonceSetup";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/config/site.config";
@@ -175,7 +176,13 @@ export default async function LocaleLayout({
   });
 
   return (
-    <html lang={l} suppressHydrationWarning>
+    // `data-scroll-behavior="smooth"` lets Next switch the smooth scrolling
+    // from globals.css off while it resets the scroll position on a route
+    // change. Without it, `scrollTop = 0` started an animation instead of
+    // jumping, Next measured the old position, scrolled the new page into view
+    // instead, and every page reached from further down opened 65px down,
+    // below the header, after a visible glide. Anchor jumps keep gliding.
+    <html lang={l} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="flex min-h-dvh flex-col bg-[var(--color-background)] text-[var(--color-foreground)] antialiased">
         {/*
           suppressHydrationWarning ist hier nötig, nicht kosmetisch: Browser
@@ -197,6 +204,8 @@ export default async function LocaleLayout({
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: siteLd }}
         />
+
+        <NonceSetup nonce={nonce} />
 
         <ThemeProvider
           attribute="class"

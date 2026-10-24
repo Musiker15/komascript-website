@@ -11,6 +11,21 @@ interface FooterProps {
   locale: Locale;
 }
 
+/**
+ * Display names for the platforms, used when the config sets no `label`.
+ * Without this table the machine key ended up as the accessible name, so
+ * screen readers announced the icon links as "mastodon" and "sourceforge".
+ */
+const PLATFORM_NAMES: Record<string, string> = {
+  mastodon: "Mastodon",
+  github: "GitHub",
+  codeberg: "Codeberg",
+  sourceforge: "SourceForge",
+  twitter: "Twitter",
+  linkedin: "LinkedIn",
+  youtube: "YouTube",
+};
+
 export function Footer({ locale }: FooterProps) {
   const tr = useTranslations("footer");
   const year = new Date().getFullYear();
@@ -88,7 +103,7 @@ export function Footer({ locale }: FooterProps) {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={s.label ?? s.platform}
+                aria-label={s.label ?? PLATFORM_NAMES[s.platform] ?? s.platform}
                 className="text-[var(--color-muted-foreground)] transition-colors hover:text-[var(--color-foreground)]"
               >
                 <SocialIcon platform={s.platform} />

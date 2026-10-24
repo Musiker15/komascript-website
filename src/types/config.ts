@@ -1,3 +1,5 @@
+// Must come before the first schema, otherwise jitless no longer applies.
+import "@/lib/zod-setup";
 import { z } from "zod";
 
 // ============================================================================

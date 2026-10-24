@@ -156,9 +156,13 @@
     font-size: 0.875em;
     font-weight: 500;
   }
+  /* `!important` is needed: the Typography plugin emits its own backtick
+     pseudo-elements in a later cascade layer, so a plain `content: none` in
+     this layer loses and inline code renders as `tocbasic` with literal
+     backticks around it. An important declaration in an earlier layer wins. */
   .prose code::before,
   .prose code::after {
-    content: none;
+    content: "" !important;
   }
   .prose pre {
     background-color: var(--color-muted);

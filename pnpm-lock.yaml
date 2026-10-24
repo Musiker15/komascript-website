@@ -43,6 +43,9 @@ importers:
       flexsearch:
         specifier: ^0.8.212
         version: 0.8.212
+      get-nonce:
+        specifier: ^1.0.1
+        version: 1.0.1
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -73,15 +76,9 @@ importers:
       rehype-pretty-code:
         specifier: ^0.14.5
         version: 0.14.5(shiki@4.5.0)
-      rehype-slug:
-        specifier: ^6.0.0
-        version: 6.0.0
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
-      remark-toc:
-        specifier: ^9.0.0
-        version: 9.0.0
       shiki:
         specifier: ^4.5.0
         version: 4.5.0
@@ -1468,9 +1465,6 @@ packages:
   '@types/react@19.3.0':
     resolution: {integrity: sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==}
 
-  '@types/ungap__structured-clone@1.2.0':
-    resolution: {integrity: sha512-ZoaihZNLeZSxESbk9PUAPZOlSpcKx81I1+4emtULDVmBLkYutTcMlCj2K9VNlf9EWODxdO6gkAqEaLorXwZQVA==}
-
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
 
@@ -1831,9 +1825,6 @@ packages:
   get-nonce@1.0.1:
     resolution: {integrity: sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==}
     engines: {node: '>=6'}
-
-  github-slugger@2.0.0:
-    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
 
   glob-parent@6.0.2:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
@@ -2196,9 +2187,6 @@ packages:
 
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
-
-  mdast-util-toc@7.1.0:
-    resolution: {integrity: sha512-2TVKotOQzqdY7THOdn2gGzS9d1Sdd66bvxUyw3aNpWfcPXCLYSJCCgfPy30sEtuzkDraJgqF35dzgmz6xlvH/w==}
 
   micromark-core-commonmark@2.0.4:
     resolution: {integrity: sha512-wxEeE8v8XVvOrxn1TZj74qYhAtTQsSqufHVS3uNVyT1MupXxhyaHk8/9xDNPh9BmL77QNDgWTkZ3RsYHB2ry7w==}
@@ -2595,9 +2583,6 @@ packages:
   rehype-recma@1.0.0:
     resolution: {integrity: sha512-lqA4rGUf1JmacCNWWZx0Wv1dHqMwxzsDWYMTowuplHF3xH0N/MmrZ/G3BDZnzAkRmxDadujCjaKM2hqYdCBOGw==}
 
-  rehype-slug@6.0.0:
-    resolution: {integrity: sha512-lWyvf/jwu+oS5+hL5eClVd3hNdmwM1kAC0BUvEGD19pajQMIzcNUd/k9GsfQ+FfECvX+JE+e9/btsKH0EjJT6A==}
-
   remark-gfm@4.0.1:
     resolution: {integrity: sha512-1quofZ2RQ9EWdeN34S79+KExV1764+wCUGop5CPL1WGdD0ocPpu91lzPGbwWMECpEpd42kJGQwzRfyov9j4yNg==}
 
@@ -2612,9 +2597,6 @@ packages:
 
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
-
-  remark-toc@9.0.0:
-    resolution: {integrity: sha512-KJ9txbo33GjDAV1baHFze7ij4G8c7SGYoY8Kzsm2gzFpbhL/bSoVpMMzGa3vrNDSWASNd/3ppAqL7cP2zD6JIA==}
 
   rolldown@1.2.15:
     resolution: {integrity: sha512-6odND+fel5zVw3I4Yc2e69gvguDnX0CAAGiNDZSq4ik5WUcaLrkD2GLuog0XcODbor31hZ5ayEMgVDno+KPV5g==}
@@ -4009,8 +3991,6 @@ snapshots:
     dependencies:
       csstype: 3.2.3
 
-  '@types/ungap__structured-clone@1.2.0': {}
-
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
@@ -4414,8 +4394,6 @@ snapshots:
     optional: true
 
   get-nonce@1.0.1: {}
-
-  github-slugger@2.0.0: {}
 
   glob-parent@6.0.2:
     dependencies:
@@ -4893,16 +4871,6 @@ snapshots:
   mdast-util-to-string@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-
-  mdast-util-toc@7.1.0:
-    dependencies:
-      '@types/mdast': 4.0.4
-      '@types/ungap__structured-clone': 1.2.0
-      '@ungap/structured-clone': 1.4.0
-      github-slugger: 2.0.0
-      mdast-util-to-string: 4.0.0
-      unist-util-is: 6.0.1
-      unist-util-visit: 5.1.0
 
   micromark-core-commonmark@2.0.4:
     dependencies:
@@ -5448,14 +5416,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  rehype-slug@6.0.0:
-    dependencies:
-      '@types/hast': 3.0.5
-      github-slugger: 2.0.0
-      hast-util-heading-rank: 3.0.0
-      hast-util-to-string: 3.0.1
-      unist-util-visit: 5.1.0
-
   remark-gfm@4.0.1:
     dependencies:
       '@types/mdast': 4.0.4
@@ -5496,11 +5456,6 @@ snapshots:
       '@types/mdast': 4.0.4
       mdast-util-to-markdown: 2.2.0
       unified: 11.0.5
-
-  remark-toc@9.0.0:
-    dependencies:
-      '@types/mdast': 4.0.4
-      mdast-util-toc: 7.1.0
 
   rolldown@1.2.15:
     dependencies:

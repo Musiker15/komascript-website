@@ -8,7 +8,7 @@ import { DocSidebar } from "@/components/content/DocSidebar";
 import { TableOfContents } from "@/components/content/TableOfContents";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildDocTree, getAvailableLocales, getContent, listContent } from "@/lib/content";
-import { renderMDX, extractHeadings } from "@/lib/mdx";
+import { renderMDX } from "@/lib/mdx";
 import { buildArticleMetadata, buildJsonLd } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 import { siteConfig } from "@/config/site.config";
@@ -45,8 +45,7 @@ export default async function DocPage({ params }: Props) {
   const item = getContent("docs", locale, slug);
   if (!item) notFound();
 
-  const headings = extractHeadings(item.content);
-  const content = await renderMDX(item.content);
+  const { content, headings } = await renderMDX(item.content);
   const tree = buildDocTree(locale);
 
   // Breadcrumbs aufbauen. Zwischenstufen werden gegen ihre index.md aufgelöst,

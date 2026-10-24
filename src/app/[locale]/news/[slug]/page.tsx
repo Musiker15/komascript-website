@@ -42,7 +42,7 @@ export default async function NewsArticlePage({ params }: Props) {
   const item = getContent("news", locale, [slug]);
   if (!item) notFound();
 
-  const content = await renderMDX(item.content);
+  const { content } = await renderMDX(item.content);
 
   const ld = buildJsonLd({
     "@type": "BlogPosting",

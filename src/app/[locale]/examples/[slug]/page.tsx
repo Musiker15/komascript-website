@@ -38,7 +38,7 @@ export default async function ExamplePage({ params }: Props) {
   const item = getContent("examples", locale, [slug]);
   if (!item) notFound();
 
-  const content = await renderMDX(item.content);
+  const { content } = await renderMDX(item.content);
 
   // Beispiele sind Anleitungen mit Codeanteil, deshalb TechArticle mit
   // Bezug auf das Paket, um das es geht.

@@ -32,21 +32,6 @@ export function formatDate(
 }
 
 /**
- * Erzeugt aus einem Heading-Text einen URL-Slug.
- */
-export function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[äöüÄÖÜß]/g, (m) =>
-      ({ ä: "ae", ö: "oe", ü: "ue", Ä: "ae", Ö: "oe", Ü: "ue", ß: "ss" })[m] || m,
-    )
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-/**
  * Liefert eine URL ohne führende/abschließende Slashes.
  */
 export function trimSlashes(path: string): string {

@@ -38,7 +38,7 @@ export default async function FriendPage({ params }: Props) {
   const item = getContent("friends", locale, [slug]);
   if (!item) notFound();
 
-  const content = await renderMDX(item.content);
+  const { content } = await renderMDX(item.content);
 
   // Jede Friends-Seite beschreibt ein eigenständiges LaTeX-Paket, deshalb
   // SoftwareSourceCode statt Article. `isBasedOn` hält die Herkunft der

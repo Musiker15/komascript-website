@@ -24,7 +24,10 @@ export function ThemeToggle() {
   }
 
   return (
-    <DropdownMenu.Root>
+    // `modal={false}`: the default `true` pulls in `react-remove-scroll`, whose
+    // scroll lock is a runtime `<style>` tag. A three-entry menu needs no
+    // scroll lock, and without it there is nothing for the CSP to block.
+    <DropdownMenu.Root modal={false}>
       <DropdownMenu.Trigger asChild>
         <Button variant="ghost" size="icon" aria-label={t("theme")}>
           <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

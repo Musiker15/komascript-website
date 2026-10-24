@@ -428,7 +428,7 @@ In Minute 3 erklärt der Vortragende, dass er mit
 `\setlength{\parindent}{0pt}`[^parindent] die Einrückung am Anfang jedes
 Absatzes entfernt hat, weil er die nicht haben will. Er erklärt an der Stelle
 aber nicht, wie er Absätze stattdessen markiert. Nach [Teil
-6](#teil-6-schriftsatzbefehle-und-schriftgrößen) schwant mir zwar
+6](#teil-6-schriftsatzbefehle-und-schriftgroessen) schwant mir zwar
 finsteres, aber halt, halt bemühen wir uns um Neutralität. Korrekt wäre
 natürlich, dann Absatzabstand einzuschalten. Und korrekt würde man das bei der
 verwendeten KOMA-Script-Klasse mit einem passenden Wert für Option `parskip`
@@ -476,7 +476,7 @@ nicht! Lädt man nur, wenn man wirklich Bedarf dafür hat. Hat man eher
 selten. Lässt man in Minimalbeispielen und den meisten Tutorien einfach weg.
 
 Kopf und Fuß werden natürlich wie in [Teil
-7](#teil-7-kopf--und-fußzeilen) trotz KOMA-Script-Klasse mit `fancyhdr`
+7](#teil-7-kopf-und-fusszeilen) trotz KOMA-Script-Klasse mit `fancyhdr`
 statt mit `scrlayer-scrpage` gemacht. Interessant, dass die dort gewählten
 Einstellungen den KOMA-Script-Einstellungen für doppelseitige Dokumente
 weitgehend entsprechen – natürlich werden die Fonteinstellungen von
