@@ -26,9 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const item = getContent("pages", locale, [slug]);
   if (!item) return {};
-  // Achtung: Rechtstexte heißen je Sprache anders (impressum/imprint,
-  // datenschutz/privacy). Für die gilt der Slug nur in einer Sprache, sie
-  // bekommen deshalb korrekterweise kein hreflang-Paar.
+  // Legal pages have a different slug per language (impressum/imprint,
+  // datenschutz/privacy). `getAvailableLocales` and `buildArticleMetadata`
+  // resolve that through `src/lib/locale-paths.ts`, so they get a correct
+  // hreflang pair, the same pair the language switcher links to.
   return buildArticleMetadata(item.frontmatter, locale, item.url, getAvailableLocales("pages", [slug]));
 }
 

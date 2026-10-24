@@ -18,6 +18,8 @@
     "updated": "Updated",
     "by": "by",
     "language": "Language",
+    "notTranslatedOverview": "Not translated, opens the overview",
+    "notTranslatedHome": "Not translated, opens the start page",
     "theme": "Theme",
     "lightMode": "Light mode",
     "darkMode": "Dark mode",

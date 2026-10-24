@@ -18,6 +18,8 @@
     "updated": "Aktualisiert",
     "by": "von",
     "language": "Sprache",
+    "notTranslatedOverview": "Nicht übersetzt, öffnet die Übersicht",
+    "notTranslatedHome": "Nicht übersetzt, öffnet die Startseite",
     "theme": "Theme",
     "lightMode": "Heller Modus",
     "darkMode": "Dunkler Modus",

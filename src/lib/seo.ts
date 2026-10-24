@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site.config";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 import type { Frontmatter } from "./frontmatter";
+import { localizedPath } from "./locale-paths";
 
 /** Locale → BCP-47-Tag für hreflang und og:locale. */
 const LOCALE_TAG: Record<Locale, string> = { de: "de-DE", en: "en-US" };
@@ -35,19 +36,21 @@ interface BuildMetadataParams {
  */
 function buildAlternates(path: string, availableLocales: readonly Locale[]) {
   const url = `${siteConfig.url}${path.startsWith("/") ? path : `/${path}`}`;
-  const altPath = path.replace(/^\/(de|en)/, "");
   const available = availableLocales.length > 0 ? availableLocales : SUPPORTED_LOCALES;
 
+  // `localizedPath` resolves slugs that differ per language
+  // (/de/impressum ↔ /en/imprint). The language switcher and the sitemap use
+  // the same function, so all three point at the same page.
   const languages: Record<string, string> = {};
   for (const l of available) {
-    languages[LOCALE_TAG[l]] = `${siteConfig.url}/${l}${altPath}`;
+    languages[LOCALE_TAG[l]] = `${siteConfig.url}${localizedPath(path, l)}`;
   }
 
   // Nur annotieren, wenn es überhaupt eine Wahl gibt. Bei einer einzigen
   // Sprachvariante ist hreflang wirkungslos und x-default irreführend.
   if (available.length > 1) {
     const fallback = available.includes(siteConfig.defaultLocale) ? siteConfig.defaultLocale : available[0];
-    if (fallback) languages["x-default"] = `${siteConfig.url}/${fallback}${altPath}`;
+    if (fallback) languages["x-default"] = `${siteConfig.url}${localizedPath(path, fallback)}`;
   }
 
   return { url, alternates: { canonical: url, languages } };

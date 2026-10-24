@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site.config";
 import { footerConfig } from "@/config/footer.config";
 import { cn, t, isExternal } from "@/lib/utils";
+import { localizedPath } from "@/lib/locale-paths";
 import type { Locale } from "@/types/config";
 
 interface FooterProps {
@@ -68,9 +69,13 @@ export function Footer({ locale }: FooterProps) {
               <ul className="space-y-2 text-sm">
                 {col.links.map((link, j) => {
                   const label = t(link.label, locale);
+                  // `localizedPath` resolves slugs that differ per language:
+                  // `/impressum` is `/imprint` on the English site and
+                  // `/datenschutz` is `/privacy`. Prefixing the locale alone
+                  // sent the English legal links to the not-found page.
                   const href = link.external || isExternal(link.href)
                     ? link.href
-                    : `/${locale}${link.href}`;
+                    : localizedPath(link.href, locale);
                   return (
                     <li key={j}>
                       <Link

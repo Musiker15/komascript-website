@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site.config";
 import { getAvailableLocales, listAllContentItems, listNews } from "@/lib/content";
+import { localizedPath } from "@/lib/locale-paths";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 import type { ContentItem, ContentSection } from "@/types/content";
 
@@ -21,14 +22,6 @@ function alternatesFor(paths: Partial<Record<Locale, string>>) {
     if (p) languages[LOCALE_TAG[locale]] = `${siteConfig.url}${p}`;
   }
   return Object.keys(languages).length > 1 ? { languages } : undefined;
-}
-
-/**
- * Tauscht das Sprachpräfix einer internen URL aus.
- * `/de/docs/koma-script` + "en" → `/en/docs/koma-script`.
- */
-function swapLocale(url: string, from: Locale, to: Locale): string {
-  return `/${to}${url.slice(from.length + 1)}`;
 }
 
 /** Jüngstes Änderungsdatum einer Menge von Items, für die Index-Seiten. */
@@ -102,7 +95,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
           changeFrequency: section === "docs" ? "monthly" : "yearly",
           priority: section === "docs" ? 0.8 : 0.6,
           alternates: alternatesFor(
-            Object.fromEntries(available.map((l) => [l, swapLocale(item.url, locale, l)])),
+            // `localizedPath`, not a plain prefix swap: /de/impressum pairs
+            // with /en/imprint. Same function as the switcher and the
+            // hreflang tags in the page head.
+            Object.fromEntries(available.map((l) => [l, localizedPath(item.url, l)])),
           ),
         });
       }
@@ -118,8 +114,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.5,
         alternates: hasOther
           ? alternatesFor({
-              de: swapLocale(item.url, locale, "de"),
-              en: swapLocale(item.url, locale, "en"),
+              de: localizedPath(item.url, "de"),
+              en: localizedPath(item.url, "en"),
             })
           : undefined,
       });

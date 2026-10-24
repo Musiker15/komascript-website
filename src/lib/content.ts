@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { FrontmatterSchema, type Frontmatter } from "./frontmatter";
+import { alternatePath, localizedSlug } from "./locale-paths";
 import type { ContentItem, ContentSection, DocTreeNode } from "@/types/content";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 
@@ -91,7 +92,75 @@ export function contentExists(section: ContentSection, locale: Locale, slug: str
  * theoretischer Randfall.
  */
 export function getAvailableLocales(section: ContentSection, slug: string[]): Locale[] {
-  return SUPPORTED_LOCALES.filter((locale) => contentExists(section, locale, slug));
+  // Localized slugs (impressum/imprint, datenschutz/privacy) count as the
+  // same page, see `localizedSlug`.
+  return SUPPORTED_LOCALES.filter((locale) =>
+    contentExists(section, locale, localizedSlug(section, slug, locale)),
+  );
+}
+
+/**
+ * Routes that exist in every language without a content file of their own
+ * (start page and the section overviews under `app/[locale]/`).
+ */
+const ROUTE_PATHS = ["", "/docs", "/news", "/examples", "/friends", "/search"] as const;
+
+const CONTENT_SECTIONS: readonly ContentSection[] = ["pages", "docs", "news", "examples", "friends"];
+
+/** Locale-free paths of every page that exists in a language. */
+function existingPaths(locale: Locale): Set<string> {
+  const paths = new Set<string>(ROUTE_PATHS);
+  for (const section of CONTENT_SECTIONS) {
+    for (const item of listAllContentItems(section, locale)) {
+      paths.add(item.url.slice(locale.length + 1));
+    }
+  }
+  return paths;
+}
+
+const fallbackCache = new Map<Locale, Partial<Record<Locale, Record<string, string>>>>();
+
+/**
+ * Where the language switcher leads from a page that has no counterpart in
+ * the other language.
+ *
+ * Returns, per target language, a map from the locale-free path the page
+ * would have there (after `alternatePath`) to the nearest page that does
+ * exist: the parent overview (`/news/2010-07-01` → `/news`,
+ * `/docs/koma-script/archive/dtk` → `/docs/koma-script/archive`), at the
+ * latest the start page (`""`). Pages that have a counterpart are not listed,
+ * so the map stays small (about 40 entries for German → English).
+ *
+ * The switcher is a client component without file access and keeps its
+ * state across client navigations, so it gets the whole map once from the
+ * layout instead of a single href per page.
+ */
+export function getSwitcherFallbacks(from: Locale): Partial<Record<Locale, Record<string, string>>> {
+  const cached = fallbackCache.get(from);
+  if (cached) return cached;
+
+  const result: Partial<Record<Locale, Record<string, string>>> = {};
+  const own = existingPaths(from);
+  for (const target of SUPPORTED_LOCALES) {
+    if (target === from) continue;
+    const there = existingPaths(target);
+    const map: Record<string, string> = {};
+    for (const path of own) {
+      const counterpart = alternatePath(path, target);
+      if (there.has(counterpart)) continue;
+      let parent = counterpart;
+      do {
+        parent = parent.slice(0, Math.max(parent.lastIndexOf("/"), 0));
+      } while (parent && !there.has(parent));
+      map[counterpart] = parent;
+    }
+    result[target] = map;
+  }
+
+  // Content only changes with a deploy, which restarts the server. In
+  // development a new or deleted file should show without a restart.
+  if (process.env.NODE_ENV === "production") fallbackCache.set(from, result);
+  return result;
 }
 
 /**

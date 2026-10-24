@@ -6,12 +6,19 @@ import { usePathname } from "next/navigation";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/Button";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
+import { alternatePath } from "@/lib/locale-paths";
 import { cn } from "@/lib/utils";
 
 const NAMES: Record<Locale, string> = {
   de: "Deutsch",
   en: "English",
 };
+
+/**
+ * Per target language: locale-free path without a counterpart there → the
+ * nearest existing page. Built on the server by `getSwitcherFallbacks`.
+ */
+export type LocaleSwitcherFallbacks = Partial<Record<Locale, Record<string, string>>>;
 
 /**
  * Language switcher.
@@ -33,20 +40,27 @@ const NAMES: Record<Locale, string> = {
  * `react-remove-scroll`, whose scroll lock is a runtime `<style>` tag. A
  * two-entry menu needs no scroll lock.
  */
-export function LocaleSwitcher() {
+export function LocaleSwitcher({ fallbacks }: { fallbacks: LocaleSwitcherFallbacks }) {
   const t = useTranslations("common");
   const locale = useLocale() as Locale;
   const pathname = usePathname();
 
-  // /de/foo  ->  /en/foo
-  function hrefFor(target: Locale): string {
-    const segments = pathname.split("/");
-    if (segments[1] && SUPPORTED_LOCALES.includes(segments[1] as Locale)) {
-      segments[1] = target;
-    } else {
-      segments.splice(1, 0, target);
-    }
-    return segments.join("/") || `/${target}`;
+  // Not a plain swap of the locale prefix:
+  // - `impressum` is `imprint` in English and `datenschutz` is `privacy`.
+  //   `alternatePath` resolves that, the same function builds the hreflang
+  //   alternates and the sitemap pairs.
+  // - Many news posts and the archive pages exist only in German. For those
+  //   the server has put the nearest existing page into `fallbacks` (the
+  //   section overview, at the latest the start page) instead of a link that
+  //   ends on the not-found page.
+  function linkFor(target: Locale): { href: string; fallback?: "overview" | "home" } {
+    const prefixed = SUPPORTED_LOCALES.includes(pathname.split("/")[1] as Locale);
+    if (!prefixed) return { href: `/${target}${pathname === "/" ? "" : pathname}` };
+    if (target === locale) return { href: pathname };
+    const rest = alternatePath(pathname, target);
+    const fallback = fallbacks[target]?.[rest];
+    if (fallback === undefined) return { href: `/${target}${rest}` };
+    return { href: `/${target}${fallback}`, fallback: fallback === "" ? "home" : "overview" };
   }
 
   return (
@@ -62,23 +76,33 @@ export function LocaleSwitcher() {
           sideOffset={4}
           className="z-50 min-w-[10rem] rounded-md border border-[var(--color-border)] bg-[var(--color-background)] p-1 shadow-lg"
         >
-          {SUPPORTED_LOCALES.map((l) => (
-            <DropdownMenu.Item key={l} asChild>
-              <a
-                href={hrefFor(l)}
-                hrefLang={l}
-                aria-current={locale === l ? "true" : undefined}
-                className={cn(
-                  "flex cursor-pointer items-center justify-between rounded-sm px-2 py-1.5 text-sm outline-none",
-                  "hover:bg-[var(--color-muted)] focus:bg-[var(--color-muted)]",
-                  locale === l && "font-medium text-[var(--color-primary)]",
-                )}
-              >
-                <span>{NAMES[l]}</span>
-                <span className="font-mono text-xs uppercase opacity-70">{l}</span>
-              </a>
-            </DropdownMenu.Item>
-          ))}
+          {SUPPORTED_LOCALES.map((l) => {
+            const { href, fallback } = linkFor(l);
+            return (
+              <DropdownMenu.Item key={l} asChild>
+                <a
+                  href={href}
+                  hrefLang={l}
+                  aria-current={locale === l ? "true" : undefined}
+                  className={cn(
+                    "flex cursor-pointer items-center justify-between gap-3 rounded-sm px-2 py-1.5 text-sm outline-none",
+                    "hover:bg-[var(--color-muted)] focus:bg-[var(--color-muted)]",
+                    locale === l && "font-medium text-[var(--color-primary)]",
+                  )}
+                >
+                  <span className="flex flex-col">
+                    <span>{NAMES[l]}</span>
+                    {fallback && (
+                      <span className="text-xs text-[var(--color-muted-foreground)]">
+                        {t(fallback === "home" ? "notTranslatedHome" : "notTranslatedOverview")}
+                      </span>
+                    )}
+                  </span>
+                  <span className="font-mono text-xs uppercase opacity-70">{l}</span>
+                </a>
+              </DropdownMenu.Item>
+            );
+          })}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

@@ -170,13 +170,56 @@ test.describe("Language switch", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
   });
 
+  /**
+   * Before the fix the switcher only swapped the locale prefix: 46 of the 150
+   * sitemap pages linked to a 404, the legal pages (their slug differs per
+   * language) and every page that exists only in German.
+   */
+  const cases = [
+    // Legal pages go to their counterpart with the other slug.
+    { from: "/de/impressum", menu: /English/, href: "/en/imprint" },
+    { from: "/de/datenschutz", menu: /English/, href: "/en/privacy" },
+    { from: "/en/imprint", menu: /Deutsch/, href: "/de/impressum" },
+    { from: "/en/privacy", menu: /Deutsch/, href: "/de/datenschutz" },
+    // German-only pages go to the nearest overview that exists in English.
+    {
+      from: "/de/docs/koma-script/archive/dtk",
+      menu: /English/,
+      href: "/en/docs/koma-script/archive",
+      fallback: true,
+    },
+    { from: "/de/news/2008-10-13", menu: /English/, href: "/en/news", fallback: true },
+  ];
+
+  for (const { from, menu, href, fallback } of cases) {
+    test(`from ${from} the other language leads to ${href}, not to a 404`, async ({ page }) => {
+      await page.goto(from);
+      await page.getByRole("button", { name: /sprache|language/i }).click();
+      const entry = page.getByRole("menuitem", { name: menu });
+      await expect(entry).toHaveAttribute("href", href);
+      // A page without counterpart says so instead of pretending.
+      await expect(entry.getByText(/nicht übersetzt|not translated/i)).toHaveCount(fallback ? 1 : 0);
+
+      await entry.click();
+      await page.waitForURL(`**${href}`);
+      const response = await page.request.get(href);
+      expect(response.status()).toBe(200);
+    });
+  }
+
+  test("the English footer links to the English legal pages", async ({ page }) => {
+    await page.goto("/en");
+    const footer = page.getByRole("contentinfo");
+    await expect(footer.getByRole("link", { name: "Imprint" })).toHaveAttribute("href", "/en/imprint");
+    await expect(footer.getByRole("link", { name: "Privacy" })).toHaveAttribute("href", "/en/privacy");
+  });
+
   test("the entries are links to the same page in the other language", async ({ page }) => {
     await page.goto("/de/docs/koma-script");
     await page.getByRole("button", { name: /sprache/i }).click();
-    await expect(page.getByRole("menuitem", { name: /English/ })).toHaveAttribute(
-      "href",
-      "/en/docs/koma-script",
-    );
+    const english = page.getByRole("menuitem", { name: /English/ });
+    await expect(english).toHaveAttribute("href", "/en/docs/koma-script");
+    await expect(english.getByText(/nicht übersetzt/i)).toHaveCount(0);
   });
 });
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CodebergIcon } from "@/components/ui/BrandIcons";
 import { Navbar } from "./Navbar";
 import { MobileMenu } from "./MobileMenu";
-import { LocaleSwitcher } from "./LocaleSwitcher";
+import { LocaleSwitcher, type LocaleSwitcherFallbacks } from "./LocaleSwitcher";
 import { SearchTrigger } from "@/components/search/SearchTrigger";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Button } from "@/components/ui/Button";
@@ -13,13 +13,15 @@ import type { Locale } from "@/types/config";
 
 interface HeaderProps {
   locale: Locale;
+  /** See `getSwitcherFallbacks` in `src/lib/content.ts`. */
+  switcherFallbacks: LocaleSwitcherFallbacks;
 }
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   codeberg: CodebergIcon,
 };
 
-export function Header({ locale }: HeaderProps) {
+export function Header({ locale, switcherFallbacks }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-background)]/85 backdrop-blur-md supports-[backdrop-filter]:bg-[var(--color-background)]/70">
       {/* Volle Browserbreite, nur leichtes Edge-Padding für Atmungsfreiheit */}
@@ -50,7 +52,8 @@ export function Header({ locale }: HeaderProps) {
         <div className="flex items-center gap-1">
           {navigationConfig.actions.map((action, i) => {
             if (action.type === "search") return <SearchTrigger key={i} />;
-            if (action.type === "locale") return <LocaleSwitcher key={i} />;
+            if (action.type === "locale")
+              return <LocaleSwitcher key={i} fallbacks={switcherFallbacks} />;
             if (action.type === "theme") return <ThemeToggle key={i} />;
             if (action.type === "link") {
               const Icon = action.icon ? ICONS[action.icon] : null;

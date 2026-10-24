@@ -11,6 +11,7 @@ import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/config/site.config";
 import { SUPPORTED_LOCALES, type Locale } from "@/types/config";
 import { buildJsonLd } from "@/lib/seo";
+import { getSwitcherFallbacks } from "@/lib/content";
 
 // Fonts werden vollständig lokal über das @fontsource-Paket geladen.
 // Keine Kommunikation zu Google/Adobe, weder beim Build noch zur Laufzeit.
@@ -216,7 +217,7 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider locale={l} messages={messages} timeZone="Europe/Berlin">
             <SkipLink />
-            <Header locale={l} />
+            <Header locale={l} switcherFallbacks={getSwitcherFallbacks(l)} />
             <main id="main" className="flex-1">
               {children}
             </main>
