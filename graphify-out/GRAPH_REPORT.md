@@ -1,16 +1,16 @@
 # Graph Report - homepage  (2026-10-24)
 
 ## Corpus Check
-- 229 files · ~142,313 words
+- 231 files · ~143,912 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1231 nodes · 1857 edges · 120 communities (103 shown, 17 thin omitted)
+- 1245 nodes · 1910 edges · 138 communities (112 shown, 26 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 134 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4b6c5db1`
+- Built from commit: `5a97314a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,7 @@
 - Deploy Job (scp release, ssh extract, atomic swap, restart, verify)
 - compilerOptions
 - devDependencies
-- lib/content.ts
+- site.config.ts
 - DANTE-Projektförderung für KOMA-Script
 - Inoffizielles KOMA-Script-Team
 - scripts
@@ -70,7 +70,7 @@
 - Community (EN)
 - dependencies
 - Documentation (EN section index)
-- scrlttr2 (KOMA-Script letter class)
+- scrartcl (KOMA-Script article class)
 - contract (Vertrags-Paket, Spin-Off)
 - contract (KOMA-Script spin-off, formerly scrjura)
 - KOMA-Script bundle
@@ -120,28 +120,46 @@
 - contract-lab (experimentelles Vertrags-Paket)
 - Betrieb und Deployment
 - license.md
+- lib/content.ts
+- seo.ts
+- [...slug]/page.tsx
+- package.json
+- mdx.ts
+- getContent
+- SearchDialog.tsx
+- Features (EN)
+- listContent
+- eslint
+- postcss
+- prettier-plugin-tailwindcss
+- tailwindcss
+- @tailwindcss/postcss
+- tsx
 - postcss.config.mjs
 - Wildcard Certificate *.musiker15.de (no Let's Encrypt)
+- @types/node
 - scraddr (Adressdateien lesen)
 - scrlogo (Befehl \KOMAScript)
 - Fehldeutung des Namens KOMA-Script
 - NEXT_LOCALE Cookie Hardening
 - CodeBlock.tsx
+- @types/react
 - Footer.tsx
 - next.config.ts
+- typescript
 - favicon.svg - blue rounded square with white K
 
 ## God Nodes (most connected - your core abstractions)
-1. `Locale` - 60 edges
+1. `Locale` - 61 edges
 2. `cn()` - 37 edges
 3. `getContent()` - 21 edges
 4. `compilerOptions` - 21 edges
 5. `The KOMA-Script Collection` - 21 edges
 6. `KOMA-Script collection` - 20 edges
 7. `t()` - 17 edges
-8. `siteConfig` - 16 edges
-9. `renderMDX()` - 16 edges
-10. `scripts` - 15 edges
+8. `SUPPORTED_LOCALES` - 17 edges
+9. `siteConfig` - 16 edges
+10. `getAvailableLocales()` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Pre-Commit Checks (validate:content, lint, type-check, build, build:search)` --semantically_similar_to--> `CI Validate Job (install, validate:content, lint, type-check, build, vitest)`  [INFERRED] [semantically similar]
@@ -159,32 +177,32 @@
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Wanderung des KOMA-Script-Repositories über Hoster hinweg** — content_news_de_2010_07_01_cvs, content_news_de_2010_07_01_subversion, content_news_de_2011_09_30_berlios_schliessung, content_news_de_2014_01_30_berlios, content_news_de_2014_02_04_migration_sourceforge, content_news_de_2014_04_08_sarovar [INFERRED 0.85]
-- **Lizenzkonflikt zwischen Entwickler und Distributoren** — content_news_de_2008_10_13_lppl, content_news_de_2008_10_13_distributoren, content_news_de_2008_10_13_vollstaendige_verteilung, content_news_de_2013_12_24_distributoren_anforderungen, content_news_de_2013_12_24_release_verzoegerung [INFERRED 0.85]
-- **Privat finanzierter Betrieb von komascript.de** — content_news_de_2010_02_01_komascript_de, content_news_de_2010_02_01_robin, content_news_de_2010_02_01_raymond, content_news_de_2010_02_01_tohserver, content_news_de_2011_02_10_werbefreiheit [EXTRACTED 1.00]
-- **Inoffizieller Helferkreis um KOMA-Script** — content_news_de_2015_02_19_inoffizielles_team, content_news_de_2015_02_19_elke, content_news_de_2015_02_19_uwe, content_news_de_2015_02_19_falk, content_news_de_2020_01_07_mitstreiter, content_news_de_2018_03_27_karl_hagen [EXTRACTED 1.00]
-- **Reduktion des Projektumfangs: Entwicklungsstopp, Forenrückzug, Paketausgliederung** — content_news_de_2016_06_12_hobby_wird_arbeit, content_news_de_2020_01_07_entwicklungsstopp, content_news_de_2020_01_07_ueberlastung, content_news_de_2023_03_27_abschied_auf_raten, content_news_de_2023_03_27_rueckzug_forenarbeit, content_news_de_2023_03_27_paket_ausgliederung [INFERRED 0.85]
-- **Migration von komascript.de zu statischen Seiten** — content_news_de_2025_04_29_drupal, content_news_de_2025_04_29_documentation_project_ende, content_news_de_2026_06_26_hugo_book, content_news_de_2026_07_07_hugo, content_news_de_2026_07_07_fuse_js, content_news_de_2026_07_07_sourceforge_spiegelung [EXTRACTED 1.00]
-- **Ausgliederung der scrhack-Hack-Module in eigenständige Third-Party-Enhancement-Pakete** — content_friends_de_scrhack_scrhack, content_friends_de_floatbytocbasic_floatbytocbasic, content_friends_de_floatrowbytocbasic_floatrowbytocbasic, content_friends_de_lscapeenhanced_lscapeenhanced, content_friends_de_setspaceenhanced_setspaceenhanced, content_friends_de_standardsectioning_standardsectioning, content_friends_de_floatbytocbasic_third_party_enhancements [EXTRACTED 1.00]
-- **Aus KOMA-Script ausgegliederte Spin-Off-Pakete** — content_friends_de_contract_contract, content_friends_de_scrdate_scrdate, content_friends_de_scrtime_scrtime, content_friends_de_scrwfile_scrwfile, content_friends_de_scrhack_scrhack, content_friends_de_scrlayer_fancyhdr_scrlayer_fancyhdr, content_friends_de_contract_koma_script [EXTRACTED 1.00]
-- **LCO-basierte Briefprojekte für scrlttr2 und scrletter** — content_friends_de_briefdemo2005_briefdemo2005, content_friends_de_makelabels_makelabels, content_friends_de_wsu_wsu, content_friends_de_briefdemo2005_lco_datei, content_friends_de_makelabels_scrlttr2 [INFERRED 0.85]
-- **scrhack replaced by five independent third-party enhancement packages** — content_friends_en_scrhack_scrhack, content_friends_en_floatbytocbasic_floatbytocbasic, content_friends_en_floatrowbytocbasic_floatrowbytocbasic, content_friends_en_lscapeenhanced_lscapeenhanced, content_friends_en_setspaceenhanced_setspaceenhanced, content_friends_en_standardsectioning_standardsectioning [EXTRACTED 1.00]
-- **KOMA-Script spin-offs separated from the bundle into independent projects** — content_friends_en_contract_contract, content_friends_en_scrdate_scrdate, content_friends_en_scrtime_scrtime, content_friends_en_scrwfile_scrwfile, content_friends_en_scrhack_scrhack, content_friends_en_scrlayer_fancyhdr_scrlayer_fancyhdr, content_friends_en_contract_koma_script [EXTRACTED 1.00]
-- **LCO-file based letter customization for scrlttr2 and scrletter** — content_friends_en_briefdemo2005_lco_file, content_friends_en_makelabels_makelabels, content_friends_en_wsu_wsu, content_friends_en_briefdemo2005_briefdemo2005, content_friends_en_makelabels_scrlttr2, content_friends_en_makelabels_scrletter [INFERRED 0.85]
+- **Push-to-Production Pipeline** — _github_workflows_deploy_build_job, _github_workflows_deploy_deploy_job, _github_workflows_deploy_atomic_symlink_swap, _github_workflows_deploy_systemd_service, _github_workflows_deploy_health_check [EXTRACTED 1.00]
+- **Distribution and hosting channels for KOMA-Script** — content_pages_en_download_ctan, content_pages_en_download_texlive, content_pages_en_download_miktex, content_pages_en_download_sourceforge [EXTRACTED 1.00]
+- **KOMA-Script bundle: classes, packages and project infrastructure** — content_docs_en_koma_script_index_koma_script_collection, content_docs_en_koma_script_index_sourceforge_project, content_docs_en_koma_script_issues_issue_tracker, content_docs_en_koma_script_wiki_koma_script_wiki, content_docs_en_koma_script_ctan_catalog_entry, content_docs_en_koma_script_code_subversion_repository, content_docs_en_koma_script_releases_old_releases [EXTRACTED 1.00]
+- **KOMA-Script document classes replacing the standard classes** — content_pages_en_features_scrartcl, content_pages_en_features_scrreprt, content_pages_en_features_scrbook, content_pages_en_features_scrlttr2, content_pages_en_features_koma_script [EXTRACTED 1.00]
 - **KOMA-Script-Klassen als Ersatz der LaTeX-Standardklassen** — content_docs_de_koma_script_index_scrartcl, content_docs_de_koma_script_index_scrbook, content_docs_de_koma_script_index_scrreprt, content_docs_de_koma_script_index_scrlttr2, content_docs_de_koma_script_index_article, content_docs_de_koma_script_index_book, content_docs_de_koma_script_index_report, content_docs_de_koma_script_index_letter [EXTRACTED 1.00]
+- **Inoffizieller Helferkreis um KOMA-Script** — content_news_de_2015_02_19_inoffizielles_team, content_news_de_2015_02_19_elke, content_news_de_2015_02_19_uwe, content_news_de_2015_02_19_falk, content_news_de_2020_01_07_mitstreiter, content_news_de_2018_03_27_karl_hagen [EXTRACTED 1.00]
+- **KOMA-Script spin-offs separated from the bundle into independent projects** — content_friends_en_contract_contract, content_friends_en_scrdate_scrdate, content_friends_en_scrtime_scrtime, content_friends_en_scrwfile_scrwfile, content_friends_en_scrhack_scrhack, content_friends_en_scrlayer_fancyhdr_scrlayer_fancyhdr, content_friends_en_contract_koma_script [EXTRACTED 1.00]
+- **Aus KOMA-Script ausgegliederte Spin-Off-Pakete** — content_friends_de_contract_contract, content_friends_de_scrdate_scrdate, content_friends_de_scrtime_scrtime, content_friends_de_scrwfile_scrwfile, content_friends_de_scrhack_scrhack, content_friends_de_scrlayer_fancyhdr_scrlayer_fancyhdr, content_friends_de_contract_koma_script [EXTRACTED 1.00]
+- **Privat finanzierter Betrieb von komascript.de** — content_news_de_2010_02_01_komascript_de, content_news_de_2010_02_01_robin, content_news_de_2010_02_01_raymond, content_news_de_2010_02_01_tohserver, content_news_de_2011_02_10_werbefreiheit [EXTRACTED 1.00]
+- **Letter template pattern: scrlttr2 with .lco layout files and KOMA variables** — content_examples_en_letter_template_scrlttr2, content_examples_en_letter_template_lco_options, content_examples_de_letter_template_setkomavar, content_examples_en_letter_template_fromlogo, content_examples_en_letter_template_backaddress, content_examples_de_letter_template_letter_environment [EXTRACTED 1.00]
+- **Mozilla Observatory A+ Security Posture** — security_nonce_based_csp, security_security_headers_single_source, security_apache_header_unset, security_transport_security, security_next_locale_cookie, security_observatory_grade [EXTRACTED 1.00]
+- **Ausgliederung der scrhack-Hack-Module in eigenständige Third-Party-Enhancement-Pakete** — content_friends_de_scrhack_scrhack, content_friends_de_floatbytocbasic_floatbytocbasic, content_friends_de_floatrowbytocbasic_floatrowbytocbasic, content_friends_de_lscapeenhanced_lscapeenhanced, content_friends_de_setspaceenhanced_setspaceenhanced, content_friends_de_standardsectioning_standardsectioning, content_friends_de_floatbytocbasic_third_party_enhancements [EXTRACTED 1.00]
+- **scrhack replaced by five independent third-party enhancement packages** — content_friends_en_scrhack_scrhack, content_friends_en_floatbytocbasic_floatbytocbasic, content_friends_en_floatrowbytocbasic_floatrowbytocbasic, content_friends_en_lscapeenhanced_lscapeenhanced, content_friends_en_setspaceenhanced_setspaceenhanced, content_friends_en_standardsectioning_standardsectioning [EXTRACTED 1.00]
 - **scrlfile mit kernelabhängigen Hook-Varianten** — content_docs_de_koma_script_index_scrlfile, content_docs_de_koma_script_index_scrlfile_hook, content_docs_de_koma_script_index_scrlfile_hook_3_34, content_docs_de_koma_script_index_scrlfile_patcholdlatex [EXTRACTED 1.00]
 - **Projektressourcen von KOMA-Script auf SourceForge** — content_docs_de_koma_script_index_sourceforge_projekt, content_docs_de_koma_script_code_subversion_repository, content_docs_de_koma_script_issues_issue_tracker, content_docs_de_koma_script_releases_alte_versionen, content_docs_de_koma_script_wiki_koma_script_wiki [EXTRACTED 1.00]
-- **KOMA-Script bundle: classes, packages and project infrastructure** — content_docs_en_koma_script_index_koma_script_collection, content_docs_en_koma_script_index_sourceforge_project, content_docs_en_koma_script_issues_issue_tracker, content_docs_en_koma_script_wiki_koma_script_wiki, content_docs_en_koma_script_ctan_catalog_entry, content_docs_en_koma_script_code_subversion_repository, content_docs_en_koma_script_releases_old_releases [EXTRACTED 1.00]
 - **Thesis template stack: scrbook plus type area, page style and bibliography setup** — content_examples_de_thesis_template_scrbook, content_examples_de_thesis_template_bcor_div_options, content_examples_de_thesis_template_scrlayer_scrpage, content_examples_de_thesis_template_biblatex, content_examples_de_thesis_template_microtype, content_examples_en_thesis_template_frontmatter_structure [EXTRACTED 1.00]
-- **Letter template pattern: scrlttr2 with .lco layout files and KOMA variables** — content_examples_en_letter_template_scrlttr2, content_examples_en_letter_template_lco_options, content_examples_de_letter_template_setkomavar, content_examples_en_letter_template_fromlogo, content_examples_en_letter_template_backaddress, content_examples_de_letter_template_letter_environment [EXTRACTED 1.00]
-- **KOMA-Script document classes replacing the standard classes** — content_pages_en_features_scrartcl, content_pages_en_features_scrreprt, content_pages_en_features_scrbook, content_pages_en_features_scrlttr2, content_pages_en_features_koma_script [EXTRACTED 1.00]
-- **Distribution and hosting channels for KOMA-Script** — content_pages_en_download_ctan, content_pages_en_download_texlive, content_pages_en_download_miktex, content_pages_en_download_sourceforge [EXTRACTED 1.00]
+- **Migration von komascript.de zu statischen Seiten** — content_news_de_2025_04_29_drupal, content_news_de_2025_04_29_documentation_project_ende, content_news_de_2026_06_26_hugo_book, content_news_de_2026_07_07_hugo, content_news_de_2026_07_07_fuse_js, content_news_de_2026_07_07_sourceforge_spiegelung [EXTRACTED 1.00]
+- **LCO-basierte Briefprojekte für scrlttr2 und scrletter** — content_friends_de_briefdemo2005_briefdemo2005, content_friends_de_makelabels_makelabels, content_friends_de_wsu_wsu, content_friends_de_briefdemo2005_lco_datei, content_friends_de_makelabels_scrlttr2 [INFERRED 0.85]
+- **LCO-file based letter customization for scrlttr2 and scrletter** — content_friends_en_briefdemo2005_lco_file, content_friends_en_makelabels_makelabels, content_friends_en_wsu_wsu, content_friends_en_briefdemo2005_briefdemo2005, content_friends_en_makelabels_scrlttr2, content_friends_en_makelabels_scrletter [INFERRED 0.85]
+- **Lizenzkonflikt zwischen Entwickler und Distributoren** — content_news_de_2008_10_13_lppl, content_news_de_2008_10_13_distributoren, content_news_de_2008_10_13_vollstaendige_verteilung, content_news_de_2013_12_24_distributoren_anforderungen, content_news_de_2013_12_24_release_verzoegerung [INFERRED 0.85]
 - **One-man-show burden driving splitting, release caution and the static rewrite** — content_pages_en_about_markus_kohm, content_pages_en_about_splitting_strategy, content_news_en_2013_07_24_release_delay, content_news_en_2026_07_07_static_site_migration, content_pages_en_about_koma_script_documentation_project [INFERRED 0.85]
-- **Push-to-Production Pipeline** — _github_workflows_deploy_build_job, _github_workflows_deploy_deploy_job, _github_workflows_deploy_atomic_symlink_swap, _github_workflows_deploy_systemd_service, _github_workflows_deploy_health_check [EXTRACTED 1.00]
-- **Mozilla Observatory A+ Security Posture** — security_nonce_based_csp, security_security_headers_single_source, security_apache_header_unset, security_transport_security, security_next_locale_cookie, security_observatory_grade [EXTRACTED 1.00]
+- **Wanderung des KOMA-Script-Repositories über Hoster hinweg** — content_news_de_2010_07_01_cvs, content_news_de_2010_07_01_subversion, content_news_de_2011_09_30_berlios_schliessung, content_news_de_2014_01_30_berlios, content_news_de_2014_02_04_migration_sourceforge, content_news_de_2014_04_08_sarovar [INFERRED 0.85]
+- **Reduktion des Projektumfangs: Entwicklungsstopp, Forenrückzug, Paketausgliederung** — content_news_de_2016_06_12_hobby_wird_arbeit, content_news_de_2020_01_07_entwicklungsstopp, content_news_de_2020_01_07_ueberlastung, content_news_de_2023_03_27_abschied_auf_raten, content_news_de_2023_03_27_rueckzug_forenarbeit, content_news_de_2023_03_27_paket_ausgliederung [INFERRED 0.85]
 - **Supply-Chain Defense Layer** — _github_dependabot_update_groups, pnpm_workspace_security_overrides, pnpm_workspace_allow_builds, _github_workflows_codeql_analyze_job, security_supply_chain [INFERRED 0.85]
 
-## Communities (120 total, 17 thin omitted)
+## Communities (138 total, 26 thin omitted)
 
 ### Community 0 - "MDXComponents.tsx"
 Cohesion: 0.19
@@ -199,12 +217,12 @@ Cohesion: 0.05
 Nodes (39): ./config/*, config/**/*.ts, ./content/*, dom, dom.iterable, esnext, .next/dev/types/**/*.ts, next-env.d.ts (+31 more)
 
 ### Community 3 - "devDependencies"
-Cohesion: 0.06
-Nodes (35): eslint, @eslint/js, devDependencies, eslint, @eslint/js, @playwright/test, postcss, prettier (+27 more)
+Cohesion: 0.12
+Nodes (17): @eslint/js, devDependencies, @eslint/js, @playwright/test, prettier, @tailwindcss/typography, @types/mdx, @types/react-dom (+9 more)
 
-### Community 4 - "lib/content.ts"
-Cohesion: 0.05
-Nodes (76): config, siteConfig, .next, CONTENT_ROOT, main(), ValidationError, walk(), DocsIndexPage() (+68 more)
+### Community 4 - "site.config.ts"
+Cohesion: 0.15
+Nodes (9): config, siteConfig, .next, dynamic, GET(), revalidate, xml(), dynamic (+1 more)
 
 ### Community 5 - "DANTE-Projektförderung für KOMA-Script"
 Cohesion: 0.08
@@ -215,20 +233,20 @@ Cohesion: 0.08
 Nodes (28): CTAN (Comprehensive TeX Archive Network), CTAN-Paketkatalog, CTAN als Puffer zwischen Anwendern, Paketautoren und Distributoren, DANTE e.V., DANTE-Ehrenpreis 2014, Joachim (CTAN-Team), MiKTeX, TeX Live (+20 more)
 
 ### Community 7 - "scripts"
-Cohesion: 0.07
-Nodes (26): author, description, engines, node, pnpm, license, name, packageManager (+18 more)
+Cohesion: 0.13
+Nodes (15): scripts, build, build:search, dev, format, format:check, lint, lint:fix (+7 more)
 
 ### Community 8 - "news/page.tsx"
-Cohesion: 0.18
-Nodes (18): generateMetadata(), generateMetadata(), Props, generateMetadata(), Props, generateMetadata(), Props, FeatureGrid() (+10 more)
+Cohesion: 0.28
+Nodes (12): generateMetadata(), generateMetadata(), generateMetadata(), generateMetadata(), generateMetadata(), Card, CardContent, CardDescription (+4 more)
 
 ### Community 9 - "layout.tsx"
 Cohesion: 0.22
 Nodes (5): LocaleLayout(), viewport, Header(), NonceSetup(), ThemeProvider()
 
 ### Community 10 - "config.ts"
-Cohesion: 0.08
-Nodes (25): config, featuresConfig, config, footerConfig, config, Feature, FeatureSchema, FeaturesConfig (+17 more)
+Cohesion: 0.09
+Nodes (22): config, featuresConfig, config, footerConfig, Feature, FeatureSchema, FeaturesConfig, FeaturesConfigSchema (+14 more)
 
 ### Community 11 - "20 Jahre KOMA-Script: Gestern - Heute - Morgen (DANTE 2014 talk)"
 Cohesion: 0.13
@@ -239,28 +257,28 @@ Cohesion: 0.20
 Nodes (9): Aktuelle Version aktualisieren, Befehle, Entwicklung, Footer-Spalten ändern, Inhalte pflegen (ohne Code-Kenntnisse), Navbar erweitern, Neue Seite anlegen, Neuen „Friend" hinzufügen (+1 more)
 
 ### Community 13 - "Locale"
-Cohesion: 0.10
-Nodes (22): Props, Props, Props, Props, Props, Props, generateMetadata(), Props (+14 more)
+Cohesion: 0.15
+Nodes (15): Props, Props, Props, HomePage(), Props, Props, Props, SearchPageClient() (+7 more)
 
 ### Community 14 - "scrhack (Lader der ehemaligen Hack-Module)"
 Cohesion: 0.19
 Nodes (15): float (Drittanbieter-Paket), floatbytocbasic (float mit tocbasic-Unterstützung), Third Party Enhancements (GitHub-Sammelrepo), tocbasic (KOMA-Script-Paket), Prinzip: Benutzeroberfläche des Originalpakets unverändert lassen, floatrow (Drittanbieter-Paket), floatrowbytocbasic (floatrow mit tocbasic-Unterstützung), lscape (Drittanbieter-Paket) (+7 more)
 
 ### Community 15 - "build-search-index.ts"
-Cohesion: 0.22
-Nodes (11): buildInternalUrl(), CONTENT_ROOT, extractHeadings(), LOCALES, main(), OUT_FILE, PUBLIC_DIR, SECTIONS (+3 more)
+Cohesion: 0.13
+Nodes (17): buildInternalUrl(), CONTENT_ROOT, extractHeadings(), LOCALES, main(), OUT_FILE, PUBLIC_DIR, SECTIONS (+9 more)
 
 ### Community 16 - "DIN-Brief mit Briefkopf (German letter template)"
-Cohesion: 0.15
-Nodes (14): babel with ngerman (German letter template), DIN-Brief mit Briefkopf (German letter template), graphicx (letterhead logo), letter environment (multiple letters for mail merge), \LoadLetterOption{DIN} (DIN letter class option), LuaLaTeX as recommended compiler (no inputenc/fontenc), \setkomavar / \usekomavar variable interface, backaddress option (return address in the address window) (+6 more)
+Cohesion: 0.13
+Nodes (17): scrlttr2 (KOMA-Script letter class), babel with ngerman (German letter template), DIN-Brief mit Briefkopf (German letter template), graphicx (letterhead logo), letter environment (multiple letters for mail merge), \LoadLetterOption{DIN} (DIN letter class option), LuaLaTeX as recommended compiler (no inputenc/fontenc), scrlttr2 (used by the German letter template) (+9 more)
 
 ### Community 17 - "KOMA-Script collection"
-Cohesion: 0.14
-Nodes (16): Script2 (LaTeX 2.09 styles), Why the default settings are what they are, Frank Neukam, Internal-only classes and packages, KOMA-Script collection, scrbase, scrbook, scrextend (+8 more)
+Cohesion: 0.13
+Nodes (17): Script2 (LaTeX 2.09 styles), KOMA-Script issue tracker, Why the default settings are what they are, Frank Neukam, Internal-only classes and packages, KOMA-Script collection, scrbase, scrbook (+9 more)
 
 ### Community 18 - "utils.ts"
-Cohesion: 0.13
-Nodes (17): NewsIndexPage(), Props, TableOfContents(), Hero(), HeroProps, LatestNews(), MobileItem(), Badge (+9 more)
+Cohesion: 0.14
+Nodes (17): NewsIndexPage(), Props, TableOfContents(), Hero(), HeroProps, LatestNews(), Badge, BadgeProps (+9 more)
 
 ### Community 19 - "Latentes Gefühl der Überlastung"
 Cohesion: 0.13
@@ -331,8 +349,8 @@ Cohesion: 0.22
 Nodes (10): KOMA-Script Documentation Project, Eigene Minimalvorlage im SourceForge-Wiki, Kritik am YouTube-LaTeX-Tutorial, Ende des KOMA-Script Documentation Project, Selektive Migration alter Blog-Beiträge, hugo-book Theme, KOMA-Script and Friends, Fuse.js (statische Suche) (+2 more)
 
 ### Community 36 - "Splitting the bundle into smaller projects (since 2018)"
-Cohesion: 0.28
-Nodes (9): Why hasn't there been a new KOMA-Script in a year? (2013-07-24), Release delay through lack of beta testers, Splitting the bundle into smaller projects (since 2018), KOMA-Script issue tracker, Minimal working example (MWE), scrdate, scrhack, scrjura (+1 more)
+Cohesion: 0.24
+Nodes (10): Why hasn't there been a new KOMA-Script in a year? (2013-07-24), Release delay through lack of beta testers, Häufige Fragen und ihre Antworten (DE), Splitting the bundle into smaller projects (since 2018), Minimal working example (MWE), Frequently Asked Questions (EN), scrdate, scrhack (+2 more)
 
 ### Community 37 - "wsu (example LCO file implementing the Washington State University letterhead)"
 Cohesion: 0.31
@@ -391,8 +409,8 @@ Cohesion: 0.25
 Nodes (8): komascript.de, Serverumzug und Release-Erzeugung auf dem Server, Drupal (CMS von komascript.de), komascript.de (21 Jahre), Robin (Domain-Sponsor), Hugo (Static Site Generator), Spiegelung auf SourceForge, Statische Seiten statt CMS
 
 ### Community 51 - "scrartcl"
-Cohesion: 0.18
-Nodes (12): luaindex, MakeIndex, Where on the page was the index entry created? (2011-05-28), Funktionen (DE), fontsize in \documentclass vs. \KOMAoptions, \KOMAoption configuration mechanism, scrlttr2 letter locales (DIN, DINmtext, US, SN, SNleft, NF, JP), scraddr (+4 more)
+Cohesion: 0.29
+Nodes (8): luaindex, MakeIndex, Where on the page was the index entry created? (2011-05-28), scraddr, scrartcl, scrarticle (wrapper), scrletter, scrlttr2
 
 ### Community 52 - "Community (EN)"
 Cohesion: 0.29
@@ -406,9 +424,9 @@ Nodes (49): clsx, flexsearch, @fontsource-variable/inter, @fontsource-variable/j
 Cohesion: 0.29
 Nodes (7): Documentation (EN section index), FAQ page (/en/faq), Original-quote convention for migrated Markus Kohm content, English KOMA-Script Wiki HowTo pages on SourceForge, KOMA-Script Archive (older material), KOMA-Script Documentation Project, German-only policy for archive articles
 
-### Community 55 - "scrlttr2 (KOMA-Script letter class)"
-Cohesion: 0.20
-Nodes (10): scrartcl (KOMA-Script article class), scrarticle (wrapper around scrartcl), scrextend (KOMA-Script class features for other classes), scrfontsizes.sty (generate font size files), scrletter (class combining scrartcl with the scrletter package), scrletter (package providing scrlttr2 features to other classes), scrlttr2 (KOMA-Script letter class), Axel Kielhorn (original scrletter letter class) (+2 more)
+### Community 55 - "scrartcl (KOMA-Script article class)"
+Cohesion: 0.29
+Nodes (7): scrartcl (KOMA-Script article class), scrarticle (wrapper around scrartcl), scrextend (KOMA-Script class features for other classes), scrfontsizes.sty (generate font size files), scrletter (class combining scrartcl with the scrletter package), scrletter (package providing scrlttr2 features to other classes), Axel Kielhorn (original scrletter letter class)
 
 ### Community 56 - "contract (Vertrags-Paket, Spin-Off)"
 Cohesion: 0.25
@@ -455,12 +473,12 @@ Cohesion: 0.40
 Nodes (6): netcup GmbH (hosting processor), Datenschutz (DE), GitHub (komascript), No cookies, no tracking, no external resources, Privacy (EN), Pre-launch HTTP Basic authentication
 
 ### Community 67 - "KOMA-Script book (7th edition, Lehmanns Media / Edition DANTE)"
-Cohesion: 0.25
-Nodes (9): KOMA-Script book example code archives, DANTE e.V., KOMA-Script book (7th edition, Lehmanns Media / Edition DANTE), Häufige Fragen und ihre Antworten (DE), CTAN, Frequently Asked Questions (EN), Features (EN), scrguide (German manual) (+1 more)
+Cohesion: 0.33
+Nodes (6): KOMA-Script book example code archives, DANTE e.V., KOMA-Script book (7th edition, Lehmanns Media / Edition DANTE), Markus Kohm, CTAN, LPPL maintainer role
 
 ### Community 68 - "LaTeX Project Public License 1.3c"
-Cohesion: 0.32
-Nodes (8): Impressum (DE), Lizenz (DE), Markus Kohm, Moritz Kohm (site provider), Imprint (EN), LaTeX Project Public License 1.3c, LPPL maintainer role, License (EN)
+Cohesion: 0.47
+Nodes (6): Impressum (DE), Lizenz (DE), Moritz Kohm (site provider), Imprint (EN), LaTeX Project Public License 1.3c, License (EN)
 
 ### Community 69 - "proxy.ts"
 Cohesion: 0.53
@@ -559,8 +577,8 @@ Cohesion: 0.67
 Nodes (3): codeberg-nobg.svg - Codeberg badge, transparent background, github.png - GitHub wordmark and Octocat, gitlab.svg - GitLab tanuki logo and wordmark
 
 ### Community 101 - "cn"
-Cohesion: 0.12
-Nodes (20): navigationConfig, ICONS, LocaleSwitcher(), NAMES, MobileMenu(), isActive(), Navbar(), NavbarItem() (+12 more)
+Cohesion: 0.10
+Nodes (27): config, navigationConfig, HeaderProps, ICONS, LocaleSwitcher(), LocaleSwitcherFallbacks, NAMES, MobileItem() (+19 more)
 
 ### Community 102 - "contract-lab (experimentelles Vertrags-Paket)"
 Cohesion: 0.67
@@ -569,6 +587,42 @@ Nodes (4): contract-lab (experimentelles Vertrags-Paket), \DocumentMetadata (LaT
 ### Community 103 - "Betrieb und Deployment"
 Cohesion: 0.50
 Nodes (3): Betrieb und Deployment, GitHub-Actions, Voraussetzungen auf dem Server (einmalig)
+
+### Community 108 - "lib/content.ts"
+Cohesion: 0.13
+Nodes (26): ExamplesIndexPage(), FriendsIndexPage(), alternatesFor(), latestChange(), LOCALE_TAG, sitemap(), linkFor(), buildInternalUrl() (+18 more)
+
+### Community 109 - "seo.ts"
+Cohesion: 0.22
+Nodes (16): ExamplePage(), Props, FriendPage(), Props, NewsArticlePage(), Props, Breadcrumbs(), Props (+8 more)
+
+### Community 110 - "[...slug]/page.tsx"
+Cohesion: 0.20
+Nodes (11): DocsIndexPage(), Props, DocPage(), Props, DocSidebar(), Props, TreeNode(), Crumb (+3 more)
+
+### Community 111 - "package.json"
+Cohesion: 0.17
+Nodes (11): author, description, engines, node, pnpm, license, name, packageManager (+3 more)
+
+### Community 112 - "mdx.ts"
+Cohesion: 0.20
+Nodes (8): createSlugger(), HastNode, HEADING_TAGS, prettyCodeOptions, rehypeHeadingIds(), render(), textOf(), TRANSLITERATION
+
+### Community 113 - "getContent"
+Cohesion: 0.40
+Nodes (10): generateMetadata(), generateMetadata(), generateMetadata(), generateMetadata(), CatchAllPage(), generateMetadata(), Props, getAvailableLocales() (+2 more)
+
+### Community 114 - "SearchDialog.tsx"
+Cohesion: 0.32
+Nodes (5): Props, ResultGroup, SearchDialog(), SearchTrigger(), SearchIndexEntry
+
+### Community 115 - "Features (EN)"
+Cohesion: 0.29
+Nodes (7): Funktionen (DE), fontsize in \documentclass vs. \KOMAoptions, \KOMAoption configuration mechanism, scrlttr2 letter locales (DIN, DINmtext, US, SN, SNleft, NF, JP), Features (EN), scrguide (German manual), scrguien (English manual)
+
+### Community 116 - "listContent"
+Cohesion: 0.29
+Nodes (7): generateStaticParams(), generateStaticParams(), generateStaticParams(), generateStaticParams(), generateStaticParams(), listContent(), walk()
 
 ### Community 134 - "Footer.tsx"
 Cohesion: 0.27
@@ -579,32 +633,32 @@ Cohesion: 0.50
 Nodes (3): nextConfig, securityHeaders, withNextIntl
 
 ## Ambiguous Edges - Review These
-- `contract-lab (experimental contract package on latex-lab)` → `PDF tagging support (contributed by Ulrike Fischer, since v1.5)`  [AMBIGUOUS]
-  content/friends/en/contract-lab.md · relation: conceptually_related_to
 - `Bug Report Issue Template` → `Security Policy / Vulnerability Reporting`  [AMBIGUOUS]
   SECURITY.md · relation: conceptually_related_to
-- `SemiHollow.jpg - photo of a sunburst semi-hollow electric guitar on a stand` → `Markus Kohm (author and maintainer of KOMA-Script)`  [AMBIGUOUS]
+- `Markus Kohm (author and maintainer of KOMA-Script)` → `SemiHollow.jpg - photo of a sunburst semi-hollow electric guitar on a stand`  [AMBIGUOUS]
   public/images/komascript/SemiHollow.jpg · relation: conceptually_related_to
+- `PDF tagging support (contributed by Ulrike Fischer, since v1.5)` → `contract-lab (experimental contract package on latex-lab)`  [AMBIGUOUS]
+  content/friends/en/contract-lab.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **420 isolated node(s):** `config`, `config`, `config`, `config`, `withNextIntl` (+415 more)
+- **426 isolated node(s):** `config`, `config`, `config`, `config`, `withNextIntl` (+421 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **26 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What is the exact relationship between `contract-lab (experimental contract package on latex-lab)` and `PDF tagging support (contributed by Ulrike Fischer, since v1.5)`?**
-  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **What is the exact relationship between `Bug Report Issue Template` and `Security Policy / Vulnerability Reporting`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **What is the exact relationship between `SemiHollow.jpg - photo of a sunburst semi-hollow electric guitar on a stand` and `Markus Kohm (author and maintainer of KOMA-Script)`?**
+- **What is the exact relationship between `Markus Kohm (author and maintainer of KOMA-Script)` and `SemiHollow.jpg - photo of a sunburst semi-hollow electric guitar on a stand`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `.next` connect `lib/content.ts` to `layout.tsx`, `compilerOptions`, `next.config.ts`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `exclude` connect `compilerOptions` to `lib/content.ts`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **What is the exact relationship between `PDF tagging support (contributed by Ulrike Fischer, since v1.5)` and `contract-lab (experimental contract package on latex-lab)`?**
+  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
+- **Why does `.next` connect `site.config.ts` to `compilerOptions`, `next.config.ts`, `layout.tsx`, `lib/content.ts`, `seo.ts`, `[...slug]/page.tsx`, `getContent`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `exclude` connect `compilerOptions` to `site.config.ts`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `config`, `config`, `config` to the rest of the system?**
-  _420 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _426 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Deploy Job (scp release, ssh extract, atomic swap, restart, verify)` be split into smaller, more focused modules?**
   _Cohesion score 0.04902867715078631 - nodes in this community are weakly interconnected._
