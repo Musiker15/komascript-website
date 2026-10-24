@@ -36,6 +36,7 @@ on:
       - "README.md"
       - "AUTHORING.md"
       - "CLAUDE.md"
+      - "docs/**"             # Repo-Doku, nicht die Site-Inhalte unter content/docs/
       - ".gitignore"
       - ".gitattributes"
       - "LICENSE"
