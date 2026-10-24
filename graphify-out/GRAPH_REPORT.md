@@ -1,49 +1,49 @@
-# Graph Report - homepage  (2026-08-06)
+# Graph Report - homepage  (2026-10-24)
 
 ## Corpus Check
-- 220 files · ~136,110 words
+- 229 files · ~142,313 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1186 nodes · 1810 edges · 147 communities (101 shown, 46 thin omitted)
-- Extraction: 92% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 133 edges (avg confidence: 0.85)
+- 1231 nodes · 1857 edges · 120 communities (103 shown, 17 thin omitted)
+- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 134 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `45fda3b5`
+- Built from commit: `4b6c5db1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- utils.ts
+- MDXComponents.tsx
 - Deploy Job (scp release, ssh extract, atomic swap, restart, verify)
 - compilerOptions
 - devDependencies
-- [...slug]/page.tsx
+- lib/content.ts
 - DANTE-Projektförderung für KOMA-Script
 - Inoffizielles KOMA-Script-Team
 - scripts
-- docs/page.tsx
-- seo.ts
+- news/page.tsx
+- layout.tsx
 - config.ts
 - 20 Jahre KOMA-Script: Gestern - Heute - Morgen (DANTE 2014 talk)
-- lib/content.ts
+- Inhalte pflegen (ohne Code-Kenntnisse)
 - Locale
 - scrhack (Lader der ehemaligen Hack-Module)
 - build-search-index.ts
 - DIN-Brief mit Briefkopf (German letter template)
 - KOMA-Script collection
-- Hero.tsx
+- utils.ts
 - Latentes Gefühl der Überlastung
 - Archiv der Änderungen vor KOMA-Script 3.28
 - The KOMA-Script Collection
 - Diplomarbeit / Masterarbeit (German thesis template)
-- komafancychap (fncychap-Kapitelstile für KOMA-Script)
+- Codeberg (Hosting der komascript-Projekte)
 - scrhack (deprecated spin-off, now only a loader for the enhancement packages)
 - Push to Codeberg Job (force --prune mirror of all refs)
 - Die KOMA-Script-Sammlung
 - makelabels (LCO-Datei für \makelabels)
-- GitHub (Hosting der komascript-Projekte)
+- KOMA-Script (Sammlung)
 - KOMA-Script
 - komascript.de
 - Ende der Feature-Entwicklung in KOMA-Script
@@ -71,12 +71,12 @@
 - dependencies
 - Documentation (EN section index)
 - scrlttr2 (KOMA-Script letter class)
-- Codeberg (Hosting der komascript-Projekte)
+- contract (Vertrags-Paket, Spin-Off)
 - contract (KOMA-Script spin-off, formerly scrjura)
 - KOMA-Script bundle
 - KOMA-Script
 - Schließung von BerliOS zum 31. Dezember 2011
-- Features (EN)
+- splitindex (Programm zur Index-Aufteilung)
 - lscapeenhanced (fixes lscape \textheight/\textwidth, can load pdflscape)
 - KOMA-Script 3
 - SplitIndex
@@ -88,7 +88,7 @@
 - scrlayer (Ebenenmodell für Seitenstile)
 - SourceForge-Projekt koma-script
 - Split-off candidates from the KOMA-Script bundle
-- Header.tsx
+- Funktionsumfang
 - marginnote (non-floating \marginnote alternative to \marginpar)
 - scrwfile (routes writes through the .aux file to avoid write-register exhaustion)
 - Nächste Auflage des KOMA-Script-Buchs
@@ -116,61 +116,32 @@
 - komascript.de-Forum (Anmeldung mit Klarnamen)
 - caption2 / caption3 / caption
 - Dr. Ingeborg Syllm-Rapoport
-- Button.tsx
-- @fontsource-variable/inter
-- @fontsource-variable/jetbrains-mono
-- gray-matter
-- lucide-react
-- next
-- next-intl
-- next-mdx-remote
-- @radix-ui/react-dialog
-- @radix-ui/react-dropdown-menu
-- @radix-ui/react-navigation-menu
-- @radix-ui/react-slot
-- react
-- react-dom
-- rehype-autolink-headings
-- rehype-pretty-code
-- rehype-slug
-- remark-gfm
-- remark-toc
-- shiki
-- tailwind-merge
-- zod
+- cn
+- contract-lab (experimentelles Vertrags-Paket)
+- Betrieb und Deployment
+- license.md
 - postcss.config.mjs
 - Wildcard Certificate *.musiker15.de (no Let's Encrypt)
 - scraddr (Adressdateien lesen)
 - scrlogo (Befehl \KOMAScript)
 - Fehldeutung des Namens KOMA-Script
 - NEXT_LOCALE Cookie Hardening
-- cn
-- package.json
+- CodeBlock.tsx
 - Footer.tsx
 - next.config.ts
-- eslint
-- next-themes
-- @playwright/test
-- postcss
-- prettier
-- prettier-plugin-tailwindcss
-- tailwindcss
-- @tailwindcss/postcss
-- tsx
-- vitest
 - favicon.svg - blue rounded square with white K
 
 ## God Nodes (most connected - your core abstractions)
 1. `Locale` - 60 edges
-2. `cn()` - 29 edges
-3. `getContent()` - 22 edges
+2. `cn()` - 37 edges
+3. `getContent()` - 21 edges
 4. `compilerOptions` - 21 edges
 5. `The KOMA-Script Collection` - 21 edges
 6. `KOMA-Script collection` - 20 edges
-7. `SUPPORTED_LOCALES` - 18 edges
-8. `t()` - 17 edges
-9. `siteConfig` - 16 edges
-10. `Die KOMA-Script-Sammlung` - 15 edges
+7. `t()` - 17 edges
+8. `siteConfig` - 16 edges
+9. `renderMDX()` - 16 edges
+10. `scripts` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Pre-Commit Checks (validate:content, lint, type-check, build, build:search)` --semantically_similar_to--> `CI Validate Job (install, validate:content, lint, type-check, build, vitest)`  [INFERRED] [semantically similar]
@@ -213,11 +184,11 @@
 - **Mozilla Observatory A+ Security Posture** — security_nonce_based_csp, security_security_headers_single_source, security_apache_header_unset, security_transport_security, security_next_locale_cookie, security_observatory_grade [EXTRACTED 1.00]
 - **Supply-Chain Defense Layer** — _github_dependabot_update_groups, pnpm_workspace_security_overrides, pnpm_workspace_allow_builds, _github_workflows_codeql_analyze_job, security_supply_chain [INFERRED 0.85]
 
-## Communities (147 total, 46 thin omitted)
+## Communities (120 total, 17 thin omitted)
 
-### Community 0 - "utils.ts"
-Cohesion: 0.14
-Nodes (12): Callout(), CalloutProps, CalloutType, config, Details(), DetailsProps, LatexExample(), LatexExampleProps (+4 more)
+### Community 0 - "MDXComponents.tsx"
+Cohesion: 0.19
+Nodes (9): Callout(), CalloutProps, CalloutType, config, Details(), DetailsProps, LatexExample(), LatexExampleProps (+1 more)
 
 ### Community 1 - "Deploy Job (scp release, ssh extract, atomic swap, restart, verify)"
 Cohesion: 0.05
@@ -228,12 +199,12 @@ Cohesion: 0.05
 Nodes (39): ./config/*, config/**/*.ts, ./content/*, dom, dom.iterable, esnext, .next/dev/types/**/*.ts, next-env.d.ts (+31 more)
 
 ### Community 3 - "devDependencies"
-Cohesion: 0.12
-Nodes (17): @eslint/js, devDependencies, @eslint/js, @tailwindcss/typography, @types/mdx, @types/node, @types/react, @types/react-dom (+9 more)
+Cohesion: 0.06
+Nodes (35): eslint, @eslint/js, devDependencies, eslint, @eslint/js, @playwright/test, postcss, prettier (+27 more)
 
-### Community 4 - "[...slug]/page.tsx"
-Cohesion: 0.15
-Nodes (32): DocPage(), generateMetadata(), generateStaticParams(), Props, ExamplePage(), generateMetadata(), generateStaticParams(), Props (+24 more)
+### Community 4 - "lib/content.ts"
+Cohesion: 0.05
+Nodes (76): config, siteConfig, .next, CONTENT_ROOT, main(), ValidationError, walk(), DocsIndexPage() (+68 more)
 
 ### Community 5 - "DANTE-Projektförderung für KOMA-Script"
 Cohesion: 0.08
@@ -244,52 +215,52 @@ Cohesion: 0.08
 Nodes (28): CTAN (Comprehensive TeX Archive Network), CTAN-Paketkatalog, CTAN als Puffer zwischen Anwendern, Paketautoren und Distributoren, DANTE e.V., DANTE-Ehrenpreis 2014, Joachim (CTAN-Team), MiKTeX, TeX Live (+20 more)
 
 ### Community 7 - "scripts"
-Cohesion: 0.14
-Nodes (14): scripts, build, build:search, dev, format, format:check, lint, lint:fix (+6 more)
+Cohesion: 0.07
+Nodes (26): author, description, engines, node, pnpm, license, name, packageManager (+18 more)
 
-### Community 8 - "docs/page.tsx"
-Cohesion: 0.26
-Nodes (13): generateMetadata(), generateMetadata(), generateMetadata(), generateMetadata(), Breadcrumbs(), Card, CardContent, CardDescription (+5 more)
+### Community 8 - "news/page.tsx"
+Cohesion: 0.18
+Nodes (18): generateMetadata(), generateMetadata(), Props, generateMetadata(), Props, generateMetadata(), Props, FeatureGrid() (+10 more)
 
-### Community 9 - "seo.ts"
-Cohesion: 0.09
-Nodes (18): siteConfig, .next, LocaleLayout(), viewport, dynamic, GET(), revalidate, xml() (+10 more)
+### Community 9 - "layout.tsx"
+Cohesion: 0.22
+Nodes (5): LocaleLayout(), viewport, Header(), NonceSetup(), ThemeProvider()
 
 ### Community 10 - "config.ts"
-Cohesion: 0.10
-Nodes (21): featuresConfig, footerConfig, Feature, FeatureSchema, FeaturesConfig, FeaturesConfigSchema, FooterColumn, FooterColumnSchema (+13 more)
+Cohesion: 0.08
+Nodes (25): config, featuresConfig, config, footerConfig, config, Feature, FeatureSchema, FeaturesConfig (+17 more)
 
 ### Community 11 - "20 Jahre KOMA-Script: Gestern - Heute - Morgen (DANTE 2014 talk)"
 Cohesion: 0.13
 Nodes (18): Contributors and helpers named in the talk (Jens-Uwe Morawski, Torsten Krueger, Klaus Hoeppner, Christoph Kaeder, Werner Lemberg, translators), Frank Neukam's Script package for LaTeX 2.09 (predecessor of KOMA-Script), Outlook: LaTeX3 and LuaTeX as open questions for the future of KOMA-Script, License change from nosell to LPPL (around 2000, credited to Thomas Esser), Markus Kohm (author and maintainer of KOMA-Script), New KOMA-Script manual from 2001 (over 200 pages, replaced the ~60-page guide), KOMA-Script 1994: first release with scrbook, scrreprt, scrartcl and typearea, KOMA-Script 3: restructuring started 2002, modularisation, keyval interface, version 3.00 on 2008-11-03 (+10 more)
 
-### Community 12 - "lib/content.ts"
-Cohesion: 0.15
-Nodes (21): DocsIndexPage(), ExamplesIndexPage(), FriendsIndexPage(), alternatesFor(), latestChange(), LOCALE_TAG, sitemap(), swapLocale() (+13 more)
+### Community 12 - "Inhalte pflegen (ohne Code-Kenntnisse)"
+Cohesion: 0.20
+Nodes (9): Aktuelle Version aktualisieren, Befehle, Entwicklung, Footer-Spalten ändern, Inhalte pflegen (ohne Code-Kenntnisse), Navbar erweitern, Neue Seite anlegen, Neuen „Friend" hinzufügen (+1 more)
 
 ### Community 13 - "Locale"
-Cohesion: 0.11
-Nodes (20): Props, Props, Props, Props, HomePage(), Props, generateMetadata(), Props (+12 more)
+Cohesion: 0.10
+Nodes (22): Props, Props, Props, Props, Props, Props, generateMetadata(), Props (+14 more)
 
 ### Community 14 - "scrhack (Lader der ehemaligen Hack-Module)"
 Cohesion: 0.19
 Nodes (15): float (Drittanbieter-Paket), floatbytocbasic (float mit tocbasic-Unterstützung), Third Party Enhancements (GitHub-Sammelrepo), tocbasic (KOMA-Script-Paket), Prinzip: Benutzeroberfläche des Originalpakets unverändert lassen, floatrow (Drittanbieter-Paket), floatrowbytocbasic (floatrow mit tocbasic-Unterstützung), lscape (Drittanbieter-Paket) (+7 more)
 
 ### Community 15 - "build-search-index.ts"
-Cohesion: 0.16
-Nodes (16): buildInternalUrl(), CONTENT_ROOT, extractHeadings(), LOCALES, main(), OUT_FILE, PUBLIC_DIR, SECTIONS (+8 more)
+Cohesion: 0.22
+Nodes (11): buildInternalUrl(), CONTENT_ROOT, extractHeadings(), LOCALES, main(), OUT_FILE, PUBLIC_DIR, SECTIONS (+3 more)
 
 ### Community 16 - "DIN-Brief mit Briefkopf (German letter template)"
 Cohesion: 0.15
 Nodes (14): babel with ngerman (German letter template), DIN-Brief mit Briefkopf (German letter template), graphicx (letterhead logo), letter environment (multiple letters for mail merge), \LoadLetterOption{DIN} (DIN letter class option), LuaLaTeX as recommended compiler (no inputenc/fontenc), \setkomavar / \usekomavar variable interface, backaddress option (return address in the address window) (+6 more)
 
 ### Community 17 - "KOMA-Script collection"
-Cohesion: 0.13
-Nodes (17): Script2 (LaTeX 2.09 styles), KOMA-Script issue tracker, Why the default settings are what they are, Frank Neukam, Internal-only classes and packages, KOMA-Script collection, scrbase, scrbook (+9 more)
+Cohesion: 0.14
+Nodes (16): Script2 (LaTeX 2.09 styles), Why the default settings are what they are, Frank Neukam, Internal-only classes and packages, KOMA-Script collection, scrbase, scrbook, scrextend (+8 more)
 
-### Community 18 - "Hero.tsx"
-Cohesion: 0.22
-Nodes (9): NewsIndexPage(), Hero(), HeroProps, LatestNews(), Badge, BadgeProps, Variant, variants (+1 more)
+### Community 18 - "utils.ts"
+Cohesion: 0.13
+Nodes (17): NewsIndexPage(), Props, TableOfContents(), Hero(), HeroProps, LatestNews(), MobileItem(), Badge (+9 more)
 
 ### Community 19 - "Latentes Gefühl der Überlastung"
 Cohesion: 0.13
@@ -307,9 +278,9 @@ Nodes (15): CTAN catalog entry for the KOMA-Script collection, The KOMA-Script C
 Cohesion: 0.18
 Nodes (14): scrbook (KOMA-Script book class), scrlayer-scrpage (configurable page styles, fancyhdr alternative), typearea (typographical calculation of margins and text area), BCOR=12mm and DIV=calc (binding correction and type area), biblatex + biber bibliography workflow, LuaLaTeX with fontspec (German thesis template), microtype (micro-typography in the thesis template), scrbook (used by the German thesis template) (+6 more)
 
-### Community 23 - "komafancychap (fncychap-Kapitelstile für KOMA-Script)"
-Cohesion: 0.15
-Nodes (15): defoldfonts (alte Schriftbefehle als Notlösung), Veraltete Schriftbefehle (\rm, \sf, \bf, \it, \sc, \tt, \sfb), fncychap (Kapitelstile für Standardklassen), KOMA-Script Documentation Project, KOMA-Script-Klassen scrartcl / scrbook / scrreprt, komafancychap (fncychap-Kapitelstile für KOMA-Script), GitLab-Gruppe „KOMA-Script and Friends“, longtwocolumn (\longtwocolumn statt \twocolumn) (+7 more)
+### Community 23 - "Codeberg (Hosting der komascript-Projekte)"
+Cohesion: 0.23
+Nodes (12): Codeberg (Hosting der komascript-Projekte), defoldfonts (alte Schriftbefehle als Notlösung), Veraltete Schriftbefehle (\rm, \sf, \bf, \it, \sc, \tt, \sfb), fncychap (Kapitelstile für Standardklassen), KOMA-Script Documentation Project, KOMA-Script-Klassen scrartcl / scrbook / scrreprt, komafancychap (fncychap-Kapitelstile für KOMA-Script), Standardklassen article / book / report (+4 more)
 
 ### Community 24 - "scrhack (deprecated spin-off, now only a loader for the enhancement packages)"
 Cohesion: 0.23
@@ -327,9 +298,9 @@ Nodes (12): Dokumentationsbereich der KOMA-Script-Homepage, Häufige Fragen (FAQ
 Cohesion: 0.20
 Nodes (12): beamer (LaTeX-Präsentationsklasse), briefdemo2005 (Brieflayout-Präsentation LinuxTag 2005), LCO-Datei (Letter Configuration Option), Trennung von Form und Inhalt (LaTeX-Prinzip), envlab, L3-Programmierschicht (l3kernel), makelabels (LCO-Datei für \makelabels), scrletter (KOMA-Script-Briefpaket) (+4 more)
 
-### Community 28 - "GitHub (Hosting der komascript-Projekte)"
-Cohesion: 0.18
-Nodes (11): GitHub (Hosting der komascript-Projekte), scrlayer-scrpage (KOMA-Script-Paket), fancyhdr (Drittanbieter-Paket), scrlayer (KOMA-Script-Paket), scrlayer-fancyhdr (fancyhdr-Seitenstile über scrlayer), Problem „No room for new \write“ (16-Schreibdatei-Limit), scrwfile (\newrite-Umleitung über die .aux-Datei), makeidx (LaTeX-Standardpaket) (+3 more)
+### Community 28 - "KOMA-Script (Sammlung)"
+Cohesion: 0.20
+Nodes (12): KOMA-Script (Sammlung), GitHub (Hosting der komascript-Projekte), scrlayer-scrpage (KOMA-Script-Paket), Ausgliederung wegen Schattendasein in der Sammlung, babel (Sprachpaket), babel-french, scrdate (Wochentage und Datumsoperationen), fancyhdr (Drittanbieter-Paket) (+4 more)
 
 ### Community 29 - "KOMA-Script"
 Cohesion: 0.18
@@ -360,8 +331,8 @@ Cohesion: 0.22
 Nodes (10): KOMA-Script Documentation Project, Eigene Minimalvorlage im SourceForge-Wiki, Kritik am YouTube-LaTeX-Tutorial, Ende des KOMA-Script Documentation Project, Selektive Migration alter Blog-Beiträge, hugo-book Theme, KOMA-Script and Friends, Fuse.js (statische Suche) (+2 more)
 
 ### Community 36 - "Splitting the bundle into smaller projects (since 2018)"
-Cohesion: 0.24
-Nodes (10): Why hasn't there been a new KOMA-Script in a year? (2013-07-24), Release delay through lack of beta testers, Häufige Fragen und ihre Antworten (DE), Splitting the bundle into smaller projects (since 2018), Minimal working example (MWE), Frequently Asked Questions (EN), scrdate, scrhack (+2 more)
+Cohesion: 0.28
+Nodes (9): Why hasn't there been a new KOMA-Script in a year? (2013-07-24), Release delay through lack of beta testers, Splitting the bundle into smaller projects (since 2018), KOMA-Script issue tracker, Minimal working example (MWE), scrdate, scrhack, scrjura (+1 more)
 
 ### Community 37 - "wsu (example LCO file implementing the Washington State University letterhead)"
 Cohesion: 0.31
@@ -420,16 +391,16 @@ Cohesion: 0.25
 Nodes (8): komascript.de, Serverumzug und Release-Erzeugung auf dem Server, Drupal (CMS von komascript.de), komascript.de (21 Jahre), Robin (Domain-Sponsor), Hugo (Static Site Generator), Spiegelung auf SourceForge, Statische Seiten statt CMS
 
 ### Community 51 - "scrartcl"
-Cohesion: 0.29
-Nodes (8): luaindex, MakeIndex, Where on the page was the index entry created? (2011-05-28), scraddr, scrartcl, scrarticle (wrapper), scrletter, scrlttr2
+Cohesion: 0.18
+Nodes (12): luaindex, MakeIndex, Where on the page was the index entry created? (2011-05-28), Funktionen (DE), fontsize in \documentclass vs. \KOMAoptions, \KOMAoption configuration mechanism, scrlttr2 letter locales (DIN, DINmtext, US, SN, SNleft, NF, JP), scraddr (+4 more)
 
 ### Community 52 - "Community (EN)"
 Cohesion: 0.29
 Nodes (8): Am I crazy? (2013-04-22), KOMA wish list, Community (DE), KOMA-Script wiki on SourceForge, Mastodon @koma@mastodontech.de, Community (EN), TeX Stack Exchange (koma-script tag), TeXwelt (German LaTeX forum)
 
 ### Community 53 - "dependencies"
-Cohesion: 0.29
-Nodes (7): clsx, flexsearch, dependencies, clsx, flexsearch, @radix-ui/react-tooltip, @radix-ui/react-tooltip
+Cohesion: 0.04
+Nodes (49): clsx, flexsearch, @fontsource-variable/inter, @fontsource-variable/jetbrains-mono, get-nonce, gray-matter, lucide-react, next (+41 more)
 
 ### Community 54 - "Documentation (EN section index)"
 Cohesion: 0.29
@@ -439,9 +410,9 @@ Nodes (7): Documentation (EN section index), FAQ page (/en/faq), Original-quote 
 Cohesion: 0.20
 Nodes (10): scrartcl (KOMA-Script article class), scrarticle (wrapper around scrartcl), scrextend (KOMA-Script class features for other classes), scrfontsizes.sty (generate font size files), scrletter (class combining scrartcl with the scrletter package), scrletter (package providing scrlttr2 features to other classes), scrlttr2 (KOMA-Script letter class), Axel Kielhorn (original scrletter letter class) (+2 more)
 
-### Community 56 - "Codeberg (Hosting der komascript-Projekte)"
-Cohesion: 0.18
-Nodes (15): Aufteilung von KOMA-Script in kleinere Projekte, Codeberg (Hosting der komascript-Projekte), contract (Vertrags-Paket, Spin-Off), CTAN (Comprehensive TeX Archive Network), KOMA-Script (Sammlung), contract-lab (experimentelles Vertrags-Paket), \DocumentMetadata (LaTeX-Kern seit 2026), latex-lab (+7 more)
+### Community 56 - "contract (Vertrags-Paket, Spin-Off)"
+Cohesion: 0.25
+Nodes (8): Aufteilung von KOMA-Script in kleinere Projekte, contract (Vertrags-Paket, Spin-Off), CTAN (Comprehensive TeX Archive Network), scrjura (früherer Name von contract), GitLab-Gruppe „KOMA-Script and Friends“, longtwocolumn (\longtwocolumn statt \twocolumn), TeX-Box-Einschränkungen des optionalen Arguments, \twocolumn (LaTeX-Kernanweisung)
 
 ### Community 57 - "contract (KOMA-Script spin-off, formerly scrjura)"
 Cohesion: 0.29
@@ -459,9 +430,9 @@ Nodes (7): Distributoren von LaTeX-Paketen, KOMA-Script, LaTeX, LPPL (LaTeX Proj
 Cohesion: 0.29
 Nodes (7): BerliOS, CVS-Repository für KOMA-Script, Subversion-Repository für KOMA-Script, Schließung von BerliOS zum 31. Dezember 2011, Erwogene Umstellung auf git, Halbautomatische Release-Erzeugung, SVN-Repository von KOMA-Script
 
-### Community 61 - "Features (EN)"
-Cohesion: 0.29
-Nodes (7): Funktionen (DE), fontsize in \documentclass vs. \KOMAoptions, \KOMAoption configuration mechanism, scrlttr2 letter locales (DIN, DINmtext, US, SN, SNleft, NF, JP), Features (EN), scrguide (German manual), scrguien (English manual)
+### Community 61 - "splitindex (Programm zur Index-Aufteilung)"
+Cohesion: 0.40
+Nodes (5): Problem „No room for new \write“ (16-Schreibdatei-Limit), makeidx (LaTeX-Standardpaket), makeindex (Index-Prozessor), splitidx (LaTeX-Paket für mehrere Indizes), splitindex (Programm zur Index-Aufteilung)
 
 ### Community 62 - "lscapeenhanced (fixes lscape \textheight/\textwidth, can load pdflscape)"
 Cohesion: 0.33
@@ -484,12 +455,12 @@ Cohesion: 0.40
 Nodes (6): netcup GmbH (hosting processor), Datenschutz (DE), GitHub (komascript), No cookies, no tracking, no external resources, Privacy (EN), Pre-launch HTTP Basic authentication
 
 ### Community 67 - "KOMA-Script book (7th edition, Lehmanns Media / Edition DANTE)"
-Cohesion: 0.33
-Nodes (6): KOMA-Script book example code archives, DANTE e.V., KOMA-Script book (7th edition, Lehmanns Media / Edition DANTE), Markus Kohm, CTAN, LPPL maintainer role
+Cohesion: 0.25
+Nodes (9): KOMA-Script book example code archives, DANTE e.V., KOMA-Script book (7th edition, Lehmanns Media / Edition DANTE), Häufige Fragen und ihre Antworten (DE), CTAN, Frequently Asked Questions (EN), Features (EN), scrguide (German manual) (+1 more)
 
 ### Community 68 - "LaTeX Project Public License 1.3c"
-Cohesion: 0.47
-Nodes (6): Impressum (DE), Lizenz (DE), Moritz Kohm (site provider), Imprint (EN), LaTeX Project Public License 1.3c, License (EN)
+Cohesion: 0.32
+Nodes (8): Impressum (DE), Lizenz (DE), Markus Kohm, Moritz Kohm (site provider), Imprint (EN), LaTeX Project Public License 1.3c, LPPL maintainer role, License (EN)
 
 ### Community 69 - "proxy.ts"
 Cohesion: 0.53
@@ -507,9 +478,9 @@ Nodes (5): Subversion-Repository auf SourceForge, Geplante Umstellung auf Git un
 Cohesion: 0.40
 Nodes (5): scrdate (language independent date formatting), scrlayer (layers combined into page styles), scrlayer-notecolumn (proof of concept for scrlayer layers), scrtime (formatting of the current time), Split-off candidates from the KOMA-Script bundle
 
-### Community 73 - "Header.tsx"
-Cohesion: 0.20
-Nodes (12): navigationConfig, HeaderProps, ICONS, MobileItem(), MobileMenu(), Props, isActive(), Navbar() (+4 more)
+### Community 73 - "Funktionsumfang"
+Cohesion: 0.40
+Nodes (4): 🔒 Datenschutz & Sicherheit, ✨ Features, Funktionsumfang, 🌐 URL-Struktur
 
 ### Community 74 - "marginnote (non-floating \marginnote alternative to \marginpar)"
 Cohesion: 0.50
@@ -587,21 +558,21 @@ Nodes (3): scrlayer, scrlayer-notecolumn, scrlayer-scrpage
 Cohesion: 0.67
 Nodes (3): codeberg-nobg.svg - Codeberg badge, transparent background, github.png - GitHub wordmark and Octocat, gitlab.svg - GitLab tanuki logo and wordmark
 
-### Community 101 - "Button.tsx"
-Cohesion: 0.16
-Nodes (9): Props, SearchDialog(), SearchTrigger(), Button, ButtonProps, ButtonSize, ButtonVariant, sizeClasses (+1 more)
+### Community 101 - "cn"
+Cohesion: 0.12
+Nodes (20): navigationConfig, ICONS, LocaleSwitcher(), NAMES, MobileMenu(), isActive(), Navbar(), NavbarItem() (+12 more)
 
-### Community 132 - "cn"
-Cohesion: 0.21
-Nodes (10): CodeBlock(), CodeBlockProps, Props, TableOfContents(), LocaleSwitcher(), NAMES, ThemeItem(), ThemeToggle() (+2 more)
+### Community 102 - "contract-lab (experimentelles Vertrags-Paket)"
+Cohesion: 0.67
+Nodes (4): contract-lab (experimentelles Vertrags-Paket), \DocumentMetadata (LaTeX-Kern seit 2026), latex-lab, latex-lab-dev (Entwicklerversion)
 
-### Community 133 - "package.json"
-Cohesion: 0.17
-Nodes (11): author, description, engines, node, pnpm, license, name, packageManager (+3 more)
+### Community 103 - "Betrieb und Deployment"
+Cohesion: 0.50
+Nodes (3): Betrieb und Deployment, GitHub-Actions, Voraussetzungen auf dem Server (einmalig)
 
 ### Community 134 - "Footer.tsx"
-Cohesion: 0.29
-Nodes (7): Footer(), FooterProps, CodebergIcon(), GitHubIcon(), IconProps, isExternal(), t()
+Cohesion: 0.27
+Nodes (7): Footer(), FooterProps, PLATFORM_NAMES, CodebergIcon(), GitHubIcon(), IconProps, isExternal()
 
 ### Community 135 - "next.config.ts"
 Cohesion: 0.50
@@ -616,9 +587,9 @@ Nodes (3): nextConfig, securityHeaders, withNextIntl
   public/images/komascript/SemiHollow.jpg · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **400 isolated node(s):** `withNextIntl`, `securityHeaders`, `nextConfig`, `name`, `version` (+395 more)
+- **420 isolated node(s):** `config`, `config`, `config`, `config`, `withNextIntl` (+415 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **46 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -629,11 +600,11 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **What is the exact relationship between `SemiHollow.jpg - photo of a sunburst semi-hollow electric guitar on a stand` and `Markus Kohm (author and maintainer of KOMA-Script)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `Locale` connect `Locale` to `utils.ts`, `[...slug]/page.tsx`, `Button.tsx`, `Footer.tsx`, `cn`, `docs/page.tsx`, `seo.ts`, `Header.tsx`, `config.ts`, `lib/content.ts`, `build-search-index.ts`, `Hero.tsx`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
-- **Why does `.next` connect `seo.ts` to `compilerOptions`, `[...slug]/page.tsx`, `lib/content.ts`, `next.config.ts`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Why does `exclude` connect `compilerOptions` to `seo.ts`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **What connects `withNextIntl`, `securityHeaders`, `nextConfig` to the rest of the system?**
-  _400 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `.next` connect `lib/content.ts` to `layout.tsx`, `compilerOptions`, `next.config.ts`?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `exclude` connect `compilerOptions` to `lib/content.ts`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **What connects `config`, `config`, `config` to the rest of the system?**
+  _420 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Deploy Job (scp release, ssh extract, atomic swap, restart, verify)` be split into smaller, more focused modules?**
+  _Cohesion score 0.04902867715078631 - nodes in this community are weakly interconnected._
