@@ -28,6 +28,9 @@ Description=KOMA-Script Homepage (Next.js)
 Documentation=https://komascript.musiker15.de
 After=network-online.target
 Wants=network-online.target
+# Restart limit. systemd only reads these two keys in [Unit].
+StartLimitIntervalSec=300
+StartLimitBurst=5
 
 [Service]
 Type=simple
@@ -65,8 +68,6 @@ TimeoutStopSec=30s
 # ---------------------------------------------------------------------------
 Restart=always
 RestartSec=5s
-StartLimitIntervalSec=300
-StartLimitBurst=5
 
 # ---------------------------------------------------------------------------
 # Resource-Limits
